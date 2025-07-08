@@ -1,19 +1,34 @@
 package tests.US028;
 
+import com.sun.nio.sctp.Association;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import utilities.Driver;
+import utilities.ReusableMethods;
 
-public class TC028 {
-    public static void main(String[] args) {
+import java.time.Duration;
 
-//        The user opens the browser page.
+public class TC001 {
 
-//        The user clicks on the browser search bar.
-//        The user types  into the search bar.
-//        The user searches for the URL typed into the search bar. (Enter can be used)
-//        When the user clicks on the search bar, they see that they have accessed the URL https://qa.hauseheaven.com/admin/login.
-//        The user sees the Hause Heaven login page.
-//        The user sees the email/username text field.
+    @Test
+    public void test01() {
+        WebDriver driver = Driver.getDriver();
 
+        // Go to the URL
+        driver.get("https://qa.hauseheaven.com/admin/login");
+        ReusableMethods.bekle(4);
 
+        // Check the URL
+        String expectedUrl = "https://qa.hauseheaven.com/admin/login";
+        String actualUrl = driver.getCurrentUrl();
+
+        Assert.assertEquals(actualUrl, expectedUrl, "URL check failed!");
+
+        // Close the browser
+        Driver.quitDriver();
     }
 
 }
+
