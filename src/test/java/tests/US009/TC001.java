@@ -1,3 +1,5 @@
+package tests.US009;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -98,3 +100,6 @@ public class TC001 {
         //Verify that agent's phone number is visible.
 
         Assert.assertTrue(hauseheavenPage.agentsPhoneNumber.isDisplayed());
+
+    }
+}
