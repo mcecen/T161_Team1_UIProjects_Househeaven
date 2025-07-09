@@ -1,4 +1,4 @@
-package tests.US028;
+package tests.US031;
 
 
 import org.openqa.selenium.By;
@@ -10,29 +10,25 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class TC002 {
+public class TC001 {
 
-//    The user opens the browser page.
-//    The user clicks on the browser search bar.
-//    The user types  into the search bar.
-//    The user searches for the URL typed into the search bar. (Enter can be used)
-//    The user sees the HOUSE HEAVEN admin login homepage.
-//    The user sees the email/username text field.
-//    The user clicks on the email/username text field.
-//    The user enters into the email/username text field.
-//    The user sees the Password text field.
-//    The user clicks on the Password text field.
-//    The user enters into the Password text field.
-//    The user sees the Sign In button.
-//    The user clicks on the Sign In button.
-//    It is seen that the page can be accessed by clicking on the Sign In button.
-//    The user sees that the Admin dashboard homepage has opened.
-//    Admin user sees address displayed
-//    Admin dashboard homepage opened
-//    Active properties of User Admin dashboard homepage visible
-//    Pending properties of User Admin dashboard homepage visible
-//    Expired properties of User Admin dashboard homepage visible
-//    Agents of User Admin dashboard homepage visible
+//      Admin olarak sayfaya giriş yapılabilmesini istiyorum.
+//      Kullanıcı tarayıcı sayfasını açar.
+//      Kullanıcı tarayıcı arama çubuğuna tıklar.
+//      Kullanıcı arama çubuğuna https://qa.hauseheaven.com/admin/login adresini yazar.
+//      Kullanıcı arama çubuğuna yazılan URL için arama yapar.(Enter kullanılabilir)
+//      Kullanıcı HOUSE HEAVEN admin login anasayfasını görür.
+//      Kullanıcı email/username text alanını görür.
+//      Kullanıcı email/username text alanını tıklar.
+//      Kullanıcı email/username text alanına "yusufcelal_admin" verisini girer.
+//      Kullanıcı Password text alanını görür.
+//      Kullanıcı Password text alanını tıklar.
+//      Kullanıcı Password text alanına 021924 verisini girer.
+//      Kullanıcı Sign In butonunu görür.
+//      Kullanıcı Sign In butonunu tıklar.
+//      Sign in butonuna tıklama ile https://qa.hauseheaven.com/admin sayfasına erişebildiği görülür.
+//      Kullanıcı Admin dashboard anasayfasının açıldığı görür.
+
 
     HauseHeaven_yusufcelal hauseHeaven_yusufcelal = new HauseHeaven_yusufcelal();
 
@@ -75,7 +71,4 @@ public class TC002 {
 
         Driver.quitDriver();
     }
-
 }
-
-
