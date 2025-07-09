@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.HauseHeaven_28;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
@@ -16,37 +17,33 @@ public class TC003 {
     // and that the Blog link on the left menu is reachable by clicking.
     // The user should see that their username "Yusuf Celal" is displayed in the top right menu.
 
+    HauseHeaven_28 hauseHeaven_28 = new HauseHeaven_28();
+
     @Test
     public void test01() {
         WebDriver driver = Driver.getDriver();
 
-        // 1. Navigate to the login URL
+        // 1. Navigate to the URL
         driver.get("https://qa.hauseheaven.com/admin/login");
         ReusableMethods.bekle(2);
 
-        // 2. Verify the login page URL
+        // 2. Verify the URL
         String expectedUrl = "https://qa.hauseheaven.com/admin/login";
         String actualUrl = driver.getCurrentUrl();
-        Assert.assertEquals(actualUrl, expectedUrl, "URL verification passed!");
+        Assert.assertEquals(actualUrl, expectedUrl, "URL verification failed!");
 
         // 3. Locate and click the Email/Username input field
-        By emailInput = By.xpath("//*[@id='emailGroup']//input");
-        WebElement emailElement = driver.findElement(emailInput);
-        Assert.assertTrue(emailElement.isDisplayed(), "Email input field is visible.");
-        emailElement.click();
-        emailElement.sendKeys(ConfigReader.getProperty("admin-yusuf"));
+        Assert.assertTrue(hauseHeaven_28.emailInput.isDisplayed(), "Email input field is not visible.");
+        hauseHeaven_28.emailInput.sendKeys(ConfigReader.getProperty("admin-yusuf"));
+
 
         // 4. Locate and click the Password input field
-        By passwordBox = By.xpath("//*[@id='passwordGroup']//input");
-        WebElement passwordElement = driver.findElement(passwordBox);
-        Assert.assertTrue(passwordElement.isDisplayed(), "Password input field is visible.");
-        passwordElement.click();
-        passwordElement.sendKeys(ConfigReader.getProperty("admin-yusuf-password"));
+        Assert.assertTrue(hauseHeaven_28.passwordInput.isDisplayed(), "Password input field is not visible.");
+        hauseHeaven_28.passwordInput.sendKeys(ConfigReader.getProperty("admin-yusuf-password"));
 
         // 5. Locate and click the Sign In button
-        By signInButton = By.xpath("//button[@type='submit']");
-        Assert.assertTrue(driver.findElement(signInButton).isDisplayed(), "Sign In button is visible.");
-        driver.findElement(signInButton).click();
+        Assert.assertTrue(hauseHeaven_28.signInButton.isDisplayed(), "Sign In button is not visible.");
+        hauseHeaven_28.signInButton.click();
         ReusableMethods.bekle(3);
 
         // 6. Verify the Admin Dashboard URL
@@ -55,46 +52,37 @@ public class TC003 {
         ReusableMethods.bekle(2);
 
         // 7. Verify visibility of main dashboard elements and Active properties
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Active properties')]")).isDisplayed(), "Active properties section is visible.");
-        By activeProperties = By.xpath("//*[@id=\"main\"]/div[3]/div[1]/a");
-        Assert.assertTrue(driver.findElement(activeProperties).isDisplayed(), "Post link is visible in the left menu.");
-        driver.findElement(activeProperties).click();
+        Assert.assertTrue(hauseHeaven_28.activeProperties.isDisplayed(), "Active properties section is visible.");
+        hauseHeaven_28.activeProperties.click();
         ReusableMethods.bekle(2);
         driver.navigate().back();
         ReusableMethods.bekle(2);
 
-        // 8. Verify visibility of main dashboard elements and Active properties
-        Assert.assertTrue(driver.findElement(By.xpath("//*[@id=\"main\"]/div[3]/div[2]/a")).isDisplayed(), "Pending properties section is visible.");
-        By pendingProperties = By.xpath("//*[@id=\"main\"]/div[3]/div[1]/a");
-        Assert.assertTrue(driver.findElement(pendingProperties).isDisplayed(), "Post link is visible in the left menu.");
-        driver.findElement(pendingProperties).click();
+        // 8. Verify visibility of main dashboard elements and Pending properties
+        Assert.assertTrue(hauseHeaven_28.pendingProperties.isDisplayed(), "Pending properties section is visible.");
+        hauseHeaven_28.pendingProperties.click();
         ReusableMethods.bekle(2);
         driver.navigate().back();
         ReusableMethods.bekle(2);
 
-        // 9. Verify visibility of main dashboard elements and Active properties
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Expired properties')]")).isDisplayed(), "Expired properties section is visible.");
-        By expiredProperties = By.xpath("//*[@id=\"main\"]/div[3]/div[3]/a");
-        Assert.assertTrue(driver.findElement(expiredProperties).isDisplayed(), "Post link is visible in the left menu.");
-        driver.findElement(expiredProperties).click();
+        // 9. Verify visibility of main dashboard elements and Expired properties
+        Assert.assertTrue(hauseHeaven_28.expiredProperties.isDisplayed(), "Expired properties section is visible.");
+        hauseHeaven_28.expiredProperties.click();
         ReusableMethods.bekle(2);
         driver.navigate().back();
         ReusableMethods.bekle(2);
 
-        // 10. Verify visibility of main dashboard elements and Active properties
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Agents')]")).isDisplayed(), "Agents section is visible.");
-        By agents = By.xpath("//*[@id=\"main\"]/div[3]/div[4]/a");
-        Assert.assertTrue(driver.findElement(agents).isDisplayed(), "Post link is visible in the left menu.");
-        driver.findElement(agents).click();
+        // 10. Verify visibility of main dashboard elements and Agents
+        Assert.assertTrue(hauseHeaven_28.agents.isDisplayed(), "Expired properties section is visible.");
+        hauseHeaven_28.agents.click();
         ReusableMethods.bekle(2);
         driver.navigate().back();
         ReusableMethods.bekle(2);
-
 
         // 11. Verify the user name in the top-right corner
-        WebElement userNameElement = driver.findElement(By.xpath("//*[@id=\"app\"]/div[2]/div[1]/div/div[2]/ul/li[4]/a"));
+        Assert.assertTrue(hauseHeaven_28.userName.isDisplayed(), "User name field is not visible.");
         String expectedUserName = "Yusuf Celal";
-        String actualUserName = userNameElement.getText();
+        String actualUserName = hauseHeaven_28.userName.getText();
         ReusableMethods.bekle(2);
 
         // Final assertion for user name
