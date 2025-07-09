@@ -3,6 +3,7 @@ package tests.US031;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -92,38 +93,33 @@ public class TC002 {
         hauseHeaven_yusufcelal.addNewCategoryButton.click(); //  Collapse all click.
         ReusableMethods.bekle(2);
 
-        // 11. When the registered user clicks the Categories homepage, the "Expand all" button appears at the top menu.
-
+        // 11. Expand all butonu görünür olmalı
         Assert.assertTrue(hauseHeaven_yusufcelal.expandAllButton.isDisplayed(), "'Expand all' butonu görünmüyor!");
         String expectedText = hauseHeaven_yusufcelal.ExpandAll;
         String actualText = hauseHeaven_yusufcelal.expandAllTextWrite.getText().trim();
-        assertEquals(actualText, expectedText, "Sayfadaki yazı eşleşmiyor!");
+        Assert.assertEquals(actualText, expectedText, "Sayfadaki yazı eşleşmiyor!");
         ReusableMethods.bekle(2);
 
-
-        //  12. Kayıtlı kullanıcı "You are editing "English" version üst yazsısı altındaki kayıt sayfası görünmektedir.
+        // 12. Page Down ile aşağı kaydır
         Actions Pagedown = new Actions(driver);
-        Pagedown.sendKeys(org.openqa.selenium.Keys.PAGE_DOWN).perform();        // Page Down
+        Pagedown.sendKeys(Keys.PAGE_DOWN).perform();
         ReusableMethods.bekle(2);
 
-
-       //  13.  Kayıtlı kullanıcı page down yapılarak Save & Exit yazıları görünmektedir.
-        Assert.assertTrue(hauseHeaven_yusufcelal.saveAndExitButton.isDisplayed(), "'Expand all' butonu görünmüyor!");
+        // 13. Save & Exit butonu görünür ve doğru metin içeriyor olmalı
+        Assert.assertTrue(hauseHeaven_yusufcelal.saveAndExitButton.isDisplayed(), "'Save & Exit' butonu görünmüyor!");
         String expectedSaveAndExit = hauseHeaven_yusufcelal.SaveAndExitWrite;
         String actualSaveAndExit = hauseHeaven_yusufcelal.SaveAndExit.getText().trim();
-        assertEquals(actualSaveAndExit, expectedSaveAndExit, "Sayfadaki yazı eşleşmiyor!");
+        Assert.assertEquals(actualSaveAndExit, expectedSaveAndExit, "Save & Exit yazısı eşleşmiyor!");
         ReusableMethods.bekle(2);
 
-        //  14.  Kayıtlı kullanıcı page down yapılarak Save yazıları görünmektedir.
-        Assert.assertTrue(hauseHeaven_yusufcelal.SaveButton.isDisplayed(), "'Expand all' butonu görünmüyor!");
+        // 14. Save butonu görünür ve doğru metin içeriyor olmalı
+        Assert.assertTrue(hauseHeaven_yusufcelal.SaveButton.isDisplayed(), "'Save' butonu görünmüyor!");
         String expectedSave = hauseHeaven_yusufcelal.SaveWrite;
         String actualSave = hauseHeaven_yusufcelal.Save.getText().trim();
-        assertEquals(actualSave, expectedSave, "Sayfadaki yazı eşleşmiyor!");
+        Assert.assertEquals(actualSave, expectedSave, "Save yazısı eşleşmiyor!");
         ReusableMethods.bekle(2);
 
-
-
-//      Kayıtlı kullanıcı page down yapılarak Save & Exit yazıları görünmektedir.
+        //      Kayıtlı kullanıcı page down yapılarak Save & Exit yazıları görünmektedir.
 
 
     }
