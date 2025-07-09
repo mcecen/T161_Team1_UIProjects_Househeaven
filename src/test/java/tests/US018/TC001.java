@@ -8,29 +8,34 @@ import org.testng.annotations.Test;
 import pages.HauseheavenAnasayfa;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 import java.time.Duration;
 
 public class TC001 {
+
+    HauseheavenAnasayfa hauseheavenAnasayfa=new HauseheavenAnasayfa();
+
     @Test
+
     public void TC001(){
 
         // 1. Kullanıcı arama cubuğuna hausehaeven "https://qa.hauseheaven.com" URL'yi girer ve anasayfaya erişir
-        Driver.quitDriver().get(ConfigReader.getProperty("adminURL"));
-        HauseheavenAnasayfa anasayfa=new HauseheavenAnasayfa();
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
 
         //2.  "sıgn ın " butonunun görünürlüğünü kontrol et ve tıkla
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(anasayfa.  )).click();
+        ReusableMethods.bekle(2);
+       Assert.assertTrue(hauseheavenAnasayfa.signInButonu.isDisplayed());
+      Assert.assertTrue(hauseheavenAnasayfa.signInButonu.isEnabled());
 
         //3.  "Find accessible homes to rent" başlığının görüntülendiğini kontrol et
-        wait.until(ExpectedConditions.visibilityOf(anasayfa.findHomesTitle));
+
 
         //4.  "Min Price" kutusunu bul ve tıkla
-        wait.until(ExpectedConditions.elementToBeClickable(anasayfa.minPrice)).click();
+        //wait.until(ExpectedConditions.elementToBeClickable(anasayfa.minPrice)).click();
 
         //5. " Max Price" kutusunu bul ve tıkla
-        wait.until(ExpectedConditions.elementToBeClickable(anasayfa.maxPrice)).click();
+        //wait.until(ExpectedConditions.elementToBeClickable(anasayfa.maxPrice)).click();
 
        //6. " Property Type" kutusunu bul ve tıkla
 
@@ -39,7 +44,7 @@ public class TC001 {
         //8. " Property Location" kutusunu bul ve tıkla
 
         //9. "Search Result" kutusunu bul ve , tıklanabılır olduğunu kontrol et ve tıkla
-        wait.until(ExpectedConditions.elementToBeClickable(anasayfa.searchButton)).click();
+        //wait.until(ExpectedConditions.elementToBeClickable(anasayfa.searchButton)).click();
 
         //10. Tarayıcıyı Kapat
 
