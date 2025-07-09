@@ -49,7 +49,7 @@ public class TC001 {
         // once ilk karta tiklamak icin sayfayi biraz asagi kaydirmamiz lazim
         // ilk kartı gorene kadar kaydirmak icin
 
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", hauseheavenPage.firstAgentsCard);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(false);", hauseheavenPage.firstAgentsCard);
 
         Thread.sleep(1000); // yuklenene kadar bekle
 
@@ -76,7 +76,7 @@ public class TC001 {
 
         // Verify that "Agent info" text is visible
 
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", hauseheavenPage.agentInfoText);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(false);", hauseheavenPage.agentInfoText);
 
         Thread.sleep(1000);
 
@@ -86,6 +86,10 @@ public class TC001 {
 
         //Verify that Agents full name is visible
         // Agent's full name "Ceo" başlığının altında yazılı
+
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(false);", hauseheavenPage.ceoText);
+
+        Thread.sleep(1000);
 
         hauseheavenPage.ceoText.isDisplayed();
 
@@ -100,6 +104,12 @@ public class TC001 {
         //Verify that agent's phone number is visible.
 
         Assert.assertTrue(hauseheavenPage.agentsPhoneNumber.isDisplayed());
+
+        ReusableMethods.bekle(1);
+
+        // Close the page
+
+        Driver.quitDriver();
 
     }
 }
