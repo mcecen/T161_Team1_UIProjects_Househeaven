@@ -3,10 +3,9 @@ package tests.US028;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.HauseHeaven_28;
+import pages.HauseHeaven_yusufcelal;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
@@ -35,7 +34,7 @@ public class TC002 {
 //    Expired properties of User Admin dashboard homepage visible
 //    Agents of User Admin dashboard homepage visible
 
-    HauseHeaven_28 hauseHeaven_28 = new HauseHeaven_28();
+    HauseHeaven_yusufcelal hauseHeaven_yusufcelal = new HauseHeaven_yusufcelal();
 
     @Test
     public void test01() {
@@ -51,17 +50,17 @@ public class TC002 {
         Assert.assertEquals(actualUrl, expectedUrl, "URL verification failed!");
 
         // 3. Locate and click the Email/Username input field
-        Assert.assertTrue(hauseHeaven_28.emailInput.isDisplayed(), "Email input field is not visible.");
-        hauseHeaven_28.emailInput.sendKeys(ConfigReader.getProperty("admin-yusuf"));
+        Assert.assertTrue(hauseHeaven_yusufcelal.emailInput.isDisplayed(), "Email input field is not visible.");
+        hauseHeaven_yusufcelal.emailInput.sendKeys(ConfigReader.getProperty("admin-yusuf"));
 
 
         // 4. Locate and click the Password input field
-        Assert.assertTrue(hauseHeaven_28.passwordInput.isDisplayed(), "Password input field is not visible.");
-        hauseHeaven_28.passwordInput.sendKeys(ConfigReader.getProperty("admin-yusuf-password"));
+        Assert.assertTrue(hauseHeaven_yusufcelal.passwordInput.isDisplayed(), "Password input field is not visible.");
+        hauseHeaven_yusufcelal.passwordInput.sendKeys(ConfigReader.getProperty("admin-yusuf-password"));
 
         // 5. Locate and click the Sign In button
-        Assert.assertTrue(hauseHeaven_28.signInButton.isDisplayed(), "Sign In button is not visible.");
-        hauseHeaven_28.signInButton.click();
+        Assert.assertTrue(hauseHeaven_yusufcelal.signInButton.isDisplayed(), "Sign In button is not visible.");
+        hauseHeaven_yusufcelal.signInButton.click();
         ReusableMethods.bekle(3);
 
         // 6. Verify the Admin Dashboard URL
