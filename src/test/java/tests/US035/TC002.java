@@ -1,7 +1,9 @@
 package tests.US035;
 
 import com.github.javafaker.Faker;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -60,7 +62,6 @@ public class TC002 {
         //        Kullanıcı OPERATIONS başlığı altında edit ıkonunu tıklar
         hauseheavenAdminPages.editIkonu.click();
         //        Kullanıcı OPERATIONS başlığı altında edit ıkonunu  tıklaması ile  "https://qa.hauseheaven.com/admin/real-estate/properties/edit/62"sayfasına ulaşır
-        //        Kullanıcı edit sayfasında "You are editing "English" version" ibaresini görür
         String expectedEditSayfaUrl = "https://qa.hauseheaven.com/admin/real-estate/properties/edit/62";
         String actualEditSayfaUrl=Driver.getDriver().getCurrentUrl();
         Assert.assertEquals(expectedPropertiesSayfaUrl,actualPropertiesSayfaUrl);
@@ -120,21 +121,59 @@ public class TC002 {
         ReusableMethods.bekle(4);
         //        Kullanıcı sayfanın sol tarafında "Moderation Status" textbox ını  görür
         //        Kullanıcı sayfanın sol tarafında "Moderation Status" textbox ını  tıklar
-        hauseheavenAdminPages.moderationStatusDdm.click();
-        ReusableMethods.bekle(1);
+
         //        Kullanıcı edit sayfasında "Moderation Status" alanını tıklaması ile altta açılan menüyü görür
         //        Kullanıcı edit sayfasında "Moderation Status" alanını tıklaması ile altta açılan menüden(pending,approved,rejected)istediği seçeneği tıklar(isteğe bağlı)
-         select = new Select(hauseheavenAdminPages.moderationStatusDdm);
-         select.selectByValue("approved");
-        //        Kullanıcı sağ en üstte "publish" yazısınının altında "Save" butonunu görür
-        //        Kullanıcı sağ en üstte "publish" yazısınının altında "Save" butonunu tıklar
-        hauseheavenAdminPages.saveButton.click();
-        //        Kullanıcı sağ en üstte "publish" yazısınının altında "Save" butonunu tıklama sonucu ekranda ""Created successfully""ibaresini görür ve sayfa yenilenerek aynı sayfada kalır
+        ReusableMethods.bekle(4);
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("window.scrollBy(0, -600)");
+        //şimdi de sayfa aşağıda kaldığı için locate yerini görmüyor napacağız burda birde sayfayı yukarı çekmesi için kod ekleyeceğiz :D
+        WebElement element=hauseheavenAdminPages.moderationStatusDdm;
+        //elementi görünür yapıyor
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+        // buda java scrit ile tıklama yapıyor
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", element);
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].value = 'approved'; arguments[0].dispatchEvent(new Event('change'));", element);
 
-        String expectedSonucMesaji= "Created successfully";
-        String actualSonucMesaji= hauseheavenAdminPages.createdSeccussfullyMesaji.getText();
-        Assert.assertEquals(expectedPropertiesSayfaUrl,actualSonucMesaji);
+        // Kullanıcı sağ en üstte "publish" yazısınının altında "Save" butonunu görür
+        // Kullanıcı sağ en üstte "publish" yazısınının altında "Save" butonunu tıklar
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("window.scrollBy(0, -600)");
+        hauseheavenAdminPages.saveButton.click();
+
+        // Kullanıcı sağ en üstte "publish" yazısınının altında "Save" butonunu tıklama sonucu ekranda ""Created successfully""ibaresini görür ve sayfa yenilenerek aynı sayfada kalır
+       String expectedSonucMesaji= "Created successfully";
+        String actualSonucMesaji= hauseheavenAdminPages.createdSuccessfullyMesaji.getText();
+        Assert.assertTrue(expectedSonucMesaji.equals(actualSonucMesaji));
       ReusableMethods.bekle(2);
+
+        // Kullanıcı properties anasayfaya döner
+                Driver.getDriver().get("https://qa.hauseheaven.com/admin/real-estate/properties");
+        // Kullanıcı  properties anasayfada
+        // Kullanıcı OPERATIONS başlığı altında edit ıkonunu tıklar
+                hauseheavenAdminPages.editIkonu.click();
+        // Kullanıcı OPERATIONS başlığı altında edit ıkonunu  tıklaması ile  "https://qa.hauseheaven.com/admin/real-estate/properties/edit/62"sayfasına ulaşır
+        String expectedEditSayfaUrl2 = "https://qa.hauseheaven.com/admin/real-estate/properties/edit/62";
+        String actualEditSayfaUrl2=Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(expectedPropertiesSayfaUrl,actualPropertiesSayfaUrl);
+        //        Kullanıcı edit sayfasında "Title" textbox ını görür
+        //        Kullanıcı edit sayfasında "Title" textbox ını tıklar
+        ReusableMethods.bekle(3);
+        hauseheavenAdminPages.titleAlani.click();
+        //        Kullanıcı edit sayfasında "Title" textbox ında var olan içeriği siler (isteğe bağlı)
+        hauseheavenAdminPages.titleAlani.clear();
+        //        Kullanıcı edit sayfasında "Title" textbox ına title içeriğini yazar(isteğe bağlı)
+
+        hauseheavenAdminPages.titleAlani.sendKeys(faker.book().title());
+
+       //Kullanıcı sağ en üstte "publish" yazısınının altında "Save&Exit" butonunu görür
+        //Kullanıcı sağ en üstte "publish" yazısınının altında "Save&Exit" butonunu tıklar
+        hauseheavenAdminPages.saveExitButton.click();
+       // Kullanıcı sağ en üstte "publish" yazısınının altında "Save" butonunu tıklama sonucu ekranda "Created successfully"ibaresini görür ve sayfa yenilenerek properties anasayfaya yönlendirilir
+        String expectedSonucMesaji2= "Created successfully";
+        String actualSonucMesaji2= hauseheavenAdminPages.createdSuccessfullyMesaji.getText();
+        Assert.assertTrue(expectedSonucMesaji.equals(actualSonucMesaji));
+        ReusableMethods.bekle(2);
         Driver.quitDriver();
     }
-}
+    }
+
