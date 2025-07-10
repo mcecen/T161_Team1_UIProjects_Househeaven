@@ -1,5 +1,10 @@
 package tests.US031;
-import org.openqa.selenium.*;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -32,12 +37,12 @@ public class TC004 {
 
     @Test
     public void test01() {
-        WebDriver driver = Driver.getDriver();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
-        // Go to the URL
+        WebDriver driver = Driver.getDriver();
+                // Go to the URL
         Driver.getDriver().get(ConfigReader.getProperty("dashboard-yusuf-admin"));
         ReusableMethods.bekle(1);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         // Check the URL
         String expectedUrl = HauseHeaven_yusufcelal.AdminLink;
@@ -94,7 +99,7 @@ public class TC004 {
         hauseHeaven_yusufcelal.saveCreateButton.click();
         ReusableMethods.bekle(2);
         hauseHeaven_yusufcelal.saveAndExitCreateButton.click();
-        ReusableMethods.bekle(10);
+        ReusableMethods.bekle(2);
 
 
         // 10.  Kayıtlı kullanıcı Categories anasayfasının tıklandığında üst menü Collapse all, +Creative alt menü Latest news, House architecture, House design, Building metarials görünmektedir.
@@ -131,12 +136,14 @@ public class TC004 {
         hauseHeaven_yusufcelal.saveAndExitButtonCtgrs.click();
         ReusableMethods.bekle(2);
 
-        // 11. Verify the Admin Dashboard URL
-        Assert.assertTrue(hauseHeaven_yusufcelal.dashboardLink.isDisplayed(), "Dashboard link is not visible.");
-        hauseHeaven_yusufcelal.dashboardLink.click();
+        Actions PageUp = new Actions(driver);
+        PageUp.sendKeys(Keys.PAGE_UP).perform();
         ReusableMethods.bekle(2);
 
-        Driver.quitDriver();
+        Assert.assertTrue(hauseHeaven_yusufcelal.dashboardLink.isDisplayed(), "Dashboard link is not visible.");
+        hauseHeaven_yusufcelal.dashboardText.click();
+
+        Driver.closeDriver();
 
     }
 }
