@@ -50,11 +50,11 @@ public class CennetHauseheavenAdminPages {
     @FindBy(className = "icon-arrow-up-circle")
     public WebElement yukariOkIkonu;
 
-    @FindBy(xpath = "//*[@id=\"select2-moderation_status-container\"]")
+    @FindBy(xpath = "//select[@id='moderation_status']")
     public WebElement moderationStatusDdm;
 
 
-    @FindBy(xpath = "//*[@title='Approved']")
+    @FindBy(xpath = "//li[contains(text(), 'Approved')]")
     public WebElement approvedButton;
 
 
@@ -87,12 +87,6 @@ public class CennetHauseheavenAdminPages {
 
     @FindBy(xpath = "(//button[@type='submit'])[1]")
     public WebElement packageSaveExitButton;
-
-
-
-
-
-
 }
 
 
