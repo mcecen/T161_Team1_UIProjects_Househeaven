@@ -52,6 +52,45 @@ public class Eda_HauseheavenPage {
     @FindBy (xpath = "//*[@id=\"app\"]/div[2]/div[3]/div")
     public WebElement rejectedProperties;
 
+    @FindBy (xpath = "//*[@id=\"navigation\"]/div[2]/ul[2]/li[2]/a")
+    public WebElement signInLink;
+
+    @FindBy (xpath = "//*[@id=\"registermodal\"]/div")
+    public WebElement loginForm;
+
+    @FindBy (xpath = "//*[@id=\"email\"]")
+    public WebElement loginEmailTextbox;
+
+    @FindBy (xpath = "//*[@id=\"password\"]")
+    public WebElement loginPasswordTextbox;
+
+    @FindBy (xpath = "//*[@id=\"registermodal\"]/div/div/form/div[4]/button")
+    public WebElement loginButton;
+
+    @FindBy (xpath = "//*[@id=\"navigation\"]/div[2]/ul[2]/li[2]/a/i")
+    public WebElement getProfilName;
+
+    @FindBy (xpath = "//*[@id=\"navigation\"]/div[2]/ul[2]/li[3]/a")
+    public WebElement logoutLink;
+
+    @FindBy (xpath = "//*[@id=\"registermodal\"]/div/div/form/div[3]/div/div[1]/div/label")
+    public WebElement rememberMeCheckbox;
+
+    @FindBy (xpath = "//*[@id=\"registermodal\"]/div/div/form/div[3]/div/div[2]/a")
+    public WebElement forgotYourPasswordLink;
+
+    @FindBy (xpath = "//*[@id=\"registermodal\"]/div/div/form/div[1]/span")
+    public WebElement emptyUsernameBoxWarning;
+
+    @FindBy (xpath = "//*[@id=\"registermodal\"]/div/div/form/div[1]/span")
+    public WebElement invalidUsernameWarning;
+
+
+
+
+
+
+
 
 
 
