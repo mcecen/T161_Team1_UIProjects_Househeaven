@@ -63,6 +63,36 @@ public class CennetHauseheavenAdminPages {
 
     @FindBy(className = "toast-message")
     public WebElement createdSeccussfullyMesaji;
+
+    @FindBy(xpath = "//*[@href='https://qa.hauseheaven.com/admin/real-estate/packages']")
+    public WebElement packageMenuAlanı;
+
+    @FindBy(xpath = "//*[@class='btn btn-secondary action-item']")
+    public WebElement packageCreateButton;
+
+    @FindBy(xpath = "//*[@class='form-control']")
+    public WebElement packageNameText;
+
+    @FindBy(xpath = "//*[@class='form-control input-mask-number']")
+    public WebElement packagePriceText;
+
+    @FindBy(xpath = "(//input[@class='form-control input-mask-number is-valid'])[2]")
+    public WebElement packagePersentSaveText;
+
+    @FindBy(xpath = "(//input[@class='form-control input-mask-number'])[1]")
+    public WebElement packageNumberOfListingText;
+
+    @FindBy(xpath = "(//button[@type='submit'])[2]")
+    public WebElement packageSaveButton;
+
+    @FindBy(xpath = "(//button[@type='submit'])[1]")
+    public WebElement packageSaveExitButton;
+
+
+
+
+
+
 }
 
 
