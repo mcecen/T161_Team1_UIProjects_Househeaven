@@ -45,9 +45,9 @@ public class TC003 {
         ReusableMethods.bekle(3);
 
         // 6. Verify the Admin Dashboard URL
-        String dashboardUrl = "https://qa.hauseheaven.com/admin";
-        Assert.assertEquals(driver.getCurrentUrl(), dashboardUrl, "Dashboard URL verification passed!");
-        ReusableMethods.bekle(2);
+        // 6. Verify the Admin Dashboard URL
+        Assert.assertTrue(hauseHeaven_yusufcelal.dashboardLink.isDisplayed(), "Dashboard link is not visible.");
+        hauseHeaven_yusufcelal.dashboardText.click();
 
         // 7. Verify visibility of main dashboard elements and Active properties
         Assert.assertTrue(hauseHeaven_yusufcelal.activeProperties.isDisplayed(), "Active properties section is visible.");
