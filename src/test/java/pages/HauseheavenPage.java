@@ -39,4 +39,112 @@ public class HauseheavenPage {
     public WebElement agentsPropertyCount;
 
 
+    @FindBy(xpath = "//a[normalize-space()='Blog']")
+    public WebElement blogLink;
+
+    @FindBy(xpath = "(//a[@class='bl-continue'])[3]")
+    public WebElement thirdBlogContinueButton;
+
+    @FindBy (xpath = "//img[@class='img-fluid']")
+    public WebElement thirdBlogPostImage;
+
+    @FindBy (xpath = "//h1[@class='ipt-title']")
+    public WebElement thirdBlogPostHeader;
+
+    @FindBy (xpath = "//h2[@class='post-title']")
+    public WebElement thirdBlogPostTitle;
+
+    @FindBy (xpath = "//div[@class='ck-content']")
+    public WebElement thirdBlogPostContent;
+
+    @FindBy (xpath ="//a[normalize-space()='Contact']")
+    public WebElement contactLink;
+
+    @FindBy (xpath = "(//div[@class='cn-info-detail'])[3]")
+    public WebElement contactPhoneInfo;
+
+    @FindBy (xpath = "(//div[@class='cn-info-detail'])[1]")
+    public WebElement contactAdressInfo;
+
+    @FindBy (xpath = "(//div[@class='cn-info-detail'])[2]")
+    public WebElement contactEmailInfo;
+
+    @FindBy (xpath = "//h2[text()='Get In Touch']")
+    public WebElement contactGetInTouchText;
+
+    @FindBy (xpath = "//h2[text()='Contact']")
+    public WebElement contactText;
+
+    @FindBy (xpath = "//label[text()='Name']")
+    public WebElement nameText;
+
+    @FindBy(xpath = "(//input[@type='text'])[1]")
+    public WebElement nameBox;
+
+    @FindBy(xpath = "//label[text()='Email']")
+    public WebElement formEmailText;
+
+    @FindBy (xpath = "(//input[@type='email'])[1]")
+    public WebElement formEmailBox;
+
+    @FindBy (xpath = "//label[text()='Subject']")
+    public WebElement subjectText;
+
+    @FindBy (xpath = "(//input[@type='text'])[2]")
+    public WebElement subjectBox;
+
+    @FindBy(xpath = "//label[text()='Phone']")
+    public WebElement phoneText;
+
+    @FindBy (xpath = "(//input[@type='text'])[3]")
+    public WebElement phoneBox;
+
+    @FindBy (xpath = "//label[text()='Message']")
+    public WebElement messageText;
+
+    @FindBy (xpath = "//textarea[@name='content']")
+    public WebElement messageBox;
+
+    @FindBy (xpath = "//button[text()='Send message']")
+    public WebElement sendMessageButton;
+
+    @FindBy (xpath = "//div[text()='Send message successfully!']")
+    public WebElement sendMessageSuccessfullyText;
+
+    @FindBy(xpath = "//div[@class='contact-message contact-success-message']")
+    public WebElement nameRequiredWarning;
+
+    @FindBy (xpath = "//div[@class='contact-message contact-error-message']")
+    public WebElement emailRequiredWarning;
+
+    @FindBy (xpath = "//div[@class='contact-message contact-error-message']")
+    public WebElement messageRequiredWarning;
+
+
+    @FindBy(xpath = "//iframe[contains(@src, 'google.com/maps')]")
+    public WebElement mapIframe;
+
+    @FindBy(xpath = "//div[@class='gm-style']//img[contains(@src,'googleusercontent.com')]")
+    public WebElement mapPinIcon;
+
+    @FindBy(xpath = "//div[contains(text(),'4655 Wild Indigo St')]")
+    public WebElement mapPopupText;
+
+    @FindBy(xpath = "//div[@class='contact-sidebar']//p[contains(text(),'4655 Wild Indigo St')]")
+    public WebElement addressInSidebar;
+
+    @FindBy(xpath = "//a[contains(text(),'Daha büyük haritayı görüntüle')]")
+    public WebElement viewLargerMapLink;
+
+    @FindBy (xpath = "//h3[text()='Directions']")
+    public WebElement directionsText;
+
+
+    @FindBy(xpath = "//div[contains(@class,'contact-sidebar')]//address")
+    public WebElement sidebarAddress;
+
+
+
 }
+
+
