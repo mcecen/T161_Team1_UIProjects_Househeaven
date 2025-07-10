@@ -32,15 +32,15 @@ public class TC003 {
     public void test01() {
         WebDriver driver = Driver.getDriver();
 
-        // 1. Navigate to the URL
-        driver.get("https://qa.hauseheaven.com/admin/login");
-        ReusableMethods.bekle(2);
+        // Go to the URL
+        Driver.getDriver().get(ConfigReader.getProperty("dashboard-yusuf-admin"));
+        ReusableMethods.bekle(4);
 
-        // 2. Verify the URL
-
-        String expectedUrl = "https://qa.hauseheaven.com/admin/login";
+        // Check the URL
+        String expectedUrl = HauseHeaven_yusufcelal.AdminLink;
         String actualUrl = driver.getCurrentUrl();
-        assertEquals(actualUrl, expectedUrl, "URL verification failed!");
+
+        Assert.assertEquals(actualUrl, expectedUrl, "URL check failed!");
 
         // 3. Locate and click the Email/Username input field
         Assert.assertTrue(hauseHeaven_yusufcelal.emailInput.isDisplayed(), "Email input field is not visible.");
