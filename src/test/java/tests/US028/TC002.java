@@ -40,19 +40,19 @@ public class TC002 {
     public void test01() {
         WebDriver driver = Driver.getDriver();
 
-        // 1. Navigate to the URL
-        driver.get("https://qa.hauseheaven.com/admin/login");
-        ReusableMethods.bekle(2);
+        // Go to the URL
+        Driver.getDriver().get(ConfigReader.getProperty("dashboard-yusuf-admin"));
+        ReusableMethods.bekle(4);
 
-        // 2. Verify the URL
-        String expectedUrl = "https://qa.hauseheaven.com/admin/login";
+        // Check the URL
+        String expectedUrl = HauseHeaven_yusufcelal.AdminLink;
         String actualUrl = driver.getCurrentUrl();
-        Assert.assertEquals(actualUrl, expectedUrl, "URL verification failed!");
+
+        Assert.assertEquals(actualUrl, expectedUrl, "URL check failed!");
 
         // 3. Locate and click the Email/Username input field
         Assert.assertTrue(hauseHeaven_yusufcelal.emailInput.isDisplayed(), "Email input field is not visible.");
         hauseHeaven_yusufcelal.emailInput.sendKeys(ConfigReader.getProperty("admin-yusuf"));
-
 
         // 4. Locate and click the Password input field
         Assert.assertTrue(hauseHeaven_yusufcelal.passwordInput.isDisplayed(), "Password input field is not visible.");
@@ -64,8 +64,8 @@ public class TC002 {
         ReusableMethods.bekle(3);
 
         // 6. Verify the Admin Dashboard URL
-        String dashboardUrl = "https://qa.hauseheaven.com/admin";
-        Assert.assertEquals(driver.getCurrentUrl(), dashboardUrl, "Dashboard URL verification failed!");
+        Assert.assertTrue(hauseHeaven_yusufcelal.dashboardLink.isDisplayed(), "Dashboard link is not visible.");
+        hauseHeaven_yusufcelal.dashboardText.click();
 
         // 7. Verify visibility of main dashboard elements
         Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Active properties')]")).isDisplayed(), "Active properties section is visible.");

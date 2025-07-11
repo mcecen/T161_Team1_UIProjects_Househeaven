@@ -2,13 +2,13 @@ package tests.US018;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.Serpıl_HauseheavenAnasayfa;
+import pages.Serpil_HauseHeavenAnasayfa;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class TC002 {
-    Serpıl_HauseheavenAnasayfa hauseheavenAnasayfa = new Serpıl_HauseheavenAnasayfa();
+    Serpil_HauseHeavenAnasayfa hauseheavenAnasayfa = new Serpil_HauseHeavenAnasayfa();
 
     @Test
     public void TC002() {
