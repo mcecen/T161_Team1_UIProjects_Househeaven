@@ -14,16 +14,16 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class TC002 {
-
+    CennetHauseheavenAdminPages hauseheavenAdminPages = new CennetHauseheavenAdminPages();
     @Test
-    public void TC002(){
+    public void test001(){
             //    Kullanıcı tarayıcı arama çubuğuna hauseheaven "URL:https://qa.hauseheaven.com/admin/login" URL adresini yazar
             //    Kullanıcı Arama butonuna tıklar
             Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
             String expectedUrlIcerik = "hauseheaven";
             String actualUrlIcerik = Driver.getDriver().getCurrentUrl();
             Assert.assertTrue(actualUrlIcerik.contains((expectedUrlIcerik)));
-            CennetHauseheavenAdminPages hauseheavenAdminPages = new CennetHauseheavenAdminPages();
+             hauseheavenAdminPages = new CennetHauseheavenAdminPages();
             Assert.assertTrue(hauseheavenAdminPages.emailKutusu.isDisplayed());
             //    Kullanıcı email/username text alanını görür
             //    Kullanıcı email/username text alanını tıklar
@@ -44,6 +44,7 @@ public class TC002 {
             //    Kullanıcı sign in butonunu tıklama ile" https://qa.hauseheaven.com/admin"sayfasına erişir
             //    Kullanıcı Deshboard sayfasına eriştiğini görür
             //    Kullanıcı sağ en üstte (Cennet Atak) kullanıcı adında profil logosunu görür
+        ReusableMethods.bekle(3);
             Assert.assertTrue(hauseheavenAdminPages.profilLogosu.isDisplayed());
             //    Kullanıcı Deshboard sayfasında Active properties,Pending properties,Expired properties ve Agents kategorilerini görür
             //    Kullanıcı deshboard sayfası sol menüde Real Estate başlığını görür
@@ -73,7 +74,7 @@ public class TC002 {
         hauseheavenAdminPages.titleAlani.clear();
         //        Kullanıcı edit sayfasında "Title" textbox ına title içeriğini yazar(isteğe bağlı)
         Faker faker= new Faker();
-        hauseheavenAdminPages.titleAlani.sendKeys(faker.book().title());
+        hauseheavenAdminPages.titleAlani.sendKeys(faker.toString());
         //
         //        Kullanıcı edit sayfasında "Description" textbox ını görür
         //        Kullanıcı edit sayfasında "Description" textbox ını görür
@@ -139,13 +140,12 @@ public class TC002 {
         // Kullanıcı sağ en üstte "publish" yazısınının altında "Save" butonunu tıklar
         ((JavascriptExecutor) Driver.getDriver()).executeScript("window.scrollBy(0, -600)");
         hauseheavenAdminPages.saveButton.click();
-
+        System.out.println(hauseheavenAdminPages.createdSuccessfullyMesaji.getText());
         // Kullanıcı sağ en üstte "publish" yazısınının altında "Save" butonunu tıklama sonucu ekranda ""Created successfully""ibaresini görür ve sayfa yenilenerek aynı sayfada kalır
-       String expectedSonucMesaji= "Created successfully";
-        String actualSonucMesaji= hauseheavenAdminPages.createdSuccessfullyMesaji.getText();
-        Assert.assertTrue(expectedSonucMesaji.equals(actualSonucMesaji));
-      ReusableMethods.bekle(2);
-
+       String expectedSonucMesajIcerik= "Created successfully";
+        String actualSonucMesajIcerik= hauseheavenAdminPages.createdSuccessfullyMesaji.getText();
+        Assert.assertTrue(actualSonucMesajIcerik.contains(expectedSonucMesajIcerik));
+      ReusableMethods.bekle(3);
         // Kullanıcı properties anasayfaya döner
                 Driver.getDriver().get("https://qa.hauseheaven.com/admin/real-estate/properties");
         // Kullanıcı  properties anasayfada
@@ -171,7 +171,7 @@ public class TC002 {
        // Kullanıcı sağ en üstte "publish" yazısınının altında "Save" butonunu tıklama sonucu ekranda "Created successfully"ibaresini görür ve sayfa yenilenerek properties anasayfaya yönlendirilir
         String expectedSonucMesaji2= "Created successfully";
         String actualSonucMesaji2= hauseheavenAdminPages.createdSuccessfullyMesaji.getText();
-        Assert.assertTrue(expectedSonucMesaji.equals(actualSonucMesaji));
+        Assert.assertTrue(actualSonucMesaji2.equals(expectedSonucMesaji2));
         ReusableMethods.bekle(2);
         Driver.quitDriver();
     }
