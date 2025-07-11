@@ -77,10 +77,10 @@ public class CennetHauseheavenAdminPages {
     @FindBy(xpath = "//*[@class='form-control input-mask-number']")
     public WebElement packagePriceText;
 
-    @FindBy(xpath = "(//input[@class='form-control input-mask-number is-valid'])[2]")
+    @FindBy(xpath = "//input[@id='percent-save-number']")
     public WebElement packagePersentSaveText;
 
-    @FindBy(xpath = "(//input[@class='form-control input-mask-number'])[1]")
+    @FindBy(xpath = "(//input[@id='price-number'])[2]")
     public WebElement packageNumberOfListingText;
 
     @FindBy(xpath = "(//button[@type='submit'])[2]")
@@ -94,6 +94,16 @@ public class CennetHauseheavenAdminPages {
 
     @FindBy(xpath = "//*[@id=\"main\"]/div[2]/div/div/div[3]/button[2]")
     public WebElement deleteButton;
+
+    @FindBy(xpath = "(//*[@data-bs-original-title='Edit'])[1]")
+    public WebElement packageEditButton;
+
+    @FindBy(xpath = "(//*[@data-bs-original-title='Delete'])[1]")
+    public WebElement packageDeleteButton;
+
+    @FindBy(xpath = "    //button[@class='float-end btn btn-danger delete-crud-entry']")
+    public WebElement packageDeletePopUpButton;
+
 }
 
 
