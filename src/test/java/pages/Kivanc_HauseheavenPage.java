@@ -49,7 +49,7 @@ public class Kivanc_HauseheavenPage {
     @FindBy (xpath = "//*[@id=\"setting-form\"]/div[4]")
     public WebElement settingsFormPhone;
 
-    @FindBy (xpath = "//*[@id=\"setting-form\"]/div[5]")
+    @FindBy (xpath = "//*[@id=\"description\"]")
     public WebElement settigsFormShortdescription;
 
     @FindBy (xpath = "//*[@id=\"setting-form\"]/div[6]")
@@ -64,8 +64,53 @@ public class Kivanc_HauseheavenPage {
     @FindBy (xpath = "//*[@id=\"setting-form\"]/button")
     public WebElement settingsFormSaveButton;
 
-    @FindBy (xpath = "//*[@id=\"alert-container\"]")
-    public WebElement alertMessage;
+    @FindBy (xpath = "//*[@id=\"filter_search\"]/div[2]/div/div[2]/ul/li[3]/a")
+    public WebElement buyCreditsLink;
+
+    @FindBy (xpath = "//*[@id=\"app-real-estate\"]/div/div/div/div[1]/div")
+    public WebElement creditPackagesSection;
+
+    @FindBy (xpath = "//*[@id=\"app-real-estate\"]/div/div/div/div[1]/div/div[2]/div[2]/div/div[3]/div/div/button")
+    public WebElement post5PurchaseButton;
+
+    @FindBy (xpath = "//*[@id=\"stripe-number\"]")
+    public WebElement cardNumberTextbox;
+
+    @FindBy (xpath = "//*[@id=\"stripe-exp\"]")
+    public WebElement cardMMYYTextbox;
+
+    @FindBy (xpath = "//*[@id=\"stripe-name\"]")
+    public WebElement cardFullNameTextbox;
+
+    @FindBy (xpath = "//*[@id=\"stripe-cvc\"]")
+    public WebElement cardCVCTextbox;
+
+    @FindBy (xpath = "//*[@id=\"app\"]/div/div/div/div/div/div/form/div/button")
+    public WebElement checkoutButton;
+
+    @FindBy (xpath = "//*[@id=\"filter_search\"]/div[2]/div/div[2]/ul/li[5]/a")
+    public WebElement securityLink;
+
+    @FindBy (xpath = "//*[@id=\"password\"]")
+    public WebElement newPasswordTextbox;
+
+    @FindBy (xpath = "//*[@id=\"password_confirmation\"]")
+    public WebElement confirmationTextbox;
+
+    @FindBy (xpath = "//*[@id=\"app\"]/div/div/div/div/form/button")
+    public WebElement updatePasswordButton;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

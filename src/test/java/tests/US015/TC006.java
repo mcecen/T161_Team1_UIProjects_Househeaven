@@ -16,7 +16,7 @@ import utilities.ReusableMethods;
 
 import java.time.Duration;
 
-public class TC004 {
+public class TC006 {
 
     Kivanc_HauseheavenPage kivanc_hauseheavenPage = new Kivanc_HauseheavenPage();
     String validationMessage;
@@ -25,7 +25,7 @@ public class TC004 {
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
 
     @Test
-    public void updateProfilTesti(){
+    public void changePasswordTest(){
 
         //Go to the URL address: https://qa.hauseheaven.com/
         Driver.getDriver().get(ConfigReader.getProperty("url"));
@@ -54,31 +54,31 @@ public class TC004 {
         //"User can hover over the ""First Name"", ""Last Name"", ""Email"", and ""Username"" fields and see the warning 'Please fill out this field'."
 
         validationMessage = kivanc_hauseheavenPage.firstNameTextbox.getAttribute("validationMessage");
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
         Assert.assertEquals(validationMessage, "Lütfen bu alanı doldurun.");
 
 
         validationMessage = kivanc_hauseheavenPage.lastNameTextbox.getAttribute("validationMessage");
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
         Assert.assertEquals(validationMessage, "Lütfen bu alanı doldurun.");
 
 
         validationMessage = kivanc_hauseheavenPage.emailTextbox.getAttribute("validationMessage");
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
         Assert.assertEquals(validationMessage, "Lütfen bu alanı doldurun.");
 
         validationMessage = kivanc_hauseheavenPage.usernameTextbox.getAttribute("validationMessage");
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
         Assert.assertEquals(validationMessage, "Lütfen bu alanı doldurun.");
 
         //"User can hover over the ""Password"" field and see the warning 'Password must be at least 8 characters long and contain at least one letter, one number and one special character'."
 
         validationMessage = kivanc_hauseheavenPage.passwordTextbox.getAttribute("validationMessage");
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
         Assert.assertFalse(validationMessage.isEmpty());
 
         validationMessage = kivanc_hauseheavenPage.confirmPasswordTextbox.getAttribute("validationMessage");
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
         Assert.assertEquals(validationMessage, "Lütfen bu alanı doldurun.");
 
         //"User can click into the ""First Name"", ""Last Name"", ""Email"", ""Username"", and ""Password"" fields and enter text."
@@ -98,78 +98,43 @@ public class TC004 {
         //User can see the account dashboard page loads properly.
         Assert.assertEquals(Driver.getDriver().getCurrentUrl(), ConfigReader.getProperty("dashboard-url"));
 
-        //The registered user verifies that the "Settings" section is visible on the account dashboard home page.
-        Assert.assertTrue(kivanc_hauseheavenPage.settingsLink.isDisplayed());
+        WebElement body = Driver.getDriver().findElement(By.tagName("body"));
 
-        //The registered user clicks the "Settings" section on the account dashboard home page.
-        kivanc_hauseheavenPage.settingsLink.click();
-
-        //The registered user verifies that the Settings home page is accessed.
-        Assert.assertEquals(Driver.getDriver().getCurrentUrl(), ConfigReader.getProperty("settings-url"));
-
-        //The registered user verifies that the Settings home page displays the fields "First Name", "Last Name", "Phone", "Short Description", "Email", "Birthday (Year, Month, Day)", and "Gender".
-        //The registered user clicks into the fields "First Name", "Last Name", "Phone", "Short Description", "Email", "Birthday (Year, Month, Day)", and "Gender" on the Settings home page.
-        Assert.assertTrue(kivanc_hauseheavenPage.settingsFormFirstname.isDisplayed());
-        Assert.assertTrue(kivanc_hauseheavenPage.settingsFormFirstname.isEnabled());
-
-        actions.sendKeys(Keys.ARROW_DOWN).perform();
-        actions.sendKeys(Keys.ARROW_DOWN).perform();
-        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        actions.moveToElement(body).click().sendKeys(Keys.ARROW_DOWN).perform();
+        actions.moveToElement(body).click().sendKeys(Keys.ARROW_DOWN).perform();
         ReusableMethods.bekle(2);
 
-        Assert.assertTrue(kivanc_hauseheavenPage.settingsFormLastname.isDisplayed());
-        Assert.assertTrue(kivanc_hauseheavenPage.settingsFormLastname.isEnabled());
+        //The registered user sees the "Security" section on the account dashboard home page.
+        Assert.assertTrue(kivanc_hauseheavenPage.securityLink.isDisplayed());
 
-        Assert.assertTrue(kivanc_hauseheavenPage.settingsFormPhone.isDisplayed());
-        Assert.assertTrue(kivanc_hauseheavenPage.settingsFormPhone.isEnabled());
+        //The registered user clicks the "Security" section.
+        kivanc_hauseheavenPage.securityLink.click();
 
-        Assert.assertTrue(kivanc_hauseheavenPage.settigsFormShortdescription.isDisplayed());
-        Assert.assertTrue(kivanc_hauseheavenPage.settigsFormShortdescription.isEnabled());
+        //The registered user accesses the Security page.
+        Assert.assertEquals(Driver.getDriver().getCurrentUrl(), ConfigReader.getProperty("security-url"));
 
-        Assert.assertTrue(kivanc_hauseheavenPage.settingsFormEmail.isDisplayed());
-        Assert.assertTrue(kivanc_hauseheavenPage.settingsFormEmail.isEnabled());
+        //The registered user sees the "New Password" and "Confirmation" fields on the Security page.
+        Assert.assertTrue(kivanc_hauseheavenPage.newPasswordTextbox.isDisplayed());
+        Assert.assertTrue(kivanc_hauseheavenPage.confirmationTextbox.isDisplayed());
 
-        actions.sendKeys(Keys.ARROW_DOWN).perform();
-        actions.sendKeys(Keys.ARROW_DOWN).perform();
-        actions.sendKeys(Keys.ARROW_DOWN).perform();
         ReusableMethods.bekle(2);
 
-        Assert.assertTrue(kivanc_hauseheavenPage.settingsFormBirthday.isDisplayed());
-        Assert.assertTrue(kivanc_hauseheavenPage.settingsFormBirthday.isEnabled());
+        //The registered user clicks into the password fields and enters data.
+        kivanc_hauseheavenPage.newPasswordTextbox.sendKeys("Hauseh.0620");
+        kivanc_hauseheavenPage.confirmationTextbox.sendKeys("Hauseh.0620");
 
-        Assert.assertTrue(kivanc_hauseheavenPage.settingsFormGender.isDisplayed());
-        Assert.assertTrue(kivanc_hauseheavenPage.settingsFormGender.isEnabled());
+        //The registered user sees the "Update Password" button.
+        Assert.assertTrue(kivanc_hauseheavenPage.updatePasswordButton.isDisplayed());
 
-        actions.sendKeys(Keys.ARROW_DOWN).perform();
-        actions.sendKeys(Keys.ARROW_DOWN).perform();
-        actions.sendKeys(Keys.ARROW_DOWN).perform();
-        ReusableMethods.bekle(2);
+        //The registered user clicks the "Update Password" button.
+        kivanc_hauseheavenPage.updatePasswordButton.click();
 
-        //Registered user should be able to enter the data "Yılın en çok işlem yapanı" into the Short Description field on the Settings page.
-        kivanc_hauseheavenPage.settigsFormShortdescription.sendKeys("Yılın en çok işlem yapanı");
-
-        actions.sendKeys(Keys.ARROW_DOWN).perform();
-        actions.sendKeys(Keys.ARROW_DOWN).perform();
-        actions.sendKeys(Keys.ARROW_DOWN).perform();
-        ReusableMethods.bekle(2);
-
-        //The registered user verifies that the "Save" button is visible on the Settings home page and can be clicked.
-        Assert.assertTrue(kivanc_hauseheavenPage.settingsFormSaveButton.isDisplayed());
-        Assert.assertTrue(kivanc_hauseheavenPage.settingsFormSaveButton.isEnabled());
-
-        //The registered user clicks the "Save" button.
-        kivanc_hauseheavenPage.settingsFormSaveButton.click();
-        ReusableMethods.bekle(2);
-
-        //The registered user verifies that the alert message "Update profile successfully" is displayed after clicking the "Save" button.
+        //The registered user sees the alert message "Password successfully changed".
         WebElement alert = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".alert.alert-success")));
         String actualAlertText = alert.getText();
-        Assert.assertTrue(actualAlertText.contains("Update profile successfully"));
+        System.out.println("Alert yazısı: " + actualAlertText);
 
-        Driver.quitDriver();
-
-
-
+        Assert.assertTrue(actualAlertText.contains("Password successfully changed"));
 
 
 
