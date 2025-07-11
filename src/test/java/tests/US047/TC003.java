@@ -1,10 +1,6 @@
 package tests.US047;
 
 import com.github.javafaker.Faker;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CennetHauseheavenAdminPages;
@@ -12,10 +8,7 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-import java.time.Duration;
-
-public class TC002 {
-
+public class TC003 {
     @Test
     public void test01(){
 
@@ -23,7 +16,8 @@ public class TC002 {
         String expectedUrlIcerik = "hauseheaven";
         String actualUrlIcerik = Driver.getDriver().getCurrentUrl();
 
-        Assert.assertTrue(actualUrlIcerik.contains((expectedUrlIcerik)));
+        Assert.assertTrue
+    (actualUrlIcerik.contains((expectedUrlIcerik)));
 
         CennetHauseheavenAdminPages hauseheavenAdminPages = new CennetHauseheavenAdminPages();
         Assert.assertTrue(hauseheavenAdminPages.emailKutusu.isDisplayed());
@@ -71,16 +65,21 @@ public class TC002 {
 
         hauseheavenAdminPages.packageSaveButton.click();
 
-       hauseheavenAdminPages.packageSaveExitButton.click();
-       ReusableMethods.bekle(2);
+        hauseheavenAdminPages.packageSaveExitButton.click();
+        ReusableMethods.bekle(2);
 
-       String expectedPackageMainSayfaUrl="https://qa.hauseheaven.com/admin/real-estate/packages";
-       String actualPackageMainCreateSayfaUrl= Driver.getDriver().getCurrentUrl();
-       Assert.assertEquals(expectedPackageCreateSayfaUrl,actualPackageCreateSayfaUrl);
+        String expectedPackageMainSayfaUrl="https://qa.hauseheaven.com/admin/real-estate/packages";
+        String actualPackageMainCreateSayfaUrl= Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(expectedPackageCreateSayfaUrl,actualPackageCreateSayfaUrl);
 
-       ReusableMethods.bekle(2);
+        ReusableMethods.bekle(2);
 
-       Driver.quitDriver();
+        hauseheavenAdminPages.packageEditButton.click();
 
+        hauseheavenAdminPages.packageNameText.sendKeys(faker.book().title());
+        ReusableMethods.bekle(2);
+        hauseheavenAdminPages.packageSaveExitButton.click();
+
+        Driver.quitDriver();
     }
 }
