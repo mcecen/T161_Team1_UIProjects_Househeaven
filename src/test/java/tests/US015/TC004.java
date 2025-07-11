@@ -1,6 +1,12 @@
 package tests.US015;
 
 import com.github.javafaker.Faker;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Kivanc_HauseheavenPage;
@@ -8,11 +14,15 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.time.Duration;
+
 public class TC004 {
 
     Kivanc_HauseheavenPage kivanc_hauseheavenPage = new Kivanc_HauseheavenPage();
     String validationMessage;
     Faker faker = new Faker();
+    Actions actions = new Actions(Driver.getDriver());
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
 
     @Test
     public void updateProfilTesti(){
@@ -102,6 +112,11 @@ public class TC004 {
         Assert.assertTrue(kivanc_hauseheavenPage.settingsFormFirstname.isDisplayed());
         Assert.assertTrue(kivanc_hauseheavenPage.settingsFormFirstname.isEnabled());
 
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        ReusableMethods.bekle(2);
+
         Assert.assertTrue(kivanc_hauseheavenPage.settingsFormLastname.isDisplayed());
         Assert.assertTrue(kivanc_hauseheavenPage.settingsFormLastname.isEnabled());
 
@@ -114,14 +129,29 @@ public class TC004 {
         Assert.assertTrue(kivanc_hauseheavenPage.settingsFormEmail.isDisplayed());
         Assert.assertTrue(kivanc_hauseheavenPage.settingsFormEmail.isEnabled());
 
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        ReusableMethods.bekle(2);
+
         Assert.assertTrue(kivanc_hauseheavenPage.settingsFormBirthday.isDisplayed());
         Assert.assertTrue(kivanc_hauseheavenPage.settingsFormBirthday.isEnabled());
 
         Assert.assertTrue(kivanc_hauseheavenPage.settingsFormGender.isDisplayed());
         Assert.assertTrue(kivanc_hauseheavenPage.settingsFormGender.isEnabled());
 
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        ReusableMethods.bekle(2);
+
         //Registered user should be able to enter the data "Yılın en çok işlem yapanı" into the Short Description field on the Settings page.
         kivanc_hauseheavenPage.settigsFormShortdescription.sendKeys("Yılın en çok işlem yapanı");
+
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        ReusableMethods.bekle(2);
 
         //The registered user verifies that the "Save" button is visible on the Settings home page and can be clicked.
         Assert.assertTrue(kivanc_hauseheavenPage.settingsFormSaveButton.isDisplayed());
@@ -129,9 +159,12 @@ public class TC004 {
 
         //The registered user clicks the "Save" button.
         kivanc_hauseheavenPage.settingsFormSaveButton.click();
+        ReusableMethods.bekle(2);
 
         //The registered user verifies that the alert message "Update profile successfully" is displayed after clicking the "Save" button.
-        Assert.assertTrue(kivanc_hauseheavenPage.alertMessage.isDisplayed());
+        WebElement alert = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".alert.alert-success")));
+        String actualAlertText = alert.getText();
+        Assert.assertTrue(actualAlertText.contains("Update profile successfully"));
 
         Driver.quitDriver();
 
