@@ -20,7 +20,7 @@ public class CennetHauseheavenAdminPages {
     @FindBy(className = "signin")
     public WebElement signInButton;
 
-    @FindBy(xpath = "(//*[@class='rounded-circle'])[9]")
+    @FindBy(xpath= "//*[@class='username d-none d-sm-inline']")
     public WebElement profilLogosu;
 
     @FindBy (xpath = "//*[@id=\"cms-plugins-real-estate\"]/a")
@@ -53,16 +53,17 @@ public class CennetHauseheavenAdminPages {
     @FindBy(xpath = "//select[@id='moderation_status']")
     public WebElement moderationStatusDdm;
 
-
     @FindBy(xpath = "//li[contains(text(), 'Approved')]")
     public WebElement approvedButton;
 
+    @FindBy(xpath = "(//button[@type='submit'])[1]")
+    public WebElement saveExitButton;
 
     @FindBy(xpath = "(//*[@name='submit'])[2]")
     public WebElement saveButton;
 
-    @FindBy(className = "toast-message")
-    public WebElement createdSeccussfullyMesaji;
+    @FindBy(xpath = "//*[@id=\"toast-container\"]/div")
+    public WebElement createdSuccessfullyMesaji;
 
     @FindBy(xpath = "//*[@href='https://qa.hauseheaven.com/admin/real-estate/packages']")
     public WebElement packageMenuAlanı;
@@ -87,6 +88,12 @@ public class CennetHauseheavenAdminPages {
 
     @FindBy(xpath = "(//button[@type='submit'])[1]")
     public WebElement packageSaveExitButton;
+
+    @FindBy(xpath = "(//*[@class='btn btn-icon btn-sm btn-danger deleteDialog'])[1]")
+    public WebElement deleteIkonu;
+
+    @FindBy(xpath = "//*[@id=\"main\"]/div[2]/div/div/div[3]/button[2]")
+    public WebElement deleteButton;
 }
 
 
