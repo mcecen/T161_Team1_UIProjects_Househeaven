@@ -163,5 +163,150 @@ public class HauseHeaven_yusufcelal {
 
 //      Blog Categories Oluşturma işlemleri.
 //      ***************************************************************       //
+
+    @FindBy(xpath = "//*[@id=\"main\"]/div/div[2]/div/div[2]/div[2]/ul/li[1]/a[1]/span[1]")
+    public WebElement latestNewscollapseAll; // Collapse all butonu
+
+    @FindBy(xpath = "//*[@id=\"main\"]/div/div[2]/div/div[2]/div[2]/ul/li[1]/i")
+    public WebElement latestNewscollapseAllIcon; // Collapse all icon
+
+    @FindBy(xpath = "/html/body/div[2]/div[2]/div[3]/div[2]/div/div[2]/div/div[2]/div/div[2]/div[2]/ul/li[2]/a[1]/span[1]")
+    public WebElement BuildingMaterialscollapseAll; // Collapse all butonu
+
+    @FindBy(xpath = "//*[@id=\"main\"]/div/div[2]/div/div[2]/div[2]/ul/li[1]/ul/li/a[1]/i")
+    public WebElement latestNewsRecord; // Latest news link
+
+    @FindBy(xpath = "//*[@id=\"main\"]/div/div[2]/div/div[2]/div[2]/ul/li[1]/ul/li/a[3]/i")
+    public WebElement DeleteDisplayed; // House architecture link
+
+    @FindBy(xpath = "//*[@id=\"main\"]/div/div[2]/div/div[2]/div[1]/a")
+    public WebElement NewCreateLink; // Yeni Kayıt Oluştur linki
+
+//      Blog Categories Tıklama işlemleri.
+//      ***************************************************************       //
+
+    @FindBy(xpath = "//*[@id=\"cms-plugins-real-estate\"]/a/span[1]")
+    public WebElement realEstateLink; // Real Estate link
+
+    @FindBy(xpath = "//*[@id=\"cms-plugins-property\"]/a")
+    public WebElement propertyLink; // Property link
+    //------------------------//
+
+        @FindBy(xpath = "//*[@id=\"main\"]/div[1]/div[2]/div[1]/div/div/div/a")
+        public WebElement propertyCategoriesLink; // Property Categories link
+
+        @FindBy(xpath = "//*[@id=\"main\"]/div[1]/div[2]/div[1]/div/div/div/ul/li[1]/div/a")
+        public WebElement PropertysearchBox; // Add New Property button
+
+        @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-property-table_filter\"]/label/input")
+        public WebElement PropertysearchBoxInput; // Property search box input field
+
+        @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-property-table_length\"]/label/span/select")
+        public WebElement PropertysearchBoxInputNext; // Property search box input text
+
+        @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-property-table_length\"]/label/span/select")
+        public WebElement PropertysearchBoxInputSelect; // Property search box select dropdown
+
+        @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-property-table_next\"]")
+        public WebElement PropertysearchBoxInputNextButton; // Property search box next button
+
+        @FindBy(xpath = "//*[@id='botble-real-estate-tables-property-table_previous']/a")
+        public WebElement PropertysearchBoxInputPreviousButton; // Property search box previous button
+
+    //----------*******--------//
+    @FindBy(xpath = "//*[@id=\"cms-plugins-re-feature\"]/a")
+    public WebElement featureLink; // Feature link
+    //------------------------//
+
+            @FindBy(xpath = "//*[@id=\"main\"]/div[1]/div[2]/div[1]/div/div/div/a")
+            public WebElement featureCategoriesLink; // Feature Categories link
+
+            @FindBy(xpath = "//*[@id=\"main\"]/div[1]/div[2]/div[1]/div/div/div/ul/li[1]/div/a")
+            public WebElement featuresearchBox; // Add New Feature button
+
+            @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-feature-table_filter\"]/label/input")
+            public WebElement featuresearchBoxInput; // Feature search box input field
+
+            @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-feature-table_filter\"]/label")
+            public WebElement featuresearchBoxInputNext; // Feature search box input text
+
+            @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-feature-table_length\"]/label/span/select")
+            public WebElement featuresearchBoxInputSelect; // Feature search box select dropdown
+
+            @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-feature-table_next\"]/a")
+            public WebElement featuresearchBoxInputNextButton; // Feature search box next button
+
+            @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-feature-table_previous\"]/a")
+            public WebElement featuresearchBoxInputPreviousButton; // Feature search box previous button
+
+    //----------*******--------//
+    @FindBy(xpath = "//*[@id=\"cms-plugins-facility\"]/a")
+    public WebElement facilityLink; // Facility link
+    //------------------------//
+
+                @FindBy(xpath = "//*[@id=\"main\"]/div[1]/div[2]/div[1]/div/div/div/a")
+                public WebElement facilityCategoriesLink; // Feature Categories link
+
+                @FindBy(xpath = "//*[@id=\"main\"]/div[1]/div[2]/div[1]/div/div/div/ul/li[1]/div/a")
+                public WebElement facilitysearchBox; // Add New Feature button
+
+                @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-facility-table_filter\"]/label/input")
+                public WebElement facilitysearchBoxInput; // Feature search box input field
+
+                @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-facility-table_filter\"]/label/input")
+                public WebElement facilitysearchBoxInputNext; // Feature search box input text
+
+                @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-facility-table_length\"]/label/span/select")
+                public WebElement facilitysearchBoxInputSelect; // Feature search box select dropdown
+
+                @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-facility-table_length\"]/label/span/select")
+                public WebElement facilitysearchBoxInputNextButton; // Feature search box next button
+
+                @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-facility-table_previous\"]/a")
+                public WebElement facilitysearchBoxInputPreviousButton; // Feature search box previous button
+
+    //----------*******--------//
+    @FindBy(xpath = "//*[@id=\"cms-plugins-real-estate-category\"]/a")
+    public WebElement realEstateCategoriesLink; // Real Estate Categories link
+    //------------------------//
+
+                    @FindBy(xpath = "//*[@id=\"main\"]/div[1]/div[2]/div[1]/div/div/div/a")
+                    public WebElement categoriesCategoriesLink; // Feature Categories link
+
+                    @FindBy(xpath = "//*[@id=\"main\"]/div[1]/div[2]/div[1]/div/div/div/ul/li[1]/div/a")
+                    public WebElement categoriessearchBox; // Add New Categories button
+
+                    @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-category-table_filter\"]/label/input")
+                    public WebElement categoriessearchBoxInput; // Categories search box input field
+
+                    @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-category-table_length\"]/label/span/select")
+                    public WebElement categoriessearchBoxInputNext; // Categories search box input text
+
+                    @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-category-table_length\"]/label/span/select/option[1]")
+                    public WebElement categoriessearchBoxInputSelect; // Categories search box select dropdown
+
+                    @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-category-table_next\"]/a")
+                    public WebElement categoriessearchBoxInputNextButton; // Categories search box next button
+
+                    @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-category-table_previous\"]/a")
+                    public WebElement categoriessearchBoxInputPreviousButton; // Categories search box previous button
+
+
+
+    //----------*******--------//
+    @FindBy(xpath = "//*[@id=\"cms-plugins-real-estate-type\"]/a")
+    public WebElement realEstateTypeLink; // Real Estate Type link
+    //------------------------//
+
+
+
+
+    //----------*******--------//
+
+
+//      Real Estate Categories Tıklama işlemleri.
+//      ***************************************************************       //
+
+
 }
 
