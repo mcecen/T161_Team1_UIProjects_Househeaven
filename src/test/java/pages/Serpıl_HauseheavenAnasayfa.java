@@ -19,7 +19,12 @@ public class HauseheavenAnasayfa {
      @FindBy(xpath = "//*[@id=\"frmhomesearch\"]/div[1]/div[2]/div[1]/div/span/span[1]/span")
      public WebElement minPriceTextbox;
 
+    @FindBy (xpath = "//*[@id=\"ismain-homes\"]/div/div[1]/div/div/div/h1")
+     public WebElement hauseheavenAnasyfaTitleText;
 
+     @FindBy(xpath = "//*[@id=\"frmhomesearch\"]/div[1]/div[1]/div/div/div/input")
+     public WebElement searchLocation;
 
-
+     @FindBy(xpath = "//*[@id=\"frmhomesearch\"]/div[1]/div[4]/div/div/label")
+     public WebElement ;
 }

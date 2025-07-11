@@ -2,17 +2,17 @@ package tests.US018;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.HauseheavenAnasayfa;
+import pages.Serpıl_HauseheavenAnasayfa;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class TC003 {
     @Test
-    HauseheavenAnasayfa hauseheavenAnasayfa = new HauseheavenAnasayfa();
+    public void signInButonTests() {
 
 
-    public void TC002() {
+        Serpıl_HauseheavenAnasayfa hauseheavenAnasayfa = new Serpıl_HauseheavenAnasayfa();
 
 
         //3-Kayıtlı kullanıcı olarak anasayfanın gövde bölümündeki
@@ -33,22 +33,29 @@ public class TC003 {
         Assert.assertTrue(hauseheavenAnasayfa.signInButonu.isEnabled());
 
 
-        //  "Find accessible homes to rent" başlığının görüntülendiğini kontrol et
+        //  "Find accessible homes to rent" başlığının işlevselliğini kontrol et
+        Assert.assertFalse(hauseheavenAnasayfa.hauseheavenAnasyfaTitleText.isEnabled());
 
-        // "Min Price" "acılır menusunun"" görünürlüğünü test et
+        // "Min Price" "acılır menusunun"" işlevselliğini test et
+        Assert.assertTrue(hauseheavenAnasayfa.minPriceText.isEnabled());
 
-        // " Max Price" "açılır menüsünün" görünürlüğünü test et
+        // " Max Price" "açılır menüsünün" işlevselliğini test et
+        Assert.assertTrue(hauseheavenAnasayfa.minPriceText.isEnabled());
 
-        // " Property Type" "açılır menüsünün" görünürlüğünü test et
+        // " Property Type" "açılır menüsünün" işlevselliğini test et
+        Assert.assertTrue(hauseheavenAnasayfa.propertyLocation.isEnabled());
 
-        // " Bed Rooms " "açılır menüsünün" görünürlüğünü test et
-        // " Property Location" "açılır menüsünün" görünürlüğünü test et
+        // " Bed Rooms " "açılır menüsünün" işlevselliğini test et
+        Assert.assertTrue(hauseheavenAnasayfa.bedRoomsTextbox.isEnabled());
 
-        // "Search Result" kutusununun görünülür olduğunutest et
+        // " Property Location" "yazılır menüsünün " işlevselliğini test et
+        Assert.assertTrue(hauseheavenAnasayfa.propertyLocation.isEnabled());
 
+        // "Search Result" kutusununun tıklanabilir  olduğunutest et
+        Assert.assertTrue(hauseheavenAnasayfa.serarchResaultButon.isDisplayed());
 
         // Tarayıcıyı Kapat
-
+        Driver.quitDriver();
 
     }
 }
