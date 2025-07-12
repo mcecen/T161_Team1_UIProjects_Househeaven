@@ -31,13 +31,19 @@ public class Hauseheaven_Mustafa {
     @FindBy (xpath = ("(//button[@class='btn btn-primary mt-2'])[2]"))
     public WebElement buyFivePackageButton;
 
+    @FindBy (xpath = ("//*[@id='stripe-number']"))
+    public WebElement cardNumberText;
 
+    @FindBy (xpath = ("//*[@id='stripe-name']"))
+    public WebElement cardFullNameText;
 
+    @FindBy (xpath = ("//input[@placeholder='MM/YY']"))
+    public WebElement cardDateText;
 
+    @FindBy (xpath = ("//input[@placeholder='CVC']"))
+    public WebElement cardIDText;
 
-
-
-
-
+    @FindBy (xpath = ("//button[@data-error-header='Error']"))
+    public WebElement checkoutButton;
 
 }
