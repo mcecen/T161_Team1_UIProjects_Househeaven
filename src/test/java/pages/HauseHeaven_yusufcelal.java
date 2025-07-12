@@ -298,6 +298,29 @@ public class HauseHeaven_yusufcelal {
     public WebElement realEstateTypeLink; // Real Estate Type link
     //------------------------//
 
+                            @FindBy(xpath = "//*[@id=\"main\"]/div[1]/div[2]/div[1]/div/div/div/a")
+                            public WebElement typeCategoriesLink; // Feature Type link
+
+                            @FindBy(xpath = "//*[@id=\"main\"]/div[1]/div[2]/div[1]/div/div/div/ul/li[1]/div/a")
+                            public WebElement typesearchBox; // Add New Type button
+
+                            @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-type-table_filter\"]/label/input")
+                            public WebElement typesearchBoxInput; // Type search box input field
+
+                            @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-type-table_filter\"]/label")
+                            public WebElement typesearchBoxInputNext; // Type search box input text
+
+                            @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-type-table_length\"]/label/span/select/option[1]")
+                            public WebElement typesearchBoxInputSelect; // Type search box select dropdown
+
+                            @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-type-table_next\"]/a")
+                            public WebElement typesearchBoxInputNextButton; // Type search box next button
+
+                            @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-type-table_previous\"]/a")
+                            public WebElement typesearchBoxInputPreviousButton; // Type search box previous button
+
+
+
 
 
 

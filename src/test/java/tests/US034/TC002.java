@@ -51,7 +51,6 @@ public class TC002 {
 //        Kayıtlı kullanıcı olarak page down yapınca  "Show from 1 to 10 in 43 records" şeklinde kayıt sayısı ve görüntü satırı ve "« Previous1 2 3 4 5 6 Next »" işlmleri görüntülenmektedir.
 
 
-
     HauseHeaven_yusufcelal hauseHeaven_yusufcelal = new HauseHeaven_yusufcelal();
 
     @Test
@@ -105,195 +104,195 @@ public class TC002 {
         hauseHeaven_yusufcelal.propertyLink.click();
         ReusableMethods.bekle(1);
 
-            hauseHeaven_yusufcelal.propertyCategoriesLink.click();
-            wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.PropertysearchBox));
-            Assert.assertTrue(hauseHeaven_yusufcelal.PropertysearchBox.isDisplayed(), "Property search box is not visible.");
-            hauseHeaven_yusufcelal.PropertysearchBox.sendKeys(ConfigReader.getProperty("bulkActions"));
-            hauseHeaven_yusufcelal.PropertysearchBox.sendKeys(Keys.ENTER);
-            ReusableMethods.bekle(1);
+        hauseHeaven_yusufcelal.propertyCategoriesLink.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.PropertysearchBox));
+        Assert.assertTrue(hauseHeaven_yusufcelal.PropertysearchBox.isDisplayed(), "Property search box is not visible.");
+        hauseHeaven_yusufcelal.PropertysearchBox.sendKeys(ConfigReader.getProperty("bulkActions"));
+        hauseHeaven_yusufcelal.PropertysearchBox.sendKeys(Keys.ENTER);
+        ReusableMethods.bekle(1);
 
-            hauseHeaven_yusufcelal.PropertysearchBoxInput.click();
-            Assert.assertTrue(hauseHeaven_yusufcelal.PropertysearchBoxInput.isDisplayed(), "Property search box is not visible.");
-            hauseHeaven_yusufcelal.PropertysearchBoxInput.sendKeys(ConfigReader.getProperty("PropertysearchBoxInputText"));
-            hauseHeaven_yusufcelal.PropertysearchBoxInput.sendKeys(Keys.ENTER);
-            ReusableMethods.bekle(1);
+        hauseHeaven_yusufcelal.PropertysearchBoxInput.click();
+        Assert.assertTrue(hauseHeaven_yusufcelal.PropertysearchBoxInput.isDisplayed(), "Property search box is not visible.");
+        hauseHeaven_yusufcelal.PropertysearchBoxInput.sendKeys(ConfigReader.getProperty("PropertysearchBoxInputText"));
+        hauseHeaven_yusufcelal.PropertysearchBoxInput.sendKeys(Keys.ENTER);
+        ReusableMethods.bekle(1);
 
-            hauseHeaven_yusufcelal.PropertysearchBoxInputNext.click();
-            wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.PropertysearchBoxInputSelect));
-            Assert.assertTrue(hauseHeaven_yusufcelal.PropertysearchBoxInputSelect.isDisplayed(), "Property search box is not visible.");
-            hauseHeaven_yusufcelal.PropertysearchBoxInputSelect.sendKeys(ConfigReader.getProperty("PropertysearchBoxInputNextAll"));
-            hauseHeaven_yusufcelal.PropertysearchBoxInputSelect.sendKeys(Keys.ENTER);
-            ReusableMethods.bekle(1);
+        hauseHeaven_yusufcelal.PropertysearchBoxInputNext.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.PropertysearchBoxInputSelect));
+        Assert.assertTrue(hauseHeaven_yusufcelal.PropertysearchBoxInputSelect.isDisplayed(), "Property search box is not visible.");
+        hauseHeaven_yusufcelal.PropertysearchBoxInputSelect.sendKeys(ConfigReader.getProperty("PropertysearchBoxInputNextAll"));
+        hauseHeaven_yusufcelal.PropertysearchBoxInputSelect.sendKeys(Keys.ENTER);
+        ReusableMethods.bekle(1);
 
-            // Scroll işlemi
-            JavascriptExecutor jsdown = (JavascriptExecutor) driver;
-            jsdown.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.PropertysearchBoxInputNextButton);
-            ReusableMethods.bekle(2);
-            Assert.assertTrue(hauseHeaven_yusufcelal.PropertysearchBoxInputNextButton.isDisplayed(), "Hedef alan görünür değil!");
-            hauseHeaven_yusufcelal.PropertysearchBoxInputNextButton.click();
-            wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.PropertysearchBoxInputNextButton));
-            ReusableMethods.bekle(2);
-            // Scroll işlemi bitiş
+        // Scroll işlemi
+        JavascriptExecutor jsdown = (JavascriptExecutor) driver;
+        jsdown.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.PropertysearchBoxInputNextButton);
+        ReusableMethods.bekle(2);
+        Assert.assertTrue(hauseHeaven_yusufcelal.PropertysearchBoxInputNextButton.isDisplayed(), "Hedef alan görünür değil!");
+        hauseHeaven_yusufcelal.PropertysearchBoxInputNextButton.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.PropertysearchBoxInputNextButton));
+        ReusableMethods.bekle(2);
+        // Scroll işlemi bitiş
 
-            hauseHeaven_yusufcelal.PropertysearchBoxInputPreviousButton.click();
-            wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.PropertysearchBoxInputPreviousButton));
-            ReusableMethods.bekle(2);
+        hauseHeaven_yusufcelal.PropertysearchBoxInputPreviousButton.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.PropertysearchBoxInputPreviousButton));
+        ReusableMethods.bekle(2);
 
-            // Scroll işlemi
-            JavascriptExecutor jsup = (JavascriptExecutor) driver;
-            jsup.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.featureLink);
-            ReusableMethods.bekle(2);
-            Assert.assertTrue(hauseHeaven_yusufcelal.featureLink.isDisplayed(), "Hedef alan görünür değil!");
-            hauseHeaven_yusufcelal.featureLink.click();
-            wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.featureLink));
-            ReusableMethods.bekle(2);
-            // Scroll işlemi bitiş
+        // Scroll işlemi
+        JavascriptExecutor jsup = (JavascriptExecutor) driver;
+        jsup.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.featureLink);
+        ReusableMethods.bekle(2);
+        Assert.assertTrue(hauseHeaven_yusufcelal.featureLink.isDisplayed(), "Hedef alan görünür değil!");
+        hauseHeaven_yusufcelal.featureLink.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.featureLink));
+        ReusableMethods.bekle(2);
+        // Scroll işlemi bitiş
 
         // 10. Verify the Feature link in the left menu
         Assert.assertTrue(hauseHeaven_yusufcelal.featureLink.isDisplayed(), "Blog link is not visible.");
         hauseHeaven_yusufcelal.featureLink.click();
         ReusableMethods.bekle(1);
 
-            hauseHeaven_yusufcelal.featureCategoriesLink.click();
-            wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.featuresearchBox));
-            Assert.assertTrue(hauseHeaven_yusufcelal.featuresearchBox.isDisplayed(), "Feature search box is not visible.");
-            hauseHeaven_yusufcelal.featuresearchBox.sendKeys(ConfigReader.getProperty("featureBulkActions"));
-            hauseHeaven_yusufcelal.featuresearchBox.sendKeys(Keys.ENTER);
-            ReusableMethods.bekle(1);
+        hauseHeaven_yusufcelal.featureCategoriesLink.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.featuresearchBox));
+        Assert.assertTrue(hauseHeaven_yusufcelal.featuresearchBox.isDisplayed(), "Feature search box is not visible.");
+        hauseHeaven_yusufcelal.featuresearchBox.sendKeys(ConfigReader.getProperty("featureBulkActions"));
+        hauseHeaven_yusufcelal.featuresearchBox.sendKeys(Keys.ENTER);
+        ReusableMethods.bekle(1);
 
-            hauseHeaven_yusufcelal.featuresearchBoxInput.click();
-            Assert.assertTrue(hauseHeaven_yusufcelal.featuresearchBoxInput.isDisplayed(), "Feature search box is not visible.");
-            hauseHeaven_yusufcelal.featuresearchBoxInput.sendKeys(ConfigReader.getProperty("FeaturesearchBoxInputText"));
-            hauseHeaven_yusufcelal.featuresearchBoxInput.sendKeys(Keys.ENTER);
-            ReusableMethods.bekle(1);
+        hauseHeaven_yusufcelal.featuresearchBoxInput.click();
+        Assert.assertTrue(hauseHeaven_yusufcelal.featuresearchBoxInput.isDisplayed(), "Feature search box is not visible.");
+        hauseHeaven_yusufcelal.featuresearchBoxInput.sendKeys(ConfigReader.getProperty("FeaturesearchBoxInputText"));
+        hauseHeaven_yusufcelal.featuresearchBoxInput.sendKeys(Keys.ENTER);
+        ReusableMethods.bekle(1);
 
-            hauseHeaven_yusufcelal.featuresearchBoxInputNext.click();
-            wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.featuresearchBoxInputSelect));
-            Assert.assertTrue(hauseHeaven_yusufcelal.featuresearchBoxInputSelect.isDisplayed(), "Feature search box is not visible.");
-            hauseHeaven_yusufcelal.featuresearchBoxInputSelect.sendKeys(ConfigReader.getProperty("FeaturesearchBoxInputNextAll"));
-            hauseHeaven_yusufcelal.featuresearchBoxInputSelect.sendKeys(Keys.ENTER);
-            ReusableMethods.bekle(1);
+        hauseHeaven_yusufcelal.featuresearchBoxInputNext.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.featuresearchBoxInputSelect));
+        Assert.assertTrue(hauseHeaven_yusufcelal.featuresearchBoxInputSelect.isDisplayed(), "Feature search box is not visible.");
+        hauseHeaven_yusufcelal.featuresearchBoxInputSelect.sendKeys(ConfigReader.getProperty("FeaturesearchBoxInputNextAll"));
+        hauseHeaven_yusufcelal.featuresearchBoxInputSelect.sendKeys(Keys.ENTER);
+        ReusableMethods.bekle(1);
 
-            // Scroll işlemi
-            JavascriptExecutor jsdownf = (JavascriptExecutor) driver;
-            jsdownf.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.featuresearchBoxInputNextButton);
-            ReusableMethods.bekle(2);
-            Assert.assertTrue(hauseHeaven_yusufcelal.featuresearchBoxInputNextButton.isDisplayed(), "Hedef alan görünür değil!");
-            hauseHeaven_yusufcelal.featuresearchBoxInputNextButton.click();
-            wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.featuresearchBoxInputNextButton));
-            ReusableMethods.bekle(2);
-            // Scroll işlemi bitiş
+        // Scroll işlemi
+        JavascriptExecutor jsdownf = (JavascriptExecutor) driver;
+        jsdownf.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.featuresearchBoxInputNextButton);
+        ReusableMethods.bekle(2);
+        Assert.assertTrue(hauseHeaven_yusufcelal.featuresearchBoxInputNextButton.isDisplayed(), "Hedef alan görünür değil!");
+        hauseHeaven_yusufcelal.featuresearchBoxInputNextButton.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.featuresearchBoxInputNextButton));
+        ReusableMethods.bekle(2);
+        // Scroll işlemi bitiş
 
-            hauseHeaven_yusufcelal.featuresearchBoxInputPreviousButton.click();
-            wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.featuresearchBoxInputPreviousButton));
-            ReusableMethods.bekle(2);
+        hauseHeaven_yusufcelal.featuresearchBoxInputPreviousButton.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.featuresearchBoxInputPreviousButton));
+        ReusableMethods.bekle(2);
 
-            // Scroll işlemi
-            JavascriptExecutor jsupf = (JavascriptExecutor) driver;
-            jsupf.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.featureLink);
-            ReusableMethods.bekle(2);
-            Assert.assertTrue(hauseHeaven_yusufcelal.featureLink.isDisplayed(), "Hedef alan görünür değil!");
-            hauseHeaven_yusufcelal.featureLink.click();
-            wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.featureLink));
-            ReusableMethods.bekle(2);
-            // Scroll işlemi bitiş
+        // Scroll işlemi
+        JavascriptExecutor jsupf = (JavascriptExecutor) driver;
+        jsupf.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.featureLink);
+        ReusableMethods.bekle(2);
+        Assert.assertTrue(hauseHeaven_yusufcelal.featureLink.isDisplayed(), "Hedef alan görünür değil!");
+        hauseHeaven_yusufcelal.featureLink.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.featureLink));
+        ReusableMethods.bekle(2);
+        // Scroll işlemi bitiş
 
-         // 11. Verify the Facility Link in the left menu
+        // 11. Verify the Facility Link in the left menu
         Assert.assertTrue(hauseHeaven_yusufcelal.facilityLink.isDisplayed(), "Facility link is not visible.");
         hauseHeaven_yusufcelal.facilityLink.click();
         ReusableMethods.bekle(1);
 
-                hauseHeaven_yusufcelal.facilityCategoriesLink.click();
-                wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.facilitysearchBox));
-                Assert.assertTrue(hauseHeaven_yusufcelal.facilitysearchBox.isDisplayed(), "Facility search box is not visible.");
-                hauseHeaven_yusufcelal.facilitysearchBox.sendKeys(ConfigReader.getProperty("facilityBulkActions"));
-                hauseHeaven_yusufcelal.facilitysearchBox.sendKeys(Keys.ENTER);
-                ReusableMethods.bekle(1);
+        hauseHeaven_yusufcelal.facilityCategoriesLink.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.facilitysearchBox));
+        Assert.assertTrue(hauseHeaven_yusufcelal.facilitysearchBox.isDisplayed(), "Facility search box is not visible.");
+        hauseHeaven_yusufcelal.facilitysearchBox.sendKeys(ConfigReader.getProperty("facilityBulkActions"));
+        hauseHeaven_yusufcelal.facilitysearchBox.sendKeys(Keys.ENTER);
+        ReusableMethods.bekle(1);
 
-                hauseHeaven_yusufcelal.facilitysearchBoxInput.click();
-                Assert.assertTrue(hauseHeaven_yusufcelal.facilitysearchBoxInput.isDisplayed(), "Facility search box is not visible.");
-                hauseHeaven_yusufcelal.facilitysearchBoxInput.sendKeys(ConfigReader.getProperty("FacilitysearchBoxInputText"));
-                hauseHeaven_yusufcelal.facilitysearchBoxInput.sendKeys(Keys.ENTER);
-                ReusableMethods.bekle(1);
+        hauseHeaven_yusufcelal.facilitysearchBoxInput.click();
+        Assert.assertTrue(hauseHeaven_yusufcelal.facilitysearchBoxInput.isDisplayed(), "Facility search box is not visible.");
+        hauseHeaven_yusufcelal.facilitysearchBoxInput.sendKeys(ConfigReader.getProperty("FacilitysearchBoxInputText"));
+        hauseHeaven_yusufcelal.facilitysearchBoxInput.sendKeys(Keys.ENTER);
+        ReusableMethods.bekle(1);
 
-                hauseHeaven_yusufcelal.facilitysearchBoxInputNext.click();
-                wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.facilitysearchBoxInputSelect));
-                Assert.assertTrue(hauseHeaven_yusufcelal.facilitysearchBoxInputSelect.isDisplayed(), "Facility search box is not visible.");
-                hauseHeaven_yusufcelal.facilitysearchBoxInputSelect.sendKeys(ConfigReader.getProperty("FacilitysearchBoxInputNextAll"));
-                hauseHeaven_yusufcelal.facilitysearchBoxInputSelect.sendKeys(Keys.ENTER);
-                ReusableMethods.bekle(1);
+        hauseHeaven_yusufcelal.facilitysearchBoxInputNext.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.facilitysearchBoxInputSelect));
+        Assert.assertTrue(hauseHeaven_yusufcelal.facilitysearchBoxInputSelect.isDisplayed(), "Facility search box is not visible.");
+        hauseHeaven_yusufcelal.facilitysearchBoxInputSelect.sendKeys(ConfigReader.getProperty("FacilitysearchBoxInputNextAll"));
+        hauseHeaven_yusufcelal.facilitysearchBoxInputSelect.sendKeys(Keys.ENTER);
+        ReusableMethods.bekle(1);
 
-                // Scroll işlemi
-                JavascriptExecutor jsdownfc = (JavascriptExecutor) driver;
-                jsdownfc.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.facilitysearchBoxInputNextButton);
-                ReusableMethods.bekle(2);
-                Assert.assertTrue(hauseHeaven_yusufcelal.facilitysearchBoxInputNextButton.isDisplayed(), "Hedef alan görünür değil!");
-                hauseHeaven_yusufcelal.facilitysearchBoxInputNextButton.click();
-                wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.facilitysearchBoxInputNextButton));
-                ReusableMethods.bekle(2);
-                // Scroll işlemi bitiş
+        // Scroll işlemi
+        JavascriptExecutor jsdownfc = (JavascriptExecutor) driver;
+        jsdownfc.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.facilitysearchBoxInputNextButton);
+        ReusableMethods.bekle(2);
+        Assert.assertTrue(hauseHeaven_yusufcelal.facilitysearchBoxInputNextButton.isDisplayed(), "Hedef alan görünür değil!");
+        hauseHeaven_yusufcelal.facilitysearchBoxInputNextButton.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.facilitysearchBoxInputNextButton));
+        ReusableMethods.bekle(2);
+        // Scroll işlemi bitiş
 
-                hauseHeaven_yusufcelal.facilitysearchBoxInputPreviousButton.click();
-                wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.facilitysearchBoxInputPreviousButton));
-                ReusableMethods.bekle(2);
+        hauseHeaven_yusufcelal.facilitysearchBoxInputPreviousButton.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.facilitysearchBoxInputPreviousButton));
+        ReusableMethods.bekle(2);
 
-                // Scroll işlemi
-                JavascriptExecutor jsupfc = (JavascriptExecutor) driver;
-                jsupfc.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.facilityLink);
-                ReusableMethods.bekle(2);
-                Assert.assertTrue(hauseHeaven_yusufcelal.facilityLink.isDisplayed(), "Hedef alan görünür değil!");
-                hauseHeaven_yusufcelal.facilityLink.click();
-                wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.facilityLink));
-                ReusableMethods.bekle(2);
-                // Scroll işlemi bitiş
+        // Scroll işlemi
+        JavascriptExecutor jsupfc = (JavascriptExecutor) driver;
+        jsupfc.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.facilityLink);
+        ReusableMethods.bekle(2);
+        Assert.assertTrue(hauseHeaven_yusufcelal.facilityLink.isDisplayed(), "Hedef alan görünür değil!");
+        hauseHeaven_yusufcelal.facilityLink.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.facilityLink));
+        ReusableMethods.bekle(2);
+        // Scroll işlemi bitiş
 
         // 12. Verify the Real Estate Categories Link in the left menu
         Assert.assertTrue(hauseHeaven_yusufcelal.realEstateCategoriesLink.isDisplayed(), "Blog link is not visible.");
         hauseHeaven_yusufcelal.realEstateCategoriesLink.click();
         ReusableMethods.bekle(1);
 
-                        hauseHeaven_yusufcelal.categoriesCategoriesLink.click();
-                        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.categoriessearchBox));
-                        Assert.assertTrue(hauseHeaven_yusufcelal.categoriessearchBox.isDisplayed(), "categories search box is not visible.");
-                        hauseHeaven_yusufcelal.categoriessearchBox.sendKeys(ConfigReader.getProperty("categoriesBulkActions"));
-                        hauseHeaven_yusufcelal.categoriessearchBox.sendKeys(Keys.ENTER);
-                        ReusableMethods.bekle(1);
+        hauseHeaven_yusufcelal.categoriesCategoriesLink.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.categoriessearchBox));
+        Assert.assertTrue(hauseHeaven_yusufcelal.categoriessearchBox.isDisplayed(), "categories search box is not visible.");
+        hauseHeaven_yusufcelal.categoriessearchBox.sendKeys(ConfigReader.getProperty("categoriesBulkActions"));
+        hauseHeaven_yusufcelal.categoriessearchBox.sendKeys(Keys.ENTER);
+        ReusableMethods.bekle(1);
 
-                        hauseHeaven_yusufcelal.categoriessearchBoxInput.click();
-                        Assert.assertTrue(hauseHeaven_yusufcelal.categoriessearchBoxInput.isDisplayed(), "Categories search box is not visible.");
-                        hauseHeaven_yusufcelal.categoriessearchBoxInput.sendKeys(ConfigReader.getProperty("categoriessearchBoxInputText"));
-                        hauseHeaven_yusufcelal.categoriessearchBoxInput.sendKeys(Keys.ENTER);
-                        ReusableMethods.bekle(1);
+        hauseHeaven_yusufcelal.categoriessearchBoxInput.click();
+        Assert.assertTrue(hauseHeaven_yusufcelal.categoriessearchBoxInput.isDisplayed(), "Categories search box is not visible.");
+        hauseHeaven_yusufcelal.categoriessearchBoxInput.sendKeys(ConfigReader.getProperty("categoriessearchBoxInputText"));
+        hauseHeaven_yusufcelal.categoriessearchBoxInput.sendKeys(Keys.ENTER);
+        ReusableMethods.bekle(1);
 
-                        hauseHeaven_yusufcelal.categoriessearchBoxInputNext.click();
-                        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.categoriessearchBoxInputSelect));
-                        Assert.assertTrue(hauseHeaven_yusufcelal.categoriessearchBoxInputSelect.isDisplayed(), "categories search box is not visible.");
-                        hauseHeaven_yusufcelal.categoriessearchBoxInputSelect.click();
-                        ReusableMethods.bekle(1);
+        hauseHeaven_yusufcelal.categoriessearchBoxInputNext.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.categoriessearchBoxInputSelect));
+        Assert.assertTrue(hauseHeaven_yusufcelal.categoriessearchBoxInputSelect.isDisplayed(), "categories search box is not visible.");
+        hauseHeaven_yusufcelal.categoriessearchBoxInputSelect.click();
+        ReusableMethods.bekle(1);
 
-                        // Scroll işlemi
-                        JavascriptExecutor jsdownCtg = (JavascriptExecutor) driver;
-                        jsdownCtg.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.categoriessearchBoxInputNextButton);
-                        ReusableMethods.bekle(2);
-                        Assert.assertTrue(hauseHeaven_yusufcelal.categoriessearchBoxInputNextButton.isDisplayed(), "Hedef alan görünür değil!");
-                        hauseHeaven_yusufcelal.categoriessearchBoxInputNextButton.click();
-                        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.categoriessearchBoxInputNextButton));
-                        ReusableMethods.bekle(2);
-                        // Scroll işlemi bitiş
+        // Scroll işlemi
+        JavascriptExecutor jsdownCtg = (JavascriptExecutor) driver;
+        jsdownCtg.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.categoriessearchBoxInputNextButton);
+        ReusableMethods.bekle(2);
+        Assert.assertTrue(hauseHeaven_yusufcelal.categoriessearchBoxInputNextButton.isDisplayed(), "Hedef alan görünür değil!");
+        hauseHeaven_yusufcelal.categoriessearchBoxInputNextButton.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.categoriessearchBoxInputNextButton));
+        ReusableMethods.bekle(2);
+        // Scroll işlemi bitiş
 
-                        hauseHeaven_yusufcelal.categoriessearchBoxInputPreviousButton.click();
-                        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.categoriessearchBoxInputPreviousButton));
-                        ReusableMethods.bekle(2);
+        hauseHeaven_yusufcelal.categoriessearchBoxInputPreviousButton.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.categoriessearchBoxInputPreviousButton));
+        ReusableMethods.bekle(2);
 
-                        // Scroll işlemi
-                        JavascriptExecutor jsupCtg = (JavascriptExecutor) driver;
-                        jsupCtg.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.categoriesLink);
-                        ReusableMethods.bekle(2);
-                        Assert.assertTrue(hauseHeaven_yusufcelal.facilityLink.isDisplayed(), "Hedef alan görünür değil!");
-                        hauseHeaven_yusufcelal.facilityLink.click();
-                        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.facilityLink));
-                        ReusableMethods.bekle(2);
-                        // Scroll işlemi bitiş
+        // Scroll işlemi
+        JavascriptExecutor jsupCtg = (JavascriptExecutor) driver;
+        jsupCtg.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.categoriesLink);
+        ReusableMethods.bekle(2);
+        Assert.assertTrue(hauseHeaven_yusufcelal.facilityLink.isDisplayed(), "Hedef alan görünür değil!");
+        hauseHeaven_yusufcelal.facilityLink.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.facilityLink));
+        ReusableMethods.bekle(2);
+        // Scroll işlemi bitiş
 
 
         // 13. Verify the RealEstate Type Link in the left menu
@@ -301,8 +300,48 @@ public class TC002 {
         hauseHeaven_yusufcelal.realEstateTypeLink.click();
         ReusableMethods.bekle(1);
 
+        hauseHeaven_yusufcelal.typeCategoriesLink.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.typesearchBox));
+        Assert.assertTrue(hauseHeaven_yusufcelal.typesearchBox.isDisplayed(), "type search box is not visible.");
+        hauseHeaven_yusufcelal.typesearchBox.sendKeys(ConfigReader.getProperty("typeBulkActions"));
+        hauseHeaven_yusufcelal.typesearchBox.sendKeys(Keys.ENTER);
+        ReusableMethods.bekle(1);
 
+        hauseHeaven_yusufcelal.typesearchBoxInput.click();
+        Assert.assertTrue(hauseHeaven_yusufcelal.typesearchBoxInput.isDisplayed(), "type search box is not visible.");
+        hauseHeaven_yusufcelal.typesearchBoxInput.sendKeys(ConfigReader.getProperty("typesearchBoxInputText"));
+        hauseHeaven_yusufcelal.typesearchBoxInput.sendKeys(Keys.ENTER);
+        ReusableMethods.bekle(1);
 
+        hauseHeaven_yusufcelal.typesearchBoxInputNext.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.typesearchBoxInputSelect));
+        Assert.assertTrue(hauseHeaven_yusufcelal.typesearchBoxInputSelect.isDisplayed(), "type search box is not visible.");
+        hauseHeaven_yusufcelal.typesearchBoxInputSelect.click();
+        ReusableMethods.bekle(1);
+
+        // Scroll işlemi
+        JavascriptExecutor jsdownTyp = (JavascriptExecutor) driver;
+        jsdownTyp.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.typesearchBoxInputNextButton);
+        ReusableMethods.bekle(2);
+        Assert.assertTrue(hauseHeaven_yusufcelal.typesearchBoxInputNextButton.isDisplayed(), "Hedef alan görünür değil!");
+        hauseHeaven_yusufcelal.typesearchBoxInputNextButton.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.typesearchBoxInputNextButton));
+        ReusableMethods.bekle(2);
+        // Scroll işlemi bitiş
+
+        hauseHeaven_yusufcelal.typesearchBoxInputPreviousButton.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.typesearchBoxInputPreviousButton));
+        ReusableMethods.bekle(2);
+
+        // Scroll işlemi
+        JavascriptExecutor jsupTyp = (JavascriptExecutor) driver;
+        jsupTyp.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.typeCategoriesLink);
+        ReusableMethods.bekle(2);
+        Assert.assertTrue(hauseHeaven_yusufcelal.facilityLink.isDisplayed(), "Hedef alan görünür değil!");
+        hauseHeaven_yusufcelal.facilityLink.click();
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.facilityLink));
+        ReusableMethods.bekle(2);
+        // Scroll işlemi bitiş
 
 
         Driver.quitDriver();
