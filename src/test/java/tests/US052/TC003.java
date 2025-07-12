@@ -7,8 +7,7 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class TC001 {
-
+public class TC003 {
     @Test
     public void test01(){
 
@@ -37,12 +36,12 @@ public class TC001 {
         hauseheavenAdminPages.locationMenuAlani.click();
         ReusableMethods.bekle(3);
 
-        hauseheavenAdminPages.countriesMenuAlani.click();
+        hauseheavenAdminPages.citiesMenuAlani.click();
         ReusableMethods.bekle(2);
 
-        String expectedCountriesSayfaUrl="https://qa.hauseheaven.com/admin/countries";
-        String actualCountriesSayfaUrl= Driver.getDriver().getCurrentUrl();
-        Assert.assertEquals(expectedCountriesSayfaUrl,actualCountriesSayfaUrl);
+        String expectedCitiesSayfaUrl="https://qa.hauseheaven.com/admin/cities";
+        String actualCitiesSayfaUrl= Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(expectedCitiesSayfaUrl,actualCitiesSayfaUrl);
 
         Driver.quitDriver();
     }
