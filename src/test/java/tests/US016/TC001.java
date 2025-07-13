@@ -9,9 +9,9 @@ import utilities.ReusableMethods;
 
 import java.time.Duration;
 
-public class TC003 {
+public class TC001 {
 
-    Kivanc_HauseheavenPage kivanc_hauseheavenPage = new Kivanc_HauseheavenPage();
+    tests.US016.Kivanc_HauseheavenPage kivanc_hauseheavenPage = new Kivanc_HauseheavenPage();
     String validationMessage;
 
     @Test
