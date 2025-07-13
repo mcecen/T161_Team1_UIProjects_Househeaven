@@ -100,6 +100,24 @@ public class Kivanc_HauseheavenPage {
     @FindBy (xpath = "//*[@id=\"app\"]/div/div/div/div/form/button")
     public WebElement updatePasswordButton;
 
+    @FindBy(xpath= ("//*[@id=\"cms-plugins-property\"]/a"))
+    public WebElement propertiesBasligi;
+
+    @FindBy(xpath = ("//a[@class='text-success']"))
+    public WebElement addProperties;
+
+    @FindBy(xpath = "//*[@id=\"toast-container\"]/div")
+    public WebElement createdSuccessfullyMesaji;
+
+    @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-property-table\"]/tbody/tr[1]/td[8]/div/a[1]/i")
+    public WebElement editIkonu;
+
+    @FindBy(xpath = "(//*[@name='submit'])[2]")
+    public WebElement saveButton;
+
+    @FindBy(xpath = "//li[@class='active']")
+    public WebElement properties;
+
 
 
 
