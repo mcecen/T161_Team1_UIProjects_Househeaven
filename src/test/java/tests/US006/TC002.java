@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.HauseheavenAnasayfa;
 import pages.HauseheavenPage;
 import utilities.ConfigReader;
 import utilities.Driver;
