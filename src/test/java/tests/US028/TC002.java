@@ -3,9 +3,9 @@ package tests.US028;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.HauseHeaven_yusufcelal;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
@@ -34,44 +34,38 @@ public class TC002 {
 //    Expired properties of User Admin dashboard homepage visible
 //    Agents of User Admin dashboard homepage visible
 
+    HauseHeaven_yusufcelal hauseHeaven_yusufcelal = new HauseHeaven_yusufcelal();
 
     @Test
     public void test01() {
         WebDriver driver = Driver.getDriver();
 
-        // 1. Navigate to the URL
-        driver.get("https://qa.hauseheaven.com/admin/login");
-        ReusableMethods.bekle(2);
+        // Go to the URL
+        Driver.getDriver().get(ConfigReader.getProperty("dashboard-yusuf-admin"));
+        ReusableMethods.bekle(4);
 
-        // 2. Verify the URL
-        String expectedUrl = "https://qa.hauseheaven.com/admin/login";
+        // Check the URL
+        String expectedUrl = HauseHeaven_yusufcelal.AdminLink;
         String actualUrl = driver.getCurrentUrl();
-        Assert.assertEquals(actualUrl, expectedUrl, "URL verification failed!");
+
+        Assert.assertEquals(actualUrl, expectedUrl, "URL check failed!");
 
         // 3. Locate and click the Email/Username input field
-        By emailInput = By.xpath("//*[@id='emailGroup']//input");
-        WebElement emailElement = driver.findElement(emailInput);
-        Assert.assertTrue(emailElement.isDisplayed(), "Email input field is not visible.");
-        emailElement.click();
-        emailElement.sendKeys(ConfigReader.getProperty("admin-yusuf"));
+        Assert.assertTrue(hauseHeaven_yusufcelal.emailInput.isDisplayed(), "Email input field is not visible.");
+        hauseHeaven_yusufcelal.emailInput.sendKeys(ConfigReader.getProperty("admin-yusuf"));
 
         // 4. Locate and click the Password input field
-        By passwordBox = By.xpath("//*[@id='passwordGroup']//input");
-        WebElement passwordElement = driver.findElement(passwordBox);
-        Assert.assertTrue(passwordElement.isDisplayed(), "Password input field is not visible.");
-        passwordElement.click();
-        passwordElement.sendKeys(ConfigReader.getProperty("admin-yusuf-password"));
-
+        Assert.assertTrue(hauseHeaven_yusufcelal.passwordInput.isDisplayed(), "Password input field is not visible.");
+        hauseHeaven_yusufcelal.passwordInput.sendKeys(ConfigReader.getProperty("admin-yusuf-password"));
 
         // 5. Locate and click the Sign In button
-        By signInButton = By.xpath("//button[@type='submit']");
-        Assert.assertTrue(driver.findElement(signInButton).isDisplayed(), "Sign In button is not visible.");
-        driver.findElement(signInButton).click();
+        Assert.assertTrue(hauseHeaven_yusufcelal.signInButton.isDisplayed(), "Sign In button is not visible.");
+        hauseHeaven_yusufcelal.signInButton.click();
         ReusableMethods.bekle(3);
 
         // 6. Verify the Admin Dashboard URL
-        String dashboardUrl = "https://qa.hauseheaven.com/admin";
-        Assert.assertEquals(driver.getCurrentUrl(), dashboardUrl, "Dashboard URL verification failed!");
+        Assert.assertTrue(hauseHeaven_yusufcelal.dashboardLink.isDisplayed(), "Dashboard link is not visible.");
+        hauseHeaven_yusufcelal.dashboardText.click();
 
         // 7. Verify visibility of main dashboard elements
         Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Active properties')]")).isDisplayed(), "Active properties section is visible.");
