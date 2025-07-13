@@ -57,7 +57,8 @@ public class TC002 {
     public void test01() {
         WebDriver driver = Driver.getDriver();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-
+        JavascriptExecutor jsdown = (JavascriptExecutor) driver;
+        JavascriptExecutor jsup = (JavascriptExecutor) driver;
 
         // Go to the URL
         Driver.getDriver().get(ConfigReader.getProperty("dashboard-yusuf-admin"));
@@ -125,7 +126,6 @@ public class TC002 {
         ReusableMethods.bekle(1);
 
         // Scroll işlemi
-        JavascriptExecutor jsdown = (JavascriptExecutor) driver;
         jsdown.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.PropertysearchBoxInputNextButton);
         ReusableMethods.bekle(2);
         Assert.assertTrue(hauseHeaven_yusufcelal.PropertysearchBoxInputNextButton.isDisplayed(), "Hedef alan görünür değil!");
@@ -139,7 +139,6 @@ public class TC002 {
         ReusableMethods.bekle(2);
 
         // Scroll işlemi
-        JavascriptExecutor jsup = (JavascriptExecutor) driver;
         jsup.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.featureLink);
         ReusableMethods.bekle(2);
         Assert.assertTrue(hauseHeaven_yusufcelal.featureLink.isDisplayed(), "Hedef alan görünür değil!");
@@ -174,8 +173,7 @@ public class TC002 {
         ReusableMethods.bekle(1);
 
         // Scroll işlemi
-        JavascriptExecutor jsdownf = (JavascriptExecutor) driver;
-        jsdownf.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.featuresearchBoxInputNextButton);
+        jsdown.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.featuresearchBoxInputNextButton);
         ReusableMethods.bekle(2);
         Assert.assertTrue(hauseHeaven_yusufcelal.featuresearchBoxInputNextButton.isDisplayed(), "Hedef alan görünür değil!");
         hauseHeaven_yusufcelal.featuresearchBoxInputNextButton.click();
@@ -188,8 +186,7 @@ public class TC002 {
         ReusableMethods.bekle(2);
 
         // Scroll işlemi
-        JavascriptExecutor jsupf = (JavascriptExecutor) driver;
-        jsupf.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.featureLink);
+        jsup.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.featureLink);
         ReusableMethods.bekle(2);
         Assert.assertTrue(hauseHeaven_yusufcelal.featureLink.isDisplayed(), "Hedef alan görünür değil!");
         hauseHeaven_yusufcelal.featureLink.click();
@@ -223,8 +220,7 @@ public class TC002 {
         ReusableMethods.bekle(1);
 
         // Scroll işlemi
-        JavascriptExecutor jsdownfc = (JavascriptExecutor) driver;
-        jsdownfc.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.facilitysearchBoxInputNextButton);
+        jsdown.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.facilitysearchBoxInputNextButton);
         ReusableMethods.bekle(2);
         Assert.assertTrue(hauseHeaven_yusufcelal.facilitysearchBoxInputNextButton.isDisplayed(), "Hedef alan görünür değil!");
         hauseHeaven_yusufcelal.facilitysearchBoxInputNextButton.click();
@@ -237,8 +233,7 @@ public class TC002 {
         ReusableMethods.bekle(2);
 
         // Scroll işlemi
-        JavascriptExecutor jsupfc = (JavascriptExecutor) driver;
-        jsupfc.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.facilityLink);
+        jsup.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.facilityLink);
         ReusableMethods.bekle(2);
         Assert.assertTrue(hauseHeaven_yusufcelal.facilityLink.isDisplayed(), "Hedef alan görünür değil!");
         hauseHeaven_yusufcelal.facilityLink.click();
@@ -271,8 +266,7 @@ public class TC002 {
         ReusableMethods.bekle(1);
 
         // Scroll işlemi
-        JavascriptExecutor jsdownCtg = (JavascriptExecutor) driver;
-        jsdownCtg.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.categoriessearchBoxInputNextButton);
+        jsdown.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.categoriessearchBoxInputNextButton);
         ReusableMethods.bekle(2);
         Assert.assertTrue(hauseHeaven_yusufcelal.categoriessearchBoxInputNextButton.isDisplayed(), "Hedef alan görünür değil!");
         hauseHeaven_yusufcelal.categoriessearchBoxInputNextButton.click();
@@ -285,8 +279,7 @@ public class TC002 {
         ReusableMethods.bekle(2);
 
         // Scroll işlemi
-        JavascriptExecutor jsupCtg = (JavascriptExecutor) driver;
-        jsupCtg.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.categoriesLink);
+        jsup.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.categoriesLink);
         ReusableMethods.bekle(2);
         Assert.assertTrue(hauseHeaven_yusufcelal.facilityLink.isDisplayed(), "Hedef alan görünür değil!");
         hauseHeaven_yusufcelal.facilityLink.click();
@@ -320,8 +313,7 @@ public class TC002 {
         ReusableMethods.bekle(1);
 
         // Scroll işlemi
-        JavascriptExecutor jsdownTyp = (JavascriptExecutor) driver;
-        jsdownTyp.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.typesearchBoxInputNextButton);
+        jsdown.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.typesearchBoxInputNextButton);
         ReusableMethods.bekle(2);
         Assert.assertTrue(hauseHeaven_yusufcelal.typesearchBoxInputNextButton.isDisplayed(), "Hedef alan görünür değil!");
         hauseHeaven_yusufcelal.typesearchBoxInputNextButton.click();
@@ -334,8 +326,7 @@ public class TC002 {
         ReusableMethods.bekle(2);
 
         // Scroll işlemi
-        JavascriptExecutor jsupTyp = (JavascriptExecutor) driver;
-        jsupTyp.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.typeCategoriesLink);
+        jsup.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.typeCategoriesLink);
         ReusableMethods.bekle(2);
         Assert.assertTrue(hauseHeaven_yusufcelal.facilityLink.isDisplayed(), "Hedef alan görünür değil!");
         hauseHeaven_yusufcelal.facilityLink.click();
