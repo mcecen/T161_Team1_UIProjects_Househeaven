@@ -7,12 +7,12 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class TC00 {
+public class TC003 {
     Kivanc_HauseheavenPage kivanc_hauseheavenPage = new Kivanc_HauseheavenPage();
     String validationMessage;
 
     @Test
-    public void regesterFormTest() {
+    public void editPropertiesTest() {
 
         //Go to the URL address: https://qa.hauseheaven.com/
         Driver.getDriver().get(ConfigReader.getProperty("url"));
@@ -84,6 +84,28 @@ public class TC00 {
 
         //User can see the account dashboard page loads properly.
         Assert.assertEquals(Driver.getDriver().getCurrentUrl(), ConfigReader.getProperty("dashboard-url"));
+
+        Assert.assertTrue(kivanc_hauseheavenPage.properties.isDisplayed());
+
+        kivanc_hauseheavenPage.properties.click();
+
+       Assert.assertEquals( Driver.getDriver().getCurrentUrl(),ConfigReader.getProperty("properties-url"));
+
+       Assert.assertTrue(kivanc_hauseheavenPage.propertiesEditikon.isDisplayed());
+
+       kivanc_hauseheavenPage.propertiesEditikon.click();
+       Assert.assertEquals(Driver.getDriver().getCurrentUrl(),ConfigReader.getProperty("propertiesEditPage-Url"));
+
+       Assert.assertTrue(kivanc_hauseheavenPage.editPageTitleAlani.isDisplayed());
+       Assert.assertTrue(kivanc_hauseheavenPage.editPageTitleAlani.isEnabled());
+       kivanc_hauseheavenPage.editPageTitleAlani.sendKeys("manzara");
+
+       Assert.assertTrue(kivanc_hauseheavenPage.propertiesEditPageSaveButton.isDisplayed());
+       kivanc_hauseheavenPage.propertiesEditPageSaveButton.click();
+
+
+
+
 
         Driver.quitDriver();
     }
