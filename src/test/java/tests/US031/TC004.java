@@ -40,7 +40,6 @@ public class TC004 {
 
         WebDriver driver = Driver.getDriver();
                 // Go to the URL
-        Driver.getDriver().get(ConfigReader.getProperty("dashboard-yusuf-admin"));
         ReusableMethods.bekle(1);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
@@ -63,7 +62,7 @@ public class TC004 {
         // 5. Locate and click the Sign In button
         Assert.assertTrue(hauseHeaven_yusufcelal.signInButton.isDisplayed(), "Sign In button is not visible.");
         hauseHeaven_yusufcelal.signInButton.click();
-
+        ReusableMethods.bekle(3);
 
         // 6. Verify the Admin Dashboard URL
         Assert.assertTrue(hauseHeaven_yusufcelal.dashboardLink.isDisplayed(), "Dashboard link is not visible.");

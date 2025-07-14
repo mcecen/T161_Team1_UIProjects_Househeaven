@@ -19,10 +19,10 @@ public class TC003 {
 
     @Test
     public void test01() {
-        WebDriver driver = Driver.getDriver();
+        WebDriver driver = Driver.getDriver(); // sadece bir kere çağır!
 
-        // Go to the URL
-        Driver.getDriver().get(ConfigReader.getProperty("dashboard-yusuf-admin"));
+        // 1. Sayfaya git
+        driver.get(ConfigReader.getProperty("dashboard-yusuf-admin"));
         ReusableMethods.bekle(4);
 
         // Check the URL

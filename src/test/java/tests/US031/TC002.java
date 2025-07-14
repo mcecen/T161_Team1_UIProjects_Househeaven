@@ -105,6 +105,11 @@ public class TC002 {
         Assert.assertTrue(hauseHeaven_yusufcelal.SaveButton.isDisplayed(), "'Save' butonu görünmüyor!");
        ReusableMethods.bekle(2);
 
+        // 12. Page Down ile aşağı kaydır
+        Actions Pageup = new Actions(driver);
+        Pagedown.sendKeys(Keys.PAGE_UP).perform();
+        ReusableMethods.bekle(2);
+
         // 15. Verify the Admin Dashboard URL
         Assert.assertTrue(hauseHeaven_yusufcelal.dashboardLink.isDisplayed(), "Dashboard link is not visible.");
         hauseHeaven_yusufcelal.dashboardText.click();

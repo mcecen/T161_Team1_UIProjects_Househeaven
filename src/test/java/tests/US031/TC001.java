@@ -71,6 +71,6 @@ public class TC001 {
         Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Expired properties')]")).isDisplayed(), "Expired properties section is visible.");
         Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Agents')]")).isDisplayed(), "Agents section is visible.");
 
-        Driver.quitDriver();
+Driver.closeDriver();
     }
 }

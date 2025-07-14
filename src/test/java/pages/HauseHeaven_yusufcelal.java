@@ -18,7 +18,7 @@ public class HauseHeaven_yusufcelal {
     @FindBy(id = "login_button") // ya da xpath, name, css gibi locator tipi
     public WebElement loginButton;
 
-    @FindBy(xpath = ("//*[@id='emailGroup']//input"))
+    @FindBy(xpath = ("//*[@id=\"emailGroup\"]/input"))
     public WebElement emailInput;
 
     @FindBy(xpath = ("//*[@id='passwordGroup']//input"))
@@ -45,7 +45,7 @@ public class HauseHeaven_yusufcelal {
 //      Dashboard anasayfasının görünür hali.
 //      ***************************************************************       //
 
-    @FindBy(xpath = ("//*[@id=\"app\"]/div[2]/div[1]/div/div[2]/ul/li[4]/a"))
+    @FindBy(xpath = ("//*[@id=\"app\"]/div[2]/div[1]/div/div[2]/ul/li[5]/a/span"))
     public WebElement userName; // This is the user name in the top-right corner of the admin dashboard
 
 //      ***************************************************************       //

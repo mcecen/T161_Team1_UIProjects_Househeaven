@@ -42,6 +42,7 @@ public class TC003 {
 
         Assert.assertEquals(actualUrl, expectedUrl, "URL check failed!");
 
+
         // 3. Locate and click the Email/Username input field
         Assert.assertTrue(hauseHeaven_yusufcelal.emailInput.isDisplayed(), "Email input field is not visible.");
         hauseHeaven_yusufcelal.emailInput.sendKeys(ConfigReader.getProperty("admin-yusuf"));
