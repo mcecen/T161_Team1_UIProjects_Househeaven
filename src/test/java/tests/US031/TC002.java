@@ -30,7 +30,8 @@ public class TC002 {
 
     @Test
     public void test01() {
-        WebDriver driver = Driver.getDriver();
+
+        hauseHeaven_yusufcelal = new HauseHeaven_yusufcelal();
 
         // Go to the URL
         Driver.getDriver().get(ConfigReader.getProperty("dashboard-yusuf-admin"));
@@ -38,7 +39,7 @@ public class TC002 {
 
         // Check the URL
         String expectedUrl = HauseHeaven_yusufcelal.AdminLink;
-        String actualUrl = driver.getCurrentUrl();
+        String actualUrl = Driver.getDriver().getCurrentUrl();
 
         Assert.assertEquals(actualUrl, expectedUrl, "URL check failed!");
 
@@ -62,10 +63,10 @@ public class TC002 {
         hauseHeaven_yusufcelal.dashboardText.click();
 
         // 7. Verify visibility of main dashboard elements
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Active properties')]")).isDisplayed(), "Active properties section is visible.");
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Pending properties')]")).isDisplayed(), "Pending properties section is visible.");
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Expired properties')]")).isDisplayed(), "Expired properties section is visible.");
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Agents')]")).isDisplayed(), "Agents section is visible.");
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Active properties')]")).isDisplayed(), "Active properties section is visible.");
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Pending properties')]")).isDisplayed(), "Pending properties section is visible.");
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Expired properties')]")).isDisplayed(), "Expired properties section is visible.");
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Agents')]")).isDisplayed(), "Agents section is visible.");
 
 
         // 8. Verify the Blog link in the left menu
@@ -93,7 +94,7 @@ public class TC002 {
         ReusableMethods.bekle(2);
 
         // 12. Page Down ile aşağı kaydır
-        Actions Pagedown = new Actions(driver);
+        Actions Pagedown = new Actions(Driver.getDriver());
         Pagedown.sendKeys(Keys.PAGE_DOWN).perform();
         ReusableMethods.bekle(2);
 
@@ -106,7 +107,7 @@ public class TC002 {
        ReusableMethods.bekle(2);
 
         // 12. Page Down ile aşağı kaydır
-        Actions Pageup = new Actions(driver);
+        Actions Pageup = new Actions(Driver.getDriver());
         Pagedown.sendKeys(Keys.PAGE_UP).perform();
         ReusableMethods.bekle(2);
 
@@ -117,7 +118,7 @@ public class TC002 {
 
         //      Kayıtlı kullanıcı page down yapılarak Save & Exit yazıları görünmektedir.
 
-        Driver.closeDriver();
+        Driver.quitDriver();
 
     }
 }
