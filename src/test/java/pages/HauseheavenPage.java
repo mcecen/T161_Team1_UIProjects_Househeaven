@@ -143,6 +143,13 @@ public class HauseheavenPage {
     @FindBy(xpath = "//div[contains(@class,'contact-sidebar')]//address")
     public WebElement sidebarAddress;
 
+    @FindBy(xpath = "//input[@id='name']")
+    public WebElement titleAlani;
+
+    @FindBy(xpath = "//textarea[@name='description']")
+    public WebElement descriptionAlani;
+
+
 
 
 }

@@ -7,12 +7,12 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class TC00 {
+public class TC003 {
     Kivanc_HauseheavenPage kivanc_hauseheavenPage = new Kivanc_HauseheavenPage();
     String validationMessage;
 
     @Test
-    public void regesterFormTest() {
+    public void editPropertiesTest() {
 
         //Go to the URL address: https://qa.hauseheaven.com/
         Driver.getDriver().get(ConfigReader.getProperty("url"));
