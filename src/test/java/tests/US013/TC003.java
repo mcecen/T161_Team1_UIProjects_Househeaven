@@ -13,7 +13,7 @@ public class TC003 {
     JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
 
     @Test
-    public void invalidEmailValidPasswordTest01() {
+    public void emptyEmailValidPasswordTest01() {
 
         //Go to the URL address: https://qa.hauseheaven.com/
         Driver.getDriver().get(ConfigReader.getProperty("url"));
@@ -50,6 +50,12 @@ public class TC003 {
         //User sees the warning message 'The username field is required.' under the Username textbox,
         Assert.assertTrue(eda_hauseheavenPage.emptyUsernameBoxWarning.isDisplayed());
         Assert.assertEquals(eda_hauseheavenPage.emptyUsernameBoxWarning.getText(), "The username field is required.");
+
+        //User views the Login form again,
+        Assert.assertTrue(eda_hauseheavenPage.loginForm.isDisplayed());
+
+        Driver.quitDriver();
+
     }
 
     @Test
@@ -88,7 +94,7 @@ public class TC003 {
         //User clicks the Login button in the Login form
         eda_hauseheavenPage.loginButton.click();
 
-        //User sees the warning message 'The username field is required.' under the Username textbox
+        //User sees the warning message 'These credentials do not match our records.' under the Username textbox
         Assert.assertTrue(eda_hauseheavenPage.invalidUsernameWarning.isDisplayed());
         Assert.assertEquals(eda_hauseheavenPage.invalidUsernameWarning.getText(), "These credentials do not match our records.");
 

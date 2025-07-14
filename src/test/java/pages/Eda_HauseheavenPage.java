@@ -52,7 +52,7 @@ public class Eda_HauseheavenPage {
     @FindBy (xpath = "//*[@id=\"app\"]/div[2]/div[3]/div")
     public WebElement rejectedProperties;
 
-    @FindBy (xpath = "//*[@id=\"navigation\"]/div[2]/ul[2]/li[2]/a")
+    @FindBy (xpath = "//*[@id=\"navigation\"]/div[2]/ul[2]/li[2]")
     public WebElement signInLink;
 
     @FindBy (xpath = "//*[@id=\"registermodal\"]/div")
@@ -84,6 +84,16 @@ public class Eda_HauseheavenPage {
 
     @FindBy (xpath = "//*[@id=\"registermodal\"]/div/div/form/div[1]/span")
     public WebElement invalidUsernameWarning;
+
+    @FindBy (xpath = "//*[@id=\"registermodal\"]/div/div/form/div[2]/span")
+    public WebElement emptyPasswordBoxWarning;
+
+    @FindBy (xpath = "//input[@type='password']/following-sibling::*[contains(text(),'These credentials')]")
+    public WebElement invalidPasswordWarning;
+
+
+
+
 
 
 
