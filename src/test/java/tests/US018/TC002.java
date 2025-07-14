@@ -8,13 +8,14 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class TC002 {
-    Serpil_HauseHeavenAnasayfa hauseheavenAnasayfa = new Serpil_HauseHeavenAnasayfa();
 
     @Test
     public void TC002() {
-/*
-        //2-Kayıtlı kullanıcı olarak anasayfanın gövde bölümündeki
-        // "acılır kutuların" görünürlüğünü test et
+
+        Serpil_HauseHeavenAnasayfa hauseheavenAnasayfa = new Serpil_HauseHeavenAnasayfa();
+
+        // 2-Kayıtlı kullanıcı olarak anasayfanın gövde bölümündeki
+        //"acılır kutuların" görünürlüğünü test et
 
 
         //Kullanıcı hausehaeven "https://qa.hauseheaven.com" URL adresine gider
@@ -24,36 +25,37 @@ public class TC002 {
         //  "sıgn ın " butonunun görünürlüğünü test et
         ReusableMethods.bekle(2);
         Assert.assertTrue(hauseheavenAnasayfa.signInButonu.isDisplayed());;
+        ReusableMethods.bekle(1);
 
         //  "Find accessible homes to rent" başlığının görüntülendiğini kontrol et
-        Assert.assertTrue(hauseheavenAnasayfa.hauseheavenAnasyfaTitleText.isDisplayed());
+       Assert.assertTrue(hauseheavenAnasayfa.HomePageLogo.isDisplayed());
 
-        //"serach location butonunun görunurluğunu test et
+       //"serach location butonunun görunurluğunu test et
         Assert.assertTrue(hauseheavenAnasayfa.searchLocation.isDisplayed());
 
-        // "Min Price" "acılır menusunun"" görünürlüğünü test et
-        Assert.assertTrue(hauseheavenAnasayfa.minPriceText.isDisplayed());
+        // "Min Price" "acılır menusunun"görünürlüğünü test et
+        Assert.assertTrue(hauseheavenAnasayfa.minPriceTextbox.isDisplayed());
 
         // " Max Price" "açılır menüsünün" görünürlüğünü test et
-        Assert.assertTrue(hauseheavenAnasayfa.maxPriceText);
+        Assert.assertTrue(hauseheavenAnasayfa.maxPriceText.isDisplayed());
 
         // " Property Type" "açılır menüsünün" görünürlüğünü test et
-        Assert.assertTrue(hauseheavenAnasayfa.propertyType);
+        Assert.assertTrue(hauseheavenAnasayfa.propertyType.isDisplayed());
 
         // " Bed Rooms " "açılır menüsünün" görünürlüğünü test et
-        Assert.assertTrue(hauseheavenAnasayfa.bedRoomsTextbox);
+        Assert.assertTrue(hauseheavenAnasayfa.bedRoomsTextbox.isDisplayed());
 
         // " Property Location" "açılır menüsünün" görünürlüğünü test et
-        Assert.assertTrue(hauseheavenAnasayfa.propertyLocation);
+        Assert.assertTrue(hauseheavenAnasayfa.propertyLocation.isDisplayed());
 
         // "Search Result" kutusununun görünülür olduğunutest et
-        Assert.assertTrue(hauseheavenAnasayfa.searchLocation);
+        Assert.assertTrue(hauseheavenAnasayfa.SearchButon.isDisplayed());
 
         // Tarayıcıyı Kapat
         Driver.quitDriver();
 
     }
 
- */
+
     }
-}
+
