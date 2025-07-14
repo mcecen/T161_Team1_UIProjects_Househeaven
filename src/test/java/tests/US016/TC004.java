@@ -85,6 +85,24 @@ public class TC004 {
         //User can see the account dashboard page loads properly.
         Assert.assertEquals(Driver.getDriver().getCurrentUrl(), ConfigReader.getProperty("dashboard-url"));
 
+        Assert.assertTrue(kivanc_hauseheavenPage.properties.isDisplayed());
+
+        kivanc_hauseheavenPage.properties.click();
+
+        Assert.assertEquals( Driver.getDriver().getCurrentUrl(),ConfigReader.getProperty("properties-url"));
+
+        Assert.assertTrue(kivanc_hauseheavenPage.propertiesDeleteIkon.isDisplayed());
+        kivanc_hauseheavenPage.propertiesDeleteIkon.click();
+
+        Assert.assertTrue(kivanc_hauseheavenPage.propertiesDeleteConfirmAlert.isDisplayed());
+        Assert.assertTrue(kivanc_hauseheavenPage.confirmAlertDeleteButton.isDisplayed());
+        kivanc_hauseheavenPage.confirmAlertDeleteButton.click();
+
+        Assert.assertFalse(kivanc_hauseheavenPage.propertiesManzaraIlani.isDisplayed());
+
+
+
+
         Driver.quitDriver();
     }
     }

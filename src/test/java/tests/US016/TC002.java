@@ -89,6 +89,22 @@ public class TC002 {
 
         kivanc_hauseheavenPage.addProperties.click();
 
+        Assert.assertEquals(Driver.getDriver().getCurrentUrl(),ConfigReader.getProperty("addPropertiesCreate-Url"));
+
+        Assert.assertTrue(kivanc_hauseheavenPage.addPropertiesTitleAlani.isDisplayed());
+        kivanc_hauseheavenPage.addPropertiesTitleAlani.sendKeys("panorama manzaralı");
+
+        Assert.assertTrue(kivanc_hauseheavenPage.getAddPropertiesDescriptionAlani.isDisplayed());
+
+
+        Assert.assertTrue(kivanc_hauseheavenPage.getAddPropertiesContentAlani.isDisplayed());
+        kivanc_hauseheavenPage.getAddPropertiesContentAlani.sendKeys("denize 3km");
+
+        Assert.assertTrue(kivanc_hauseheavenPage.saveButton.isDisplayed());
+        kivanc_hauseheavenPage.saveButton.click();
+
+        Assert.assertTrue(kivanc_hauseheavenPage.getAddPropertiesSaveAlertMassage.isDisplayed());
+
 
         Driver.quitDriver();
     }
