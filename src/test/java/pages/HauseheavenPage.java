@@ -121,27 +121,21 @@ public class HauseheavenPage {
     public WebElement messageRequiredWarning;
 
 
-    @FindBy(xpath = "//iframe[contains(@src, 'google.com/maps')]")
-    public WebElement mapIframe;
-
-    @FindBy(xpath = "//div[@class='gm-style']//img[contains(@src,'googleusercontent.com')]")
-    public WebElement mapPinIcon;
-
-    @FindBy(xpath = "//div[contains(text(),'4655 Wild Indigo St')]")
-    public WebElement mapPopupText;
-
-    @FindBy(xpath = "//div[@class='contact-sidebar']//p[contains(text(),'4655 Wild Indigo St')]")
-    public WebElement addressInSidebar;
-
-    @FindBy(xpath = "//a[contains(text(),'Daha büyük haritayı görüntüle')]")
-    public WebElement viewLargerMapLink;
-
-    @FindBy (xpath = "//h3[text()='Directions']")
-    public WebElement directionsText;
+    @FindBy(xpath = "//h4[text()='Reach Us']/..")
+    public WebElement sideBarAddress;
 
 
-    @FindBy(xpath = "//div[contains(@class,'contact-sidebar')]//address")
-    public WebElement sidebarAddress;
+    @FindBy (xpath = "//li[@class='add-listing']")
+    public WebElement signInButton;
+
+    @FindBy (xpath = "//input[@id='email']")
+    public WebElement emailField;
+
+    @FindBy (xpath = "//input[@id='password']")
+    public WebElement passwordField;
+
+    @FindBy (xpath = "(//button[@type='submit'])[1]")
+    public WebElement loginButton;
 
 
 
