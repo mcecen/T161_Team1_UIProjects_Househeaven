@@ -38,10 +38,10 @@ public class TC002 {
 
     @Test
     public void test01() {
-        WebDriver driver = Driver.getDriver();
+        WebDriver driver = Driver.getDriver(); // sadece bir kere çağır!
 
-        // Go to the URL
-        Driver.getDriver().get(ConfigReader.getProperty("dashboard-yusuf-admin"));
+        // 1. Sayfaya git
+        driver.get(ConfigReader.getProperty("dashboard-yusuf-admin"));
         ReusableMethods.bekle(4);
 
         // Check the URL
@@ -52,11 +52,15 @@ public class TC002 {
 
         // 3. Locate and click the Email/Username input field
         Assert.assertTrue(hauseHeaven_yusufcelal.emailInput.isDisplayed(), "Email input field is not visible.");
+        ReusableMethods.bekle(2);
+
         hauseHeaven_yusufcelal.emailInput.sendKeys(ConfigReader.getProperty("admin-yusuf"));
+        ReusableMethods.bekle(2);
 
         // 4. Locate and click the Password input field
         Assert.assertTrue(hauseHeaven_yusufcelal.passwordInput.isDisplayed(), "Password input field is not visible.");
         hauseHeaven_yusufcelal.passwordInput.sendKeys(ConfigReader.getProperty("admin-yusuf-password"));
+        ReusableMethods.bekle(2);
 
         // 5. Locate and click the Sign In button
         Assert.assertTrue(hauseHeaven_yusufcelal.signInButton.isDisplayed(), "Sign In button is not visible.");
