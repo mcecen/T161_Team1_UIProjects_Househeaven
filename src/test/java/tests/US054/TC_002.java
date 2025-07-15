@@ -115,6 +115,11 @@ public class TC_002 {
 
         dropdown.selectByVisibleText("Canada");
 
+        WebElement option = driver.findElement(By.xpath("(//span[@class='select2-selection__rendered'])[1], 'Canada')]"));
+        option.click();
+
+
+
         // On the States>New States page that opens, the user should be able to click on the directional arrows in the Order* Spin Box field.
         // The user should be able to manually enter data in the Order* Spin Box field on the States>New States page that opens. (Numerical)
         // The user should view the Status* Dropdown on the States>New States page that opens.
