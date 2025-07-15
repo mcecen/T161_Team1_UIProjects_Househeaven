@@ -18,8 +18,6 @@ public class TC001 {
 
         //Kullanıcı tarayıcı sayfasını acar
 
-        //Kullacı tarayıcı arama cubuğuna tıklar
-
         //Kullanıcı arama cubuğuna hausehaeven "https://qa.hauseheaven.com"
         // URL'yi girer ve anasayfaya erişir
 
@@ -28,7 +26,7 @@ public class TC001 {
 
         Assert.assertEquals(Driver.getDriver().getCurrentUrl(),ConfigReader.getProperty("url"));
 
-
+        //Kullanıcı anasayfayı kapatır
 
         Driver.quitDriver();
 

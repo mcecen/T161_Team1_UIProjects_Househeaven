@@ -1,19 +1,24 @@
 package tests.US013;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Eda_HauseheavenPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
-public class TC003 {
+import java.time.Duration;
+
+public class TC005 {
 
     Eda_HauseheavenPage eda_hauseheavenPage = new Eda_HauseheavenPage();
     JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
 
     @Test
-    public void emptyEmailValidPasswordTest01() {
+    public void emptyUsernamePasswordTest01(){
 
         //Go to the URL address: https://qa.hauseheaven.com/
         Driver.getDriver().get(ConfigReader.getProperty("url"));
@@ -41,8 +46,7 @@ public class TC003 {
         //User clicks on the Password textbox in the Login form
         Assert.assertTrue(eda_hauseheavenPage.loginPasswordTextbox.isEnabled());
 
-        //User enters valid data into the Password textbox
-        eda_hauseheavenPage.loginPasswordTextbox.sendKeys(ConfigReader.getProperty("user-eda-password"));
+        //User does not enter any data into the Password textbox
 
         //User clicks the Login button in the Login form
         eda_hauseheavenPage.loginButton.click();
@@ -51,15 +55,17 @@ public class TC003 {
         Assert.assertTrue(eda_hauseheavenPage.emptyUsernameBoxWarning.isDisplayed());
         Assert.assertEquals(eda_hauseheavenPage.emptyUsernameBoxWarning.getText(), "The username field is required.");
 
+        //User sees the warning message 'The password field is required.' under the Password textbox
+        Assert.assertTrue(eda_hauseheavenPage.emptyPasswordBoxWarning.isDisplayed());
+        Assert.assertEquals(eda_hauseheavenPage.emptyPasswordBoxWarning.getText(), "The password field is required.");
+
         //User views the Login form again,
         Assert.assertTrue(eda_hauseheavenPage.loginForm.isDisplayed());
-
-        Driver.quitDriver();
 
     }
 
     @Test
-    public void invalidEmailValidPasswordTest02() {
+    public void invalidUsernamePasswordTest02(){
 
         //Go to the URL address: https://qa.hauseheaven.com/
         Driver.getDriver().get(ConfigReader.getProperty("url"));
@@ -88,8 +94,8 @@ public class TC003 {
         //User clicks on the Password textbox in the Login form
         Assert.assertTrue(eda_hauseheavenPage.loginPasswordTextbox.isEnabled());
 
-        //User enters valid data into the Password textbox
-        eda_hauseheavenPage.loginPasswordTextbox.sendKeys(ConfigReader.getProperty("user-eda-password"));
+        //User enters invalid data into the Password textbox
+        eda_hauseheavenPage.loginPasswordTextbox.sendKeys("123456");
 
         //User clicks the Login button in the Login form
         eda_hauseheavenPage.loginButton.click();
@@ -105,5 +111,8 @@ public class TC003 {
 
 
 
+
     }
+
+
 }

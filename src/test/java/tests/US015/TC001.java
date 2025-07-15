@@ -6,8 +6,6 @@ import utilities.ConfigReader;
 import utilities.Driver;
 
 public class TC001 {
-<<<<<<< HEAD
-=======
 
     @Test
     public void homePageTest(){
@@ -21,5 +19,5 @@ public class TC001 {
 
         Driver.quitDriver();
 
-    }}
->>>>>>> main
+    }
+}

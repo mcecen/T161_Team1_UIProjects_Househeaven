@@ -38,25 +38,30 @@ public class TC002 {
 
     @Test
     public void test01() {
-        WebDriver driver = Driver.getDriver();
 
-        // Go to the URL
+        hauseHeaven_yusufcelal = new HauseHeaven_yusufcelal();
+        // 1. Sayfaya git
         Driver.getDriver().get(ConfigReader.getProperty("dashboard-yusuf-admin"));
-        ReusableMethods.bekle(4);
+        ReusableMethods.bekle(2);
+
 
         // Check the URL
         String expectedUrl = HauseHeaven_yusufcelal.AdminLink;
-        String actualUrl = driver.getCurrentUrl();
+        String actualUrl = Driver.getDriver().getCurrentUrl();
 
         Assert.assertEquals(actualUrl, expectedUrl, "URL check failed!");
 
         // 3. Locate and click the Email/Username input field
         Assert.assertTrue(hauseHeaven_yusufcelal.emailInput.isDisplayed(), "Email input field is not visible.");
+        ReusableMethods.bekle(2);
+
         hauseHeaven_yusufcelal.emailInput.sendKeys(ConfigReader.getProperty("admin-yusuf"));
+        ReusableMethods.bekle(2);
 
         // 4. Locate and click the Password input field
         Assert.assertTrue(hauseHeaven_yusufcelal.passwordInput.isDisplayed(), "Password input field is not visible.");
         hauseHeaven_yusufcelal.passwordInput.sendKeys(ConfigReader.getProperty("admin-yusuf-password"));
+        ReusableMethods.bekle(2);
 
         // 5. Locate and click the Sign In button
         Assert.assertTrue(hauseHeaven_yusufcelal.signInButton.isDisplayed(), "Sign In button is not visible.");
@@ -68,10 +73,10 @@ public class TC002 {
         hauseHeaven_yusufcelal.dashboardText.click();
 
         // 7. Verify visibility of main dashboard elements
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Active properties')]")).isDisplayed(), "Active properties section is visible.");
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Pending properties')]")).isDisplayed(), "Pending properties section is visible.");
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Expired properties')]")).isDisplayed(), "Expired properties section is visible.");
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Agents')]")).isDisplayed(), "Agents section is visible.");
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Active properties')]")).isDisplayed(), "Active properties section is visible.");
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Pending properties')]")).isDisplayed(), "Pending properties section is visible.");
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Expired properties')]")).isDisplayed(), "Expired properties section is visible.");
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Agents')]")).isDisplayed(), "Agents section is visible.");
 
         Driver.quitDriver();
     }

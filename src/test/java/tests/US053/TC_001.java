@@ -56,6 +56,7 @@ public class TC_001 {
       //  After clicking the Shelter In button, it displays the "https://qa.hauseheaven.com/admin" page.
       //  The user sees the Admin dashboard homepage open.
       Assert.assertTrue(erkan_adminHouseheavenPage.DashboardLogo.isDisplayed());
+      ReusableMethods.bekle(2);
 
       //  The user sees the Locations category listed under the Dashboard heading in the left menu.
       Assert.assertTrue(erkan_adminHouseheavenPage.LocationsDropdown.isDisplayed());
