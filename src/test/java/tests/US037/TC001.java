@@ -48,7 +48,7 @@ public class TC001 {
         // Kullanıcı Real Estate başlığı altında açılan alt menude çıkan Features başlığını tıklar
        Assert.assertTrue(hauseheavenAdminPages.featuresBasligi.isDisplayed());
        hauseheavenAdminPages.featuresBasligi.click();
-        // Kullanıcı Features başlığını tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/property-features" sayfasına erişebildiğini görür
+        //  Kullanıcı Features başlığını tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/property-features" sayfasına erişebildiğini görür
         String expectedFeaturesSayfaUrl="https://qa.hauseheaven.com/admin/real-estate/property-features";
         String actualFeaturesSayfaUrl= Driver.getDriver().getCurrentUrl();
         Assert.assertEquals(expectedFeaturesSayfaUrl,actualFeaturesSayfaUrl);

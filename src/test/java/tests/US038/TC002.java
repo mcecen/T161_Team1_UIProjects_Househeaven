@@ -1,4 +1,4 @@
-package tests.US037;
+package tests.US038;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
@@ -13,7 +13,6 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class TC002 {
-
     CennetHauseheavenAdminPages hauseheavenAdminPages = new CennetHauseheavenAdminPages();
     Faker faker = new Faker();
 
@@ -48,19 +47,18 @@ public class TC002 {
         //    Kullanıcı Deshboard sayfasına eriştiğini görür
         //    Kullanıcı sağ en üstte (Cennet Atak) kullanıcı adında profil logosunu görür
         Assert.assertTrue(hauseheavenAdminPages.profilLogosu.isDisplayed());
-        //    Kullanıcı Deshboard sayfasında Active properties,Pending properties,Expired properties ve Agents kategorilerini görür
         //    Kullanıcı deshboard sayfası sol menüde Real Estate başlığını görür
         //    Kullanıcı deshboard sayfası sol menüde Real Estate başlığını tıklar
         Assert.assertTrue(hauseheavenAdminPages.realEstateBasligi.isDisplayed());
         hauseheavenAdminPages.realEstateBasligi.click();
-        // Kullanıcı Real Estate başlığını tıklamak ile alt menude açılan Features başlığını görür
-        // Kullanıcı Real Estate başlığı altında açılan alt menude çıkan Features başlığını tıklar
-        Assert.assertTrue(hauseheavenAdminPages.featuresBasligi.isDisplayed());
-        hauseheavenAdminPages.featuresBasligi.click();
-        // Kullanıcı Features başlığını tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/property-features" sayfasına erişebildiğini görür
-        String expectedFeaturesSayfaUrl = "https://qa.hauseheaven.com/admin/real-estate/property-features";
-        String actualFeaturesSayfaUrl = Driver.getDriver().getCurrentUrl();
-        Assert.assertEquals(expectedFeaturesSayfaUrl, actualFeaturesSayfaUrl);
+        // Kullanıcı Real Estate başlığını tıklamak ile alt menude açılan Facilities başlığını görür
+        // Kullanıcı Real Estate başlığı altında açılan alt menude çıkan Facilities başlığını tıklar
+        Assert.assertTrue(hauseheavenAdminPages.facilitiesBasligi.isDisplayed());
+        hauseheavenAdminPages.facilitiesBasligi.click();
+        //Kullanıcı Facilitiesbaşlığını tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/property-Facilities" sayfasına erişebildiğini görü
+        String expectedFacilitiesSayfaUrl = "https://qa.hauseheaven.com/admin/real-estate/property-Facilities";
+        String actualFacilitiesSayfaUrl = Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(expectedFacilitiesSayfaUrl, actualFacilitiesSayfaUrl);
 
 
     }
@@ -68,51 +66,51 @@ public class TC002 {
     @Test
     public void test002() {
 
-// Kullanıcı Features sayfasında sağ üstte Create butonunu görür
-// Kullanıcı Features sayfasında sağ üstte Create butonunu tıklar
+// Kullanıcı Facilities sayfasında sağ üstte Create butonunu görür
+// Kullanıcı Facilities sayfasında sağ üstte Create butonunu tıklar
         //Assert.assertTrue(hauseheavenAdminPages.createButton.isDisplayed());
         hauseheavenAdminPages.featuresCreateButton.click();
-// Kullanıcı Features sayfasında sağ üstte Create butonunu tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/property-features/create"url ine ulaşır
-        String expectedCreateSayfaUrl = "https://qa.hauseheaven.com/admin/real-estate/property-features/create";
+// Kullanıcı  Facilities sayfasında sağ üstte Create butonunu tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/property- Facilities/create"url ine ulaşır
+        String expectedCreateSayfaUrl = "https://qa.hauseheaven.com/admin/real-estate/property- Facilities/create";
         String actualCreateSayfaUrl = Driver.getDriver().getCurrentUrl();
         Assert.assertTrue(expectedCreateSayfaUrl.equals(actualCreateSayfaUrl));
-// Kullanıcı  Features sayfasındaki create sayfasında "Title" texbox ını görür
-// Kullanıcı  Features sayfasındaki create  sayfasında "Title" texbox ını tıklar
+// Kullanıcı Facilities sayfasındaki create sayfasında "Title" texbox ını görür
+// Kullanıcı  Facilities sayfasındaki create  sayfasında "Title" texbox ını tıklar
         hauseheavenAdminPages.titleAlani.click();
-// Kullanıcı  Features sayfasındaki create  sayfasında "Title" texbox ına eklemek istediği özellik içeriğini yazar
+// Kullanıcı  Facilities sayfasındaki create  sayfasında "Title" texbox ına eklemek istediği özellik içeriğini yazar
         hauseheavenAdminPages.titleAlani.sendKeys(faker.toString());
-// Kullanıcı  Features sayfasındaki create sayfasında "Icon" texbox ını görür
-// Kullanıcı  Featuressayfasındaki create sayfasında "Icon" texbox ını tıklar
-// Kullanıcı  Features sayfasındaki create  sayfasında "Icon" texbox ını tıklar ve altta açılan menüden birini tıklayarak seçer
-       ReusableMethods.bekle(3);
+// Kullanıcı  Facilities sayfasındaki create sayfasında "Icon" texbox ını görür
+// Kullanıcı  Facilities sayfasındaki create sayfasında "Icon" texbox ını tıklar
+// Kullanıcı  Facilities  sayfasındaki create  sayfasında "Icon" texbox ını tıklar ve altta açılan menüden birini tıklayarak seçer
+        ReusableMethods.bekle(3);
         Select select = new Select(hauseheavenAdminPages.iconAlaniDdm);
         select.selectByValue("ti-flickr");
 
-// Kullanıcı Features sayfasındaki create sayfasında sağ tarafta  "Publish" yazısı altında Save   texbox ını görür
-// Kullanıcı  Features sayfasındaki create sayfasında sağ tarafta  "Publish" yazısı altında Save   texbox ını tıklar
-// Kullanıcı  Features sayfasındaki create sayfasında sağ tarafta  "Publish" yazısı altında Save   texbox ını tıklamak ile sayfa yenilenir , aynı sayfada kalır ve "Created successfully" ibaresi görülür
+// Kullanıcı Facilities sayfasındaki create sayfasında sağ tarafta  "Publish" yazısı altında Save   texbox ını görür
+// Kullanıcı Facilities sayfasındaki create sayfasında sağ tarafta  "Publish" yazısı altında Save   texbox ını tıklar
+// Kullanıcı  Facilities sayfasındaki create sayfasında sağ tarafta  "Publish" yazısı altında Save   texbox ını tıklamak ile sayfa yenilenir , aynı sayfada kalır ve "Created successfully" ibaresi görülür
         ((JavascriptExecutor) Driver.getDriver()).executeScript("window.scrollBy(0, -600)");
         hauseheavenAdminPages.saveButton.click();
         String expectedSonucMesajIcerik = "Created successfully";
         String actualSonucMesajIcerik = hauseheavenAdminPages.createdSuccessfullyMesaji.getText();
         Assert.assertTrue(actualSonucMesajIcerik.contains(expectedSonucMesajIcerik));
         ReusableMethods.bekle(3);
-// Kullanıcı features anasayfaya geri döner
+// Kullanıcı Facilities anasayfaya geri döner
         Driver.getDriver().get("https://qa.hauseheaven.com/admin/real-estate/property-features");
         Assert.assertTrue(hauseheavenAdminPages.createButton.isDisplayed());
         hauseheavenAdminPages.createButton.click();
-// Kullanıcı Features sayfasında sağ üstte Create butonunu tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/property-features/create"url ine ulaşır
+// Kullanıcı Facilities sayfasında sağ üstte Create butonunu tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/property-features/create"url ine ulaşır
         String expectedCreateSayfaUrl2 = "https://qa.hauseheaven.com/admin/real-estate/property-features/create";
         String actualCreateSayfaUrl2 = Driver.getDriver().getCurrentUrl();
         Assert.assertTrue(expectedCreateSayfaUrl2.equals(actualCreateSayfaUrl2));
-// Kullanıcı  Features sayfasındaki create sayfasında "Title" texbox ını görür
-// Kullanıcı  Features sayfasındaki create  sayfasında "Title" texbox ını tıklar
+// Kullanıcı  Facilities sayfasındaki create sayfasında "Title" texbox ını görür
+// Kullanıcı Facilities sayfasındaki create  sayfasında "Title" texbox ını tıklar
         hauseheavenAdminPages.titleAlani.click();
         // Kullanıcı  Features sayfasındaki create  sayfasında "Title" texbox ına eklemek istediği özellik içeriğini yazar
         hauseheavenAdminPages.titleAlani.sendKeys(faker.toString());
-// Kullanıcı  Features sayfasındaki create sayfasında sağ tarafta  "Publish" yazısı altında Save&Exit  texbox ını görür
-// Kullanıcı Features sayfasındaki create sayfasında sağ tarafta  "Publish" yazısı altında Save&Exit   texbox ını tıklar
-// Kullanıcı  Features sayfasındaki create  sayfasında sağ tarafta  "Publish" yazısı altında Save&Exit   texbox ını tıklamak ile sayfa yenilenir Features anasayfaya yönlendirilir ve ve "Created successfully" ibaresi görülür
+// Kullanıcı  Facilities sayfasındaki create sayfasında sağ tarafta  "Publish" yazısı altında Save&Exit  texbox ını görür
+// Kullanıcı Facilities sayfasındaki create sayfasında sağ tarafta  "Publish" yazısı altında Save&Exit   texbox ını tıklar
+// Kullanıcı  Facilities sayfasındaki create  sayfasında sağ tarafta  "Publish" yazısı altında Save&Exit   texbox ını tıklamak ile sayfa yenilenir Features anasayfaya yönlendirilir ve ve "Created successfully" ibaresi görülür
         hauseheavenAdminPages.saveExitButton.click();
 
         WebElement toastMessage = Driver.getDriver().findElement(By.cssSelector("div.toast-message"));
@@ -121,5 +119,5 @@ public class TC002 {
 
         Driver.quitDriver();
     }
-
 }
+

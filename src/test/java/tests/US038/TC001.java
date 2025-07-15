@@ -1,7 +1,5 @@
-package tests.US037;
+package tests.US038;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CennetHauseheavenAdminPages;
@@ -9,9 +7,7 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class TC003 {
-
-    CennetHauseheavenAdminPages hauseheavenAdminPages = new CennetHauseheavenAdminPages();
+public class TC001 {
 
     @Test
     public void test001(){
@@ -21,7 +17,7 @@ public class TC003 {
         String expectedUrlIcerik = "hauseheaven";
         String actualUrlIcerik = Driver.getDriver().getCurrentUrl();
         Assert.assertTrue(actualUrlIcerik.contains((expectedUrlIcerik)));
-        hauseheavenAdminPages = new CennetHauseheavenAdminPages();
+        CennetHauseheavenAdminPages hauseheavenAdminPages = new CennetHauseheavenAdminPages();
         Assert.assertTrue(hauseheavenAdminPages.emailKutusu.isDisplayed());
         //    Kullanıcı email/username text alanını görür
         //    Kullanıcı email/username text alanını tıklar
@@ -50,28 +46,14 @@ public class TC003 {
         hauseheavenAdminPages.realEstateBasligi.click();
         // Kullanıcı Real Estate başlığını tıklamak ile alt menude açılan Features başlığını görür
         // Kullanıcı Real Estate başlığı altında açılan alt menude çıkan Features başlığını tıklar
-        Assert.assertTrue(hauseheavenAdminPages.featuresBasligi.isDisplayed());
-        hauseheavenAdminPages.featuresBasligi.click();
-        // Kullanıcı Features başlığını tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/property-features" sayfasına erişebildiğini görür
-        String expectedFeaturesSayfaUrl="https://qa.hauseheaven.com/admin/real-estate/property-features";
-        String actualFeaturesSayfaUrl= Driver.getDriver().getCurrentUrl();
-        Assert.assertEquals(expectedFeaturesSayfaUrl,actualFeaturesSayfaUrl);
-
-
-
-    }
-    @Test
-    public void test002(){
-//  Kullanıcı silmek istediği ilan üzerinde sayfanın en solunda Operations başlığı altındaki  delete ikonunu (çöp kovası) tıklar
-        hauseheavenAdminPages.deleteIkonu.click();
-
-//  Kullanıcı delete ikonuna tıklaması ile  ekranda "Do you really want to delete this record ? İbaresi altında "Delete" butonuna tıklar
-        hauseheavenAdminPages.deleteButton.click();
-//  Kullanıcı Delete butonuna basması ile sayfa yenilenir ve sağ altta "Deleted Successfully" ibaresini görür
-        WebElement toastMessage = Driver.getDriver().findElement(By.cssSelector("div.toast-message"));
-        Assert.assertTrue(toastMessage.isDisplayed());
-        Assert.assertEquals(toastMessage.getText(), "Deleted successfully");
+        hauseheavenAdminPages.facilitiesBasligi.click();
+        //Kullanıcı Facilitiesbaşlığını tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/property-Facilities" sayfasına erişebildiğini görür
+        String expectedFacilitiesSayfaUrl="https://qa.hauseheaven.com/admin/real-estate/facilities";
+        String actualFacilitiesSayfaUrl= Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(expectedFacilitiesSayfaUrl,actualFacilitiesSayfaUrl);
         Driver.quitDriver();
+
+
     }
 }
 
