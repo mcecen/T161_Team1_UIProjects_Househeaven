@@ -1,12 +1,16 @@
 package tests.US053;
 
 import com.github.javafaker.Faker;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Erkan_AdminHouseheavenPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+
+import static utilities.Driver.driver;
 
 public class TC_002 {
 
@@ -130,7 +134,8 @@ public class TC_002 {
         Assert.assertTrue(erkan_adminHouseheavenPage.StatusDropdownBaslik.isDisplayed());
 
        // Kullanıcı açılan Countries>New Country sayfasında StatusDropdownPublished Dropdownuna tıklar.
-        erkan_adminHouseheavenPage.StatusDropdownPublished.click();
+        erkan_adminHouseheavenPage.StatusDropdownPublished
+                .click();
 
        // Kullanıcı açılan Countries>New Country sayfasında Status* Dropdownuna tıklandığı zaman Published, Draft Pending kategorilerinin listelendiğini görür.
         Assert.assertTrue(erkan_adminHouseheavenPage.StatusDropdownPublished.isDisplayed());
@@ -146,6 +151,10 @@ public class TC_002 {
        // Kullanıcı açılan Countries>New Country sayfasında Save & Exit butonuna tıkladığı zaman "https://qa.hauseheaven.com/admin/countries" sayfasına yönlendirilmeli ve "Success Created Successfully" yazısını sayfanın sağ alt köşesinde görüntüler.
         Assert.assertTrue(erkan_adminHouseheavenPage.DashboardLocationsCountries.isDisplayed());
         ReusableMethods.bekle(3);
+
+        WebElement toastMessage = driver.findElement(By.cssSelector("div.toast-message"));
+        Assert.assertTrue(toastMessage.isDisplayed());
+        Assert.assertEquals(toastMessage.getText(), "Created successfully");
 
        // Kullanıcı açılan Countries sayfası New Country sayfasında girilen yeni Ülke kayıt bilgilerini "NAME, NATIONALITY, STATUS" kolonları altında ilk sırada görüntüler.
 
