@@ -1,4 +1,4 @@
-package tests.US037;
+package tests.US038;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -14,7 +14,8 @@ public class TC003 {
     CennetHauseheavenAdminPages hauseheavenAdminPages = new CennetHauseheavenAdminPages();
 
     @Test
-    public void test001(){
+    public void test001() {
+
         //    Kullanıcı tarayıcı arama çubuğuna hauseheaven "URL:https://qa.hauseheaven.com/admin/login" URL adresini yazar
         //    Kullanıcı Arama butonuna tıklar
         Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
@@ -43,23 +44,22 @@ public class TC003 {
         //    Kullanıcı Deshboard sayfasına eriştiğini görür
         //    Kullanıcı sağ en üstte (Cennet Atak) kullanıcı adında profil logosunu görür
         Assert.assertTrue(hauseheavenAdminPages.profilLogosu.isDisplayed());
-        //    Kullanıcı Deshboard sayfasında Active properties,Pending properties,Expired properties ve Agents kategorilerini görür
         //    Kullanıcı deshboard sayfası sol menüde Real Estate başlığını görür
         //    Kullanıcı deshboard sayfası sol menüde Real Estate başlığını tıklar
         Assert.assertTrue(hauseheavenAdminPages.realEstateBasligi.isDisplayed());
         hauseheavenAdminPages.realEstateBasligi.click();
-        // Kullanıcı Real Estate başlığını tıklamak ile alt menude açılan Features başlığını görür
-        // Kullanıcı Real Estate başlığı altında açılan alt menude çıkan Features başlığını tıklar
-        Assert.assertTrue(hauseheavenAdminPages.featuresBasligi.isDisplayed());
-        hauseheavenAdminPages.featuresBasligi.click();
-        // Kullanıcı Features başlığını tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/property-features" sayfasına erişebildiğini görür
-        String expectedFeaturesSayfaUrl="https://qa.hauseheaven.com/admin/real-estate/property-features";
-        String actualFeaturesSayfaUrl= Driver.getDriver().getCurrentUrl();
-        Assert.assertEquals(expectedFeaturesSayfaUrl,actualFeaturesSayfaUrl);
-
+        // Kullanıcı Real Estate başlığını tıklamak ile alt menude açılan Facilities başlığını görür
+        // Kullanıcı Real Estate başlığı altında açılan alt menude çıkan Facilities başlığını tıklar
+        Assert.assertTrue(hauseheavenAdminPages.facilitiesBasligi.isDisplayed());
+        hauseheavenAdminPages.facilitiesBasligi.click();
+        //Kullanıcı Facilitiesbaşlığını tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/property-Facilities" sayfasına erişebildiğini görü
+        String expectedFacilitiesSayfaUrl = "https://qa.hauseheaven.com/admin/real-estate/property-Facilities";
+        String actualFacilitiesSayfaUrl = Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(expectedFacilitiesSayfaUrl, actualFacilitiesSayfaUrl);
 
 
     }
+
     @Test
     public void test002(){
 //  Kullanıcı silmek istediği ilan üzerinde sayfanın en solunda Operations başlığı altındaki  delete ikonunu (çöp kovası) tıklar
@@ -73,5 +73,5 @@ public class TC003 {
         Assert.assertEquals(toastMessage.getText(), "Deleted successfully");
         Driver.quitDriver();
     }
-}
 
+}

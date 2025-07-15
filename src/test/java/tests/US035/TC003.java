@@ -1,5 +1,6 @@
 package tests.US035;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -64,12 +65,10 @@ public class TC003 {
 //  Kullanıcı silmek istediği ilan üzerinde sayfanın en solunda Operations başlığı altındaki  delete ikonunu (çöp kovası) tıklar
         hauseheavenAdminPages.deleteIkonu.click();
 
-//  Kullanıcı delete ikonuna tıklaması ile  ekranda "Do you really want to delete this record ? İbaresi altında "Delete" butonuna tıklar
+//  Kullanıcı delete ikonuna tıklaması ile  ekranda "Do you really want to delete this record ? İbaresi altında "Delete" butonuna tıklar ve "Deleted successfully" mesajını görür
         hauseheavenAdminPages.deleteButton.click();
-//  Kullanıcı Delete butonuna basması ile sayfa yenilenir ve sağ altta "Deleted Successfully" ibaresini görür
-     String expectedMesajIcerik ="Deleted Successfully";
-     String actualMesajIcerik= hauseheavenAdminPages.createdSuccessfullyMesaji.getText();
-     Assert.assertTrue(expectedMesajIcerik.equals(actualMesajIcerik));
-
+        WebElement toastMessage = Driver.getDriver().findElement(By.cssSelector("div.toast-message"));
+        Assert.assertTrue(toastMessage.isDisplayed());
+        Assert.assertEquals(toastMessage.getText(), "Deleted successfully");
     }
 }

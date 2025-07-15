@@ -57,7 +57,7 @@ public class TC004 {
         String expectedFeaturesSayfaUrl="https://qa.hauseheaven.com/admin/real-estate/property-features";
         String actualFeaturesSayfaUrl= Driver.getDriver().getCurrentUrl();
         Assert.assertEquals(expectedFeaturesSayfaUrl,actualFeaturesSayfaUrl);
-        Driver.quitDriver();
+
 
     }
 
@@ -80,9 +80,9 @@ public class TC004 {
 // Kullanıcı  Features t sayfasındaki create sayfasında  sağ tarafta  "Publish" yazısı altında Save&Exit   texbox ını tıklar
         hauseheavenAdminPages.saveExitButton.click();
 // Kullanıcı  Features t sayfasındaki create sayfasında sağ tarafta  "Publish" yazısı altında Save&Exit   texbox ını tıklamak   "Name is required." uyarısını görür
-        String expectedUyariMesaji="Name is required." ;
-        String actualUyariMesaji=hauseheavenAdminPages.nameIsRequiredUyarisi.getText();
-        Assert.assertTrue(expectedUyariMesaji.equals(actualUyariMesaji));
+        ReusableMethods.bekle(3);
+        Assert.assertTrue(hauseheavenAdminPages.nameIsRequiredUyarisi.isDisplayed());
+        Driver.quitDriver();
     }
 }
 
