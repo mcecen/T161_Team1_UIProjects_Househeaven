@@ -66,10 +66,12 @@ public class TC003 {
 
     @Test
     public void test01() {
-        WebDriver driver = Driver.getDriver();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        JavascriptExecutor jsdown = (JavascriptExecutor) driver;
-        JavascriptExecutor jsup = (JavascriptExecutor) driver;
+
+        hauseHeaven_yusufcelal = new HauseHeaven_yusufcelal();
+
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
+        JavascriptExecutor jsdown = (JavascriptExecutor) Driver.getDriver();
+        JavascriptExecutor jsup = (JavascriptExecutor) Driver.getDriver();
 
         // Go to the URL
         Driver.getDriver().get(ConfigReader.getProperty("dashboard-yusuf-admin"));
@@ -77,7 +79,7 @@ public class TC003 {
 
         // Check the URL
         String expectedUrl = HauseHeaven_yusufcelal.AdminLink;
-        String actualUrl = driver.getCurrentUrl();
+        String actualUrl = Driver.getDriver().getCurrentUrl();
 
         Assert.assertEquals(actualUrl, expectedUrl, "URL check failed!");
 
@@ -101,10 +103,10 @@ public class TC003 {
         hauseHeaven_yusufcelal.dashboardText.click();
 
         // 7. Verify visibility of main dashboard elements
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Active properties')]")).isDisplayed(), "Active properties section is visible.");
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Pending properties')]")).isDisplayed(), "Pending properties section is visible.");
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Expired properties')]")).isDisplayed(), "Expired properties section is visible.");
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Agents')]")).isDisplayed(), "Agents section is visible.");
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Active properties')]")).isDisplayed(), "Active properties section is visible.");
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Pending properties')]")).isDisplayed(), "Pending properties section is visible.");
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Expired properties')]")).isDisplayed(), "Expired properties section is visible.");
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Agents')]")).isDisplayed(), "Agents section is visible.");
 
         // 8. Verify the Real Estate link in the left menu
         Assert.assertTrue(hauseHeaven_yusufcelal.realEstateLink.isDisplayed(), "Blog link is not visible.");
