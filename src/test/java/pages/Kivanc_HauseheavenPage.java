@@ -100,6 +100,52 @@ public class Kivanc_HauseheavenPage {
     @FindBy (xpath = "//*[@id=\"app\"]/div/div/div/div/form/button")
     public WebElement updatePasswordButton;
 
+    @FindBy(xpath= ("//*[@id=\"cms-plugins-property\"]/a"))
+    public WebElement propertiesBasligi;
+
+    @FindBy(xpath = ("//a[@class='text-success']"))
+    public WebElement addProperties;
+
+    @FindBy(xpath = "//*[@id=\"toast-container\"]/div")
+    public WebElement createdSuccessfullyMesaji;
+
+    @FindBy(xpath = "//*[@class='btn btn-icon btn-sm btn-primary']")
+    public WebElement propertiesEditikon;
+    @FindBy(xpath = "(//*[@name='submit'])[2]")
+    public WebElement saveButton;
+
+    @FindBy(xpath = "//li[@class='active']")
+    public WebElement properties;
+
+    @FindBy(xpath = "//input[@placeholder='Title']")
+    public WebElement addPropertiesTitleAlani;
+
+    @FindBy(xpath = "//textarea[@placeholder='Short description']")
+    public WebElement getAddPropertiesDescriptionAlani;
+
+    @FindBy(xpath = "//div[@role='textbox']")
+    public WebElement getAddPropertiesContentAlani;
+
+    @FindBy(xpath = "//*[@id=\"alert-container\"]")
+    public WebElement getAddPropertiesSaveAlertMassage;
+
+    @FindBy(xpath = "//*[@class='form-control is-valid']")
+    public WebElement editPageTitleAlani;
+
+    @FindBy(xpath = "//*[@name='submit'][2]")
+    public WebElement propertiesEditPageSaveButton;
+
+    @FindBy(xpath = "//*[@class='btn btn-icon btn-sm btn-danger deleteDialog']")
+    public WebElement propertiesDeleteIkon;
+
+    @FindBy(xpath = "//*[@class='modal-content']")
+    public WebElement propertiesDeleteConfirmAlert;
+
+    @FindBy(xpath = "(//button[text()='Delete'])[1]")
+    public WebElement confirmAlertDeleteButton;
+
+    @FindBy(xpath = "//*[text()='manzara']")
+    public WebElement propertiesManzaraIlani;
 
 
 

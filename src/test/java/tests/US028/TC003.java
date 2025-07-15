@@ -19,15 +19,14 @@ public class TC003 {
 
     @Test
     public void test01() {
-        WebDriver driver = Driver.getDriver();
-
-        // Go to the URL
+        hauseHeaven_yusufcelal = new HauseHeaven_yusufcelal();
+        // 1. Sayfaya git
         Driver.getDriver().get(ConfigReader.getProperty("dashboard-yusuf-admin"));
         ReusableMethods.bekle(4);
 
         // Check the URL
         String expectedUrl = HauseHeaven_yusufcelal.AdminLink;
-        String actualUrl = driver.getCurrentUrl();
+        String actualUrl = Driver.getDriver().getCurrentUrl();
 
         Assert.assertEquals(actualUrl, expectedUrl, "URL check failed!");
 
@@ -54,28 +53,28 @@ public class TC003 {
         Assert.assertTrue(hauseHeaven_yusufcelal.activeProperties.isDisplayed(), "Active properties section is visible.");
         hauseHeaven_yusufcelal.activeProperties.click();
         ReusableMethods.bekle(2);
-        driver.navigate().back();
+        Driver.getDriver().navigate().back();
         ReusableMethods.bekle(2);
 
         // 8. Verify visibility of main dashboard elements and Pending properties
         Assert.assertTrue(hauseHeaven_yusufcelal.pendingProperties.isDisplayed(), "Pending properties section is visible.");
         hauseHeaven_yusufcelal.pendingProperties.click();
         ReusableMethods.bekle(2);
-        driver.navigate().back();
+        Driver.getDriver().navigate().back();
         ReusableMethods.bekle(2);
 
         // 9. Verify visibility of main dashboard elements and Expired properties
         Assert.assertTrue(hauseHeaven_yusufcelal.expiredProperties.isDisplayed(), "Expired properties section is visible.");
         hauseHeaven_yusufcelal.expiredProperties.click();
         ReusableMethods.bekle(2);
-        driver.navigate().back();
+        Driver.getDriver().navigate().back();
         ReusableMethods.bekle(2);
 
         // 10. Verify visibility of main dashboard elements and Agents
         Assert.assertTrue(hauseHeaven_yusufcelal.agents.isDisplayed(), "Expired properties section is visible.");
         hauseHeaven_yusufcelal.agents.click();
         ReusableMethods.bekle(2);
-        driver.navigate().back();
+        Driver.getDriver().navigate().back();
         ReusableMethods.bekle(2);
 
         // 11. Verify the user name in the top-right corner

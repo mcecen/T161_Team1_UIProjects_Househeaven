@@ -73,7 +73,132 @@ public class Erkan_AdminHouseheavenPage {
     @FindBy (xpath = "//th[@title='Operations']" )
     public WebElement CountriesOperations;
 
-    @FindBy (xpath = "(//td[@class='text-start column-key-name sorting_1'])[10]" )
+    @FindBy (xpath = "//*[@id=\"botble-location-tables-country-table\"]/tbody/tr[8]/td[3]/a" )
     public WebElement CountriesNameUnitedStatesofAmerica;
+
+    @FindBy (xpath = "//th[@class='column-key-id sorting']" )
+    public WebElement StatesID;
+
+    @FindBy (xpath = "//th[@class='text-start column-key-name sorting_asc']" )
+    public WebElement StatesName;
+
+    @FindBy (xpath = "//th[@class='text-start column-key-country_id sorting']" )
+    public WebElement StatesCountry;
+
+    @FindBy (xpath = "//th[@class='column-key-created_at sorting']" )
+    public WebElement StatesCreatedAt;
+
+    @FindBy (xpath = "//th[@class='column-key-status sorting']" )
+    public WebElement StatesStatus;
+
+    @FindBy (xpath = "//th[@class='text-center sorting_disabled']" )
+    public WebElement StatesOperations;
+
+    @FindBy (xpath = "//*[@id=\"app\"]/div[2]/div[3]/div[2]/div/ol/li[4]" )
+    public WebElement DashboardLocationsCountriesNewcountry;
+
+    @FindBy (xpath = "(//label[@class='control-label required'])[1]" )
+    public WebElement NameBaslik;
+
+    @FindBy (xpath = "(//label[@class='control-label required'])[2]" )
+    public WebElement NationalityBaslik;
+
+    @FindBy (xpath = "(//label[@class='control-label required'])[3]" )
+    public WebElement CountryISOcodeBaslik;
+
+    @FindBy (xpath = "(//label[@class='control-label required'])[4]" )
+    public WebElement StatusBaslik;
+
+    @FindBy (xpath = "//label[@class='control-label dial_code']" )
+    public WebElement DialcodeBaslik;
+
+    @FindBy (xpath = "//label[@class='control-label']" )
+    public WebElement OrderBaslik;
+
+    @FindBy (xpath = "//input[@class='form-control']" )
+    public WebElement NameTextbox;
+
+    @FindBy (xpath = "(//input[@class='form-control'])[2]" )
+    public WebElement NationalityTextbox;
+
+    @FindBy (xpath = "(//input[@class='form-control'])[3]" )
+    public WebElement CountryISOcodeTextbox;
+
+    @FindBy (xpath = "(//input[@class='form-control'])[4]" )
+    public WebElement StatusTextbox;
+
+    @FindBy (xpath = "(//input[@id='dial_code']" )
+    public WebElement DialcodeTextbox;
+
+    @FindBy (xpath = "//input[@id='order']" )
+    public WebElement OrderTextbox;
+
+    @FindBy (xpath = "//button[@class='btn btn-info']" )
+    public WebElement SaveExitButton;
+
+    @FindBy (xpath = "//label[@for='status']" )
+    public WebElement StatusDropdownBaslik;
+
+    @FindBy (xpath = "//span[@class='select2-selection__rendered']" )
+    public WebElement StatusDropdownPublished;
+
+    @FindBy (xpath = "//*[@id=\"botble-location-tables-country-table\"]/tbody/tr/td[3]" )
+    public WebElement Thailand;
+
+    @FindBy (xpath = "(//div[@class='modal-content'])[1]" )
+    public WebElement DeletePopUp;
+
+    @FindBy (xpath = "//*[@id=\"main\"]/div[2]/div/div/div[3]/button[1]" )
+    public WebElement ConfirmDeleteCancelButton;
+
+    @FindBy (xpath = "//*[@id=\"main\"]/div[2]/div/div/div[3]/button[2]" )
+    public WebElement ConfirmDeleteDeleteButton;
+
+    @FindBy (xpath = "//*[@id=\"main\"]/div[2]/div/div/div[2]/div" )
+    public WebElement ConfirmDeleteMessage;
+
+
+    // Locations States New State
+
+    @FindBy (xpath = "(//ol[@class='breadcrumb'])[1]" )
+    public WebElement DashboardLocationsStatesNewstate;
+
+    @FindBy (xpath = "//label[@class='control-label required']" )
+    public WebElement NewstateNameBaslik;
+
+    @FindBy (xpath = "//label[@for='abbreviation']" )
+    public WebElement NewstateAbbreviationBaslik;
+
+    @FindBy (xpath = "//label[@for='country_id']" )
+    public WebElement NewstateCountryBaslik;
+
+    @FindBy (xpath = "//li[@id='select2-country_id-result-hv32-2']" )
+    public WebElement NewstateCanada;
+
+    @FindBy (xpath = "//label[@for='order']" )
+    public WebElement NewstateOrderBaslik;
+
+    @FindBy (xpath = "(//button[@value='apply'])[1]" )
+    public WebElement NewstateSaveButton;
+
+    @FindBy (xpath = "(//input[@class='form-control'])[1]" )
+    public WebElement NewstateNameTextBox;
+
+    @FindBy (xpath = "(//input[@class='form-control'])[2]" )
+    public WebElement NewstateAbbreviationTextBox;
+
+    @FindBy (xpath = "(//span[@class='select2-selection__rendered'])[1]" )
+    public WebElement NewstateCountryDrp;
+
+    @FindBy (xpath = "//input[@class='form-control is-valid']" )
+    public WebElement NewstateOrderSpnBox;
+
+
+
+
+
+
+
+
 
 }
