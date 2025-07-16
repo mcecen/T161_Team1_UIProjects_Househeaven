@@ -112,14 +112,17 @@ public class Eda_HauseheavenPage {
     @FindBy (xpath = "//*[@id=\"name\"]")
     public WebElement titleTextbox;
 
-    @FindBy (xpath = "//*[@id=\"edit-slug-box\"]/label")
-    public WebElement permalinkTextbox;
+    @FindBy (xpath = "//*[@id=\"name-error\"]")
+    public WebElement titleWarning;
 
     @FindBy (xpath = "//*[@id=\"description\"]")
     public WebElement descriptionTextbox;
 
-    @FindBy (xpath = "//*[@id=\"content\"]")
+    @FindBy (xpath = "//*[@id=\"botble-real-estate-forms-account-property-form\"]/div/div[2]/div/div[1]/div/div[4]/div/div[2]/div")
     public WebElement contentTextbox;
+
+    @FindBy (xpath = "//*[@id=\"botble-real-estate-forms-account-property-form\"]/div/div[2]/div/div[1]/div/div[4]/div[2]")
+    public WebElement contentWarning;
 
     @FindBy (xpath = "//div[@id='multiple-upload']//input[@type='file']")
     public WebElement propertiesImagesBox;
@@ -145,7 +148,7 @@ public class Eda_HauseheavenPage {
     @FindBy (xpath = "//*[@id=\"square\"]")
     public WebElement squareTextbox;
 
-    @FindBy (xpath = "//*[@id=\"price\"]")
+    @FindBy (xpath = "//*[@id=\"price-number\"]")
     public WebElement priceTextbox;
 
     @FindBy (xpath = "//select[@id='type_id']")
@@ -177,6 +180,24 @@ public class Eda_HauseheavenPage {
 
     @FindBy (xpath = "//*[@id=\"navigation\"]/div[2]/ul[1]/li[2]/a")
     public WebElement listingLink;
+
+    @FindBy (xpath = "//*[@id=\"app\"]/div/div/div[3]/div/p")
+    public WebElement signInBelowText;
+
+    @FindBy (xpath = "//*[@id=\"emailGroup\"]/input")
+    public WebElement adminEmailTextBox;
+
+    @FindBy (xpath = "//*[@id=\"passwordGroup\"]/input")
+    public WebElement adminPasswordTextBox;
+
+    @FindBy (xpath = "//*[@id=\"app\"]/div/div/div[3]/div/form/button/span")
+    public WebElement adminLoginButton;
+
+    @FindBy (xpath = "//*[@id=\"main\"]/div[3]/div[1]/a/div[2]/div[2]")
+    public WebElement activePropertiesLink;
+
+
+
 
 
 
