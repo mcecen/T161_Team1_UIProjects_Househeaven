@@ -49,8 +49,8 @@ public class Driver {
                     WebDriverManager.safaridriver().setup();
                     driver = new SafariDriver();
                     break;
-                case "edge" :
-                    WebDriverManager.edgedriver().setup();
+                case "edge":
+                    System.setProperty("webdriver.edge.driver", "C:\\drivers\\edgedriver\\msedgedriver.exe");
                     driver = new EdgeDriver();
                     break;
                 default:

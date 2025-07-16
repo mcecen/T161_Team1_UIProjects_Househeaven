@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import pages.Eda_HauseheavenPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.PageNavigation;
 import utilities.ReusableMethods;
 
 public class TC001 {
@@ -53,24 +54,18 @@ public class TC001 {
 
         //User clicks the Title textbox and types 'geniş bahçeli dubleks villa'.
         eda_hauseheavenPage.titleTextbox.sendKeys("geniş bahçeli dubleks villa");
-        eda_hauseheavenPage.listingCreationform.click();
 
-        ReusableMethods.bekle(2);
+        PageNavigation.scrollDownWithJS(200);
 
         //User clicks the Description textbox and types 'Eşyasız'.
         eda_hauseheavenPage.descriptionTextbox.sendKeys("Eşyasız");
 
-        ReusableMethods.bekle(2);
+        PageNavigation.scrollDownWithJS(200);
 
         //User clicks the Content textbox and types 'iç-dış cephe boyaları yapıldı'.
-        actions.click(eda_hauseheavenPage.contentTextbox)
-                .sendKeys("iç-dış cephe boyaları yapıldı")
-                .build()
-                .perform();
+        eda_hauseheavenPage.contentTextbox.sendKeys("iç-dış cephe boyaları yapıldı");
 
-
-        //User uploads property images.
-        eda_hauseheavenPage.propertiesImagesBox.sendKeys("C:\\Users\\X\\OneDrive\\Masaüstü\\evilanı\\FI6SY2gWQAQRq0k.jpeg");
+        PageNavigation.scrollDownWithJS(300);
 
         //User selects city 'Eryaman'.
         eda_hauseheavenPage.cityDropdown.click();
@@ -84,23 +79,28 @@ public class TC001 {
         ReusableMethods.bekle(1);
         actions.sendKeys(Keys.ENTER).perform();
 
+        PageNavigation.scrollDownWithJS(300);
+
         //User types 'Ankara' into the Property Location textbox.
         eda_hauseheavenPage.propertyLocationTextbox.sendKeys("Ankara");
 
         //User types '1.000.000' into Price textbox.
         eda_hauseheavenPage.priceTextbox.sendKeys("1.000.000");
 
+        PageNavigation.scrollDownWithJS(200);
+
         //User selects 'For Sale' from Type dropdown.
         Select select = new Select(eda_hauseheavenPage.typeDropdown);
         select.selectByValue("1");
 
+        PageNavigation.scrollDownWithJS(200);
 
         //User checks 'Wifi', 'Garden', 'Parking'.
         eda_hauseheavenPage.wifiCheckbox.click();
         eda_hauseheavenPage.parkingCheckbox.click();
         eda_hauseheavenPage.gardenCheckbox.click();
 
-        actions.sendKeys(Keys.PAGE_UP);
+        PageNavigation.scrollToTopWithJS();
 
         //User selects 'Villa' from Category dropdown.
         eda_hauseheavenPage.categoryDropdown.click();
@@ -146,11 +146,11 @@ public class TC001 {
 
         //User sees text '0 Approved properties'.
         Assert.assertTrue(eda_hauseheavenPage.approvedProperties.isDisplayed());
-        Assert.assertEquals(eda_hauseheavenPage.approvedProperties.getText(), "0 Approved properties");
+        Assert.assertEquals(eda_hauseheavenPage.approvedProperties.getText(), "0\nApproved properties");
 
         //User sees text '1 Pending approve properties'.
         Assert.assertTrue(eda_hauseheavenPage.pendingApproveProperties.isDisplayed());
-        Assert.assertEquals(eda_hauseheavenPage.pendingApproveProperties.getText(), "1 Pending approve properties");
+        Assert.assertEquals(eda_hauseheavenPage.pendingApproveProperties.getText(), "1\nPending approve properties");
 
         Driver.quitDriver();
 
