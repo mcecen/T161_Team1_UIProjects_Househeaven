@@ -21,7 +21,7 @@ import java.util.List;
 
 public class TC003 {
 
-    SwHauseheavenPage swHauseheavenPage = new SwHauseheavenPage();
+     SwHauseheavenPage swHauseheavenPage = new SwHauseheavenPage();
     Actions actions = new Actions(Driver.getDriver());
 
     @Test
@@ -178,4 +178,10 @@ public class TC003 {
         Driver.quitDriver();
 
     }
-}
+   
+ }
+
+
+
+
+
