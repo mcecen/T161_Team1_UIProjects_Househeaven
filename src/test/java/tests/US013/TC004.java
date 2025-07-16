@@ -20,7 +20,7 @@ public class TC004 extends TestBaseRapor {
 
     @Test
     public void validEmailEmptyPasswordTest01() {
-
+        eda_hauseheavenPage = new Eda_HauseheavenPage();
         //Go to the URL address: https://qa.hauseheaven.com/"
         Driver.getDriver().get(ConfigReader.getProperty("url"));
 
@@ -61,13 +61,12 @@ public class TC004 extends TestBaseRapor {
         //User views the Login form again
         Assert.assertTrue(eda_hauseheavenPage.loginForm.isDisplayed());
 
-        Driver.quitDriver();
 
 }
 
     @Test
     public void validEmailInvalidPasswordTest02() {
-
+        eda_hauseheavenPage = new Eda_HauseheavenPage();
         extentTest = extentReports.createTest("Valid Email Invalid Password Test");
 
 
