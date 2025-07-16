@@ -100,6 +100,93 @@ public class Kivanc_HauseheavenPage {
     @FindBy (xpath = "//*[@id=\"app\"]/div/div/div/div/form/button")
     public WebElement updatePasswordButton;
 
+    @FindBy(xpath= ("//*[@id=\"cms-plugins-property\"]/a"))
+    public WebElement propertiesBasligi;
+
+    @FindBy(xpath = ("//a[@class='text-success']"))
+    public WebElement addProperties;
+
+
+    @FindBy(xpath = "//*[@id=\"toast-container\"]/div")
+    public WebElement createdSuccessfullyMesaji;
+
+    @FindBy(xpath = "//*[@class='btn btn-icon btn-sm btn-primary']")
+    public WebElement propertiesEditikon;
+    @FindBy(xpath = "(//*[@name='submit'])[2]")
+    public WebElement saveButton;
+
+    @FindBy(xpath = "//*[@title='Properties']")
+    public WebElement properties;
+
+    @FindBy(xpath = "//input[@placeholder='Title']")
+    public WebElement addPropertiesTitleAlani;
+
+    @FindBy(xpath = "//textarea[@placeholder='Short description']")
+    public WebElement getAddPropertiesDescriptionAlani;
+
+    @FindBy(xpath = "//div[@role='textbox']")
+    public WebElement getAddPropertiesContentAlani;
+
+    @FindBy(xpath = "//*[@id=\"alert-container\"]")
+    public WebElement getAddPropertiesSaveAlertMassage;
+
+    @FindBy(xpath = "//*[@class='form-control is-valid']")
+    public WebElement editPageTitleAlani;
+
+    @FindBy(xpath = "//*[@name='submit'][2]")
+    public WebElement propertiesEditPageSaveButton;
+
+    @FindBy(xpath = "//*[@class='btn btn-icon btn-sm btn-danger deleteDialog']")
+    public WebElement propertiesDeleteIkon;
+
+    @FindBy(xpath = "//*[@class='modal-content']")
+    public WebElement propertiesDeleteConfirmAlert;
+
+    @FindBy(xpath = "(//button[text()='Delete'])[1]")
+    public WebElement confirmAlertDeleteButton;
+
+    @FindBy(xpath = "//*[text()='manzara']")
+    public WebElement propertiesManzaraIlani;
+
+    @FindBy(xpath = "//*[@class='logo']")
+    public WebElement mainLogo;
+
+    @FindBy(xpath = "//*[@id=\"navigation\"]/div[2]/ul[1]/li[1]/a")
+    public WebElement homeMenu;
+
+    @FindBy(xpath = "//*[@id=\"navigation\"]/div[2]/ul[1]/li[2]/a")
+    public WebElement listingMenu;
+
+    @FindBy(xpath = "//*[@id=\"navigation\"]/div[2]/ul[1]/li[3]/a")
+    public WebElement projectMenu;
+
+    @FindBy(xpath = "//*[@id=\"navigation\"]/div[2]/ul[1]/li[4]/a")
+    public WebElement agentsMenu;
+
+    @FindBy(xpath = "//*[@id=\"navigation\"]/div[2]/ul[1]/li[5]/a")
+    public WebElement blogMenu;
+
+    @FindBy(xpath = "//*[@id=\"navigation\"]/div[2]/ul[1]/li[6]/a")
+    public WebElement contactMenu;
+
+    @FindBy(xpath = "//*[@id=\"navigation\"]/div[2]/ul[1]/li[7]/a")
+    public WebElement signUpMenu;
+
+    @FindBy(xpath = "(//*[@class='login-item'])[1]")
+    public WebElement profilIkon;
+
+    @FindBy(xpath = "(//*[@class='login-item'])[2]")
+    public WebElement logOut;
+
+    @FindBy(xpath = "//*[text()='Sign In']")
+    public WebElement logInTextElementi;
+
+    @FindBy(className = "js-cookie-consent")
+    public WebElement jsCookieConsent;
+
+    @FindBy(xpath = "\".//button[contains(text(), 'Accept')]\"")
+    public WebElement getJsCookieConsentAccept;
+
 
 
 

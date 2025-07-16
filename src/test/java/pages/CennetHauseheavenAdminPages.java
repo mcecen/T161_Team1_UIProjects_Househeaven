@@ -104,6 +104,35 @@ public class CennetHauseheavenAdminPages {
     @FindBy(xpath = "    //button[@class='float-end btn btn-danger delete-crud-entry']")
     public WebElement packageDeletePopUpButton;
 
+    @FindBy(xpath = "//*[@id=\"cms-plugins-re-feature\"]/a")
+    public WebElement featuresBasligi;
+
+    @FindBy(xpath = "//*[@class='btn btn-secondary action-item']")
+    public WebElement createButton;
+
+    @FindBy(xpath = "//*[@id=\"icon\"]")
+    public WebElement iconAlaniDdm;
+
+    @FindBy(xpath = "//*[@id='name-error']")
+    public WebElement nameIsRequiredUyarisi;
+
+    @FindBy(xpath = "/html/body/link")
+    public WebElement deletedSuccessfullyMesaji;
+
+    @FindBy(xpath= "//*[@id=\"cms-plugins-facility\"]/a")
+    public WebElement facilitiesBasligi;
+
+    @FindBy(xpath = "//*[@class='btn btn-secondary action-item']")
+    public WebElement featuresCreateButton;
+
+    @FindBy(xpath = "//*[@class='add-new-gallery-image js-btn-trigger-add-image']")
+    public WebElement addImageButton;
+
+    //@FindBy(xpath = "//input[@id='location']")
+   // public WebElement propertyLocationAlani;
+
+    @FindBy(xpath = "//*[@id='name-error']")
+    public WebElement theNameFieldIsRequiredUYariMesaji;
 }
 
 

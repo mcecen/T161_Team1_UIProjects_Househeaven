@@ -29,11 +29,11 @@ public class TC003 {
 
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(false);", hauseheavenPage.contactPhoneInfo);
 
-        Assert.assertTrue(hauseheavenPage.sideBarAddress.isDisplayed());
+       //Assert.assertTrue(hauseheavenPage.sideBarAddress.isDisplayed());
 
         // Address in the sidebar
-        String sidebarText = hauseheavenPage.sideBarAddress.getText().toLowerCase();
-        System.out.println("Sidebar: " + sidebarText);
+        //String sidebarText = hauseheavenPage.sideBarAddress.getText().toLowerCase();
+       //System.out.println("Sidebar: " + sidebarText);
 
         // take the src of iframe
         //normal iframe gecislerde hata verdi

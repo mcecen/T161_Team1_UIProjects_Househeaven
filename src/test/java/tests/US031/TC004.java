@@ -37,16 +37,15 @@ public class TC004 {
 
     @Test
     public void test01() {
+        hauseHeaven_yusufcelal = new HauseHeaven_yusufcelal();
 
-        WebDriver driver = Driver.getDriver();
                 // Go to the URL
-        Driver.getDriver().get(ConfigReader.getProperty("dashboard-yusuf-admin"));
         ReusableMethods.bekle(1);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
 
         // Check the URL
         String expectedUrl = HauseHeaven_yusufcelal.AdminLink;
-        String actualUrl = driver.getCurrentUrl();
+        String actualUrl = Driver.getDriver().getCurrentUrl();
 
         Assert.assertEquals(actualUrl, expectedUrl, "URL check failed!");
 
@@ -63,17 +62,17 @@ public class TC004 {
         // 5. Locate and click the Sign In button
         Assert.assertTrue(hauseHeaven_yusufcelal.signInButton.isDisplayed(), "Sign In button is not visible.");
         hauseHeaven_yusufcelal.signInButton.click();
-
+        ReusableMethods.bekle(3);
 
         // 6. Verify the Admin Dashboard URL
         Assert.assertTrue(hauseHeaven_yusufcelal.dashboardLink.isDisplayed(), "Dashboard link is not visible.");
         hauseHeaven_yusufcelal.dashboardText.click();
 
         // 7. Verify visibility of main dashboard elements
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Active properties')]")).isDisplayed(), "Active properties section is visible.");
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Pending properties')]")).isDisplayed(), "Pending properties section is visible.");
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Expired properties')]")).isDisplayed(), "Expired properties section is visible.");
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Agents')]")).isDisplayed(), "Agents section is visible.");
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Active properties')]")).isDisplayed(), "Active properties section is visible.");
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Pending properties')]")).isDisplayed(), "Pending properties section is visible.");
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Expired properties')]")).isDisplayed(), "Expired properties section is visible.");
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Agents')]")).isDisplayed(), "Agents section is visible.");
 
 
         // 8. Verify the Blog link in the left menu
@@ -131,19 +130,19 @@ public class TC004 {
         hauseHeaven_yusufcelal.statussearchBoxCtgrs.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(2);
 
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.saveAndExitButtonCtgrs);
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.saveAndExitButtonCtgrs);
         ReusableMethods.bekle(1);
         hauseHeaven_yusufcelal.saveAndExitButtonCtgrs.click();
         ReusableMethods.bekle(2);
 
-        Actions PageUp = new Actions(driver);
+        Actions PageUp = new Actions(Driver.getDriver());
         PageUp.sendKeys(Keys.PAGE_UP).perform();
         ReusableMethods.bekle(2);
 
         Assert.assertTrue(hauseHeaven_yusufcelal.dashboardLink.isDisplayed(), "Dashboard link is not visible.");
         hauseHeaven_yusufcelal.dashboardText.click();
 
-        Driver.closeDriver();
+        Driver.quitDriver();
 
     }
 }

@@ -18,7 +18,7 @@ public class HauseHeaven_yusufcelal {
     @FindBy(id = "login_button") // ya da xpath, name, css gibi locator tipi
     public WebElement loginButton;
 
-    @FindBy(xpath = ("//*[@id='emailGroup']//input"))
+    @FindBy(xpath = ("//*[@id=\"emailGroup\"]/input"))
     public WebElement emailInput;
 
     @FindBy(xpath = ("//*[@id='passwordGroup']//input"))
@@ -45,7 +45,7 @@ public class HauseHeaven_yusufcelal {
 //      Dashboard anasayfasının görünür hali.
 //      ***************************************************************       //
 
-    @FindBy(xpath = ("//*[@id=\"app\"]/div[2]/div[1]/div/div[2]/ul/li[4]/a"))
+    @FindBy(xpath = ("//*[@id=\"app\"]/div[2]/div[1]/div/div[2]/ul/li[5]/a/span"))
     public WebElement userName; // This is the user name in the top-right corner of the admin dashboard
 
 //      ***************************************************************       //
@@ -297,6 +297,29 @@ public class HauseHeaven_yusufcelal {
     @FindBy(xpath = "//*[@id=\"cms-plugins-real-estate-type\"]/a")
     public WebElement realEstateTypeLink; // Real Estate Type link
     //------------------------//
+
+                            @FindBy(xpath = "//*[@id=\"main\"]/div[1]/div[2]/div[1]/div/div/div/a")
+                            public WebElement typeCategoriesLink; // Feature Type link
+
+                            @FindBy(xpath = "//*[@id=\"main\"]/div[1]/div[2]/div[1]/div/div/div/ul/li[1]/div/a")
+                            public WebElement typesearchBox; // Add New Type button
+
+                            @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-type-table_filter\"]/label/input")
+                            public WebElement typesearchBoxInput; // Type search box input field
+
+                            @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-type-table_filter\"]/label")
+                            public WebElement typesearchBoxInputNext; // Type search box input text
+
+                            @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-type-table_length\"]/label/span/select/option[1]")
+                            public WebElement typesearchBoxInputSelect; // Type search box select dropdown
+
+                            @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-type-table_next\"]/a")
+                            public WebElement typesearchBoxInputNextButton; // Type search box next button
+
+                            @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-type-table_previous\"]/a")
+                            public WebElement typesearchBoxInputPreviousButton; // Type search box previous button
+
+
 
 
 
