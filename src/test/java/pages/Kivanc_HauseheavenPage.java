@@ -106,6 +106,8 @@ public class Kivanc_HauseheavenPage {
     @FindBy(xpath = ("//a[@class='text-success']"))
     public WebElement addProperties;
 
+    @FindBy(xpath = "//*[text()=' Add Property']")
+    public WebElement addProperty;
 
     @FindBy(xpath = "//*[@id=\"toast-container\"]/div")
     public WebElement createdSuccessfullyMesaji;
@@ -118,7 +120,7 @@ public class Kivanc_HauseheavenPage {
     @FindBy(xpath = "//*[@title='Properties']")
     public WebElement properties;
 
-    @FindBy(xpath = "//input[@placeholder='Title']")
+    @FindBy(xpath = "(//input[@class='form-control'])[1]")
     public WebElement addPropertiesTitleAlani;
 
     @FindBy(xpath = "//textarea[@placeholder='Short description']")

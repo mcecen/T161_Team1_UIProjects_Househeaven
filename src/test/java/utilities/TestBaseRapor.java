@@ -33,8 +33,8 @@ public abstract class TestBaseRapor {
 
         // Raporun kapak sayfasinda gorunmesini istediğiniz bilgileri buraya ekleyebilirsiniz.
         extentReports.setSystemInfo("Enviroment","live");
-        extentReports.setSystemInfo("Browser", ConfigReader.getProperty("browser")); // chrome, firefox
-        extentReports.setSystemInfo("Automation Engineer", "Eda Salman");
+        extentReports.setSystemInfo("Browser", ConfigReader.getProperty("chrome")); // chrome, firefox
+        extentReports.setSystemInfo("Automation Engineer", "Guga");
         extentSparkReporter.config().setDocumentTitle("TestNG Test Raporlari");
         extentSparkReporter.config().setReportName("Html Reports");
     }
