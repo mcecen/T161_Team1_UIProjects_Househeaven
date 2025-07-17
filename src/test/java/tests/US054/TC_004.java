@@ -59,13 +59,22 @@ public class TC_004 {
                 .click();
 
         //  Under the Locations category, the user sees Countries, States, Cities listed.
-        Assert.assertTrue(erkan_adminHouseheavenPage.Countries.isDisplayed());
-        Assert.assertTrue(erkan_adminHouseheavenPage.States.isDisplayed());
-        Assert.assertTrue(erkan_adminHouseheavenPage.Cities.isDisplayed());
 
-       // Under the Locations category, the user clicks States.
-       // When the user clicks States under the Locations category, it displays the "https://qa.hauseheaven.com/admin/states" page.
-       // The user will see the registered countries listed under the "ID, NAME, NATIONALITY, CREATED AT, STATUS, OPERATIONS" columns.
+        Assert.assertTrue(erkan_adminHouseheavenPage.States.isDisplayed());
+
+
+
+        // When the user clicks States under the Locations category, it displays the "https://qa.hauseheaven.com/admin/states" page.
+        Assert.assertTrue(erkan_adminHouseheavenPage.DashboardLocationsState.isDisplayed());
+
+        // The user will see the registered countries listed under the "ID, NAME, NATIONALITY, CREATED AT, STATUS, OPERATIONS" columns.
+        Assert.assertTrue(erkan_adminHouseheavenPage.StatesID.isDisplayed());
+        Assert.assertTrue(erkan_adminHouseheavenPage.StatesName.isDisplayed());
+        Assert.assertTrue(erkan_adminHouseheavenPage.StatesCountry.isDisplayed());
+        Assert.assertTrue(erkan_adminHouseheavenPage.StatesCreatedAt.isDisplayed());
+        Assert.assertTrue(erkan_adminHouseheavenPage.StatesStatus.isDisplayed());
+        Assert.assertTrue(erkan_adminHouseheavenPage.StatesOperations.isDisplayed());
+
        // The user clicks on the Country under the heading Country NAME from the Listed Countries on the States page that opens.
        // When the user clicks on the Country under the relevant Country NAME heading from the Listed Countries on the States page that opens, he/she is redirected to the "https://qa.hauseheaven.com/admin/states/edit" page.
        // On the States>Edit States page that opens, the user displays the previously generated data in the "Name*(Textbox), Abbreviation*(Textbox), Country*(Dropdown), Order(Spin Box), Status(dropdown), Save & Exit, Save(Button) fields.

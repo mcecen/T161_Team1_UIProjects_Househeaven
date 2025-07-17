@@ -1,6 +1,8 @@
 package tests.US053;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Erkan_AdminHouseheavenPage;
@@ -94,16 +96,19 @@ public class TC_004 {
         Assert.assertTrue(erkan_adminHouseheavenPage.ConfirmDeleteDeleteButton.isDisplayed());
 
 
+        // When the "Confirm delete" warning pop-up Delete button is clicked, the user sees that the relevant country has been removed from the registered countries table and displays the text "Success Deleted Successfully" in the lower right corner of the page.
 
-        // The user clicks the Cancel button on the "Confirm delete" warning pop-up.
         erkan_adminHouseheavenPage.ConfirmDeleteDeleteButton
                 .click();
-
-        // When the user clicks the "Confirm delete" warning pop-up Delete button, the relevant country continues to be displayed in the registered countries table and the Confirm delete pop-up is closed.
-       
+        ReusableMethods.bekle(3);
 
 
-        // When the "Confirm delete" warning pop-up Delete button is clicked, the user sees that the relevant country has been removed from the registered countries table and displays the text "Success Deleted Successfully" in the lower right corner of the page.
+        WebElement toastMessage = Driver.getDriver().findElement(By.cssSelector("div.toast-message"));
+        Assert.assertTrue(toastMessage.isDisplayed());
+        Assert.assertEquals(toastMessage.getText(), "Deleted successfully");
+
+
+        Driver.quitDriver();
 
 
 
