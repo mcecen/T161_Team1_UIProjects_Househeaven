@@ -87,6 +87,64 @@ public class DemoPage {
     @FindBy (xpath = "/html/body/span/span/span[1]/input")
     public WebElement categorySearchTextbox;
 
+    @FindBy (xpath = "(//button[@type='submit'])[1]")
+    public WebElement saveAndExitButton;
+
+    @FindBy (xpath = "(//button[@type='submit'])[2]")
+    public WebElement saveButton;
+
+    @FindBy (xpath = "(//span[@class='label-warning status-label'])[1]")
+    public WebElement hauseheavenPending;
+
+    @FindBy (xpath = "//a[@title='Properties']")
+    public WebElement propertiesText;
+
+    @FindBy (xpath = "(//span[text()='Pending'])[1]")
+    public WebElement pendingTextAdmin;
+
+    @FindBy (xpath = "(//i[@class='fa fa-edit'])[1]")
+    public WebElement editTextAdmin;
+
+    @FindBy (xpath = "//label[@for='moderation_status']")
+    public WebElement moderationStatus;
+
+    @FindBy (xpath = "//span[@title='Pending']")
+    public WebElement pendingStatus;
+
+    @FindBy (xpath = "//span[@title='Approved']")
+    public WebElement approvedStatus;
+
+    @FindBy (xpath = "(//button[@value='save'])[1]")
+    public WebElement adminSaveandExit;
+
+    @FindBy (xpath = "//span[text()='Approved']")
+    public WebElement approvedText;
+
+    @FindBy (xpath = "(//input[@type='text'])[1]")
+    public WebElement searchForaLocation;
+
+    @FindBy (xpath = "//button[text()='Find New Home']")
+    public WebElement findNewHome;
+
+    @FindBy (xpath = "(//a[text()='View'])[1]")
+    public WebElement viewButton;
+
+    @FindBy (xpath = "//a[@title='geniş bahçeli dubleks villa']")
+    public WebElement genisBahceliVillaText;
+
+    @FindBy (xpath = "//span[text()='Fulya nermin Keceli']")
+    public WebElement dashboardProfile;
+
+    @FindBy (xpath = "//*[@id=\"moderation_status\"]")
+    public WebElement moderationStatusSelect;
+
+    @FindBy (xpath = "//*[@id=\"select2-moderation_status-container\"]")
+    public WebElement moderationStatusBox;
+
+
+
+
+
 
 
 

@@ -147,13 +147,7 @@ public class ReusableMethods {
         return element;
     }
 
-
-    public static String raporaResimEkle(String name) {
-
-        return name;
-    }
-}
-   public static String raporaResimEkle(String testIsmi) throws IOException {
+    public static String raporaResimEkle(String testIsmi) throws IOException {
 
         LocalDateTime localDateTime = LocalDateTime.now();
         DateTimeFormatter format = DateTimeFormatter.ofPattern("_yyMMdd_HHmmss");
@@ -173,4 +167,3 @@ public class ReusableMethods {
         return dosyaYolu;
     }
 }
-
