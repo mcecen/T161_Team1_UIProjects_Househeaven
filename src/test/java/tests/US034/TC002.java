@@ -53,6 +53,7 @@ public class TC002 {
 
     HauseHeaven_yusufcelal hauseHeaven_yusufcelal = new HauseHeaven_yusufcelal();
 
+
     @Test
     public void test01() {
 
@@ -110,20 +111,17 @@ public class TC002 {
         hauseHeaven_yusufcelal.propertyCategoriesLink.click();
         wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.PropertysearchBox));
         Assert.assertTrue(hauseHeaven_yusufcelal.PropertysearchBox.isDisplayed(), "Property search box is not visible.");
-        hauseHeaven_yusufcelal.PropertysearchBox.sendKeys(ConfigReader.getProperty("bulkActions"));
         hauseHeaven_yusufcelal.PropertysearchBox.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
         hauseHeaven_yusufcelal.PropertysearchBoxInput.click();
         Assert.assertTrue(hauseHeaven_yusufcelal.PropertysearchBoxInput.isDisplayed(), "Property search box is not visible.");
-        hauseHeaven_yusufcelal.PropertysearchBoxInput.sendKeys(ConfigReader.getProperty("PropertysearchBoxInputText"));
         hauseHeaven_yusufcelal.PropertysearchBoxInput.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
         hauseHeaven_yusufcelal.PropertysearchBoxInputNext.click();
         wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.PropertysearchBoxInputSelect));
         Assert.assertTrue(hauseHeaven_yusufcelal.PropertysearchBoxInputSelect.isDisplayed(), "Property search box is not visible.");
-        hauseHeaven_yusufcelal.PropertysearchBoxInputSelect.sendKeys(ConfigReader.getProperty("PropertysearchBoxInputNextAll"));
         hauseHeaven_yusufcelal.PropertysearchBoxInputSelect.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
@@ -157,20 +155,17 @@ public class TC002 {
         hauseHeaven_yusufcelal.featureCategoriesLink.click();
         wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.featuresearchBox));
         Assert.assertTrue(hauseHeaven_yusufcelal.featuresearchBox.isDisplayed(), "Feature search box is not visible.");
-        hauseHeaven_yusufcelal.featuresearchBox.sendKeys(ConfigReader.getProperty("featureBulkActions"));
         hauseHeaven_yusufcelal.featuresearchBox.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
         hauseHeaven_yusufcelal.featuresearchBoxInput.click();
         Assert.assertTrue(hauseHeaven_yusufcelal.featuresearchBoxInput.isDisplayed(), "Feature search box is not visible.");
-        hauseHeaven_yusufcelal.featuresearchBoxInput.sendKeys(ConfigReader.getProperty("FeaturesearchBoxInputText"));
         hauseHeaven_yusufcelal.featuresearchBoxInput.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
         hauseHeaven_yusufcelal.featuresearchBoxInputNext.click();
         wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.featuresearchBoxInputSelect));
         Assert.assertTrue(hauseHeaven_yusufcelal.featuresearchBoxInputSelect.isDisplayed(), "Feature search box is not visible.");
-        hauseHeaven_yusufcelal.featuresearchBoxInputSelect.sendKeys(ConfigReader.getProperty("FeaturesearchBoxInputNextAll"));
         hauseHeaven_yusufcelal.featuresearchBoxInputSelect.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
@@ -204,20 +199,17 @@ public class TC002 {
         hauseHeaven_yusufcelal.facilityCategoriesLink.click();
         wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.facilitysearchBox));
         Assert.assertTrue(hauseHeaven_yusufcelal.facilitysearchBox.isDisplayed(), "Facility search box is not visible.");
-        hauseHeaven_yusufcelal.facilitysearchBox.sendKeys(ConfigReader.getProperty("facilityBulkActions"));
         hauseHeaven_yusufcelal.facilitysearchBox.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
         hauseHeaven_yusufcelal.facilitysearchBoxInput.click();
         Assert.assertTrue(hauseHeaven_yusufcelal.facilitysearchBoxInput.isDisplayed(), "Facility search box is not visible.");
-        hauseHeaven_yusufcelal.facilitysearchBoxInput.sendKeys(ConfigReader.getProperty("FacilitysearchBoxInputText"));
         hauseHeaven_yusufcelal.facilitysearchBoxInput.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
         hauseHeaven_yusufcelal.facilitysearchBoxInputNext.click();
         wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.facilitysearchBoxInputSelect));
         Assert.assertTrue(hauseHeaven_yusufcelal.facilitysearchBoxInputSelect.isDisplayed(), "Facility search box is not visible.");
-        hauseHeaven_yusufcelal.facilitysearchBoxInputSelect.sendKeys(ConfigReader.getProperty("FacilitysearchBoxInputNextAll"));
         hauseHeaven_yusufcelal.facilitysearchBoxInputSelect.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
@@ -251,13 +243,11 @@ public class TC002 {
         hauseHeaven_yusufcelal.categoriesCategoriesLink.click();
         wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.categoriessearchBox));
         Assert.assertTrue(hauseHeaven_yusufcelal.categoriessearchBox.isDisplayed(), "categories search box is not visible.");
-        hauseHeaven_yusufcelal.categoriessearchBox.sendKeys(ConfigReader.getProperty("categoriesBulkActions"));
         hauseHeaven_yusufcelal.categoriessearchBox.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
         hauseHeaven_yusufcelal.categoriessearchBoxInput.click();
         Assert.assertTrue(hauseHeaven_yusufcelal.categoriessearchBoxInput.isDisplayed(), "Categories search box is not visible.");
-        hauseHeaven_yusufcelal.categoriessearchBoxInput.sendKeys(ConfigReader.getProperty("categoriessearchBoxInputText"));
         hauseHeaven_yusufcelal.categoriessearchBoxInput.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
@@ -298,13 +288,11 @@ public class TC002 {
         hauseHeaven_yusufcelal.typeCategoriesLink.click();
         wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.typesearchBox));
         Assert.assertTrue(hauseHeaven_yusufcelal.typesearchBox.isDisplayed(), "type search box is not visible.");
-        hauseHeaven_yusufcelal.typesearchBox.sendKeys(ConfigReader.getProperty("typeBulkActions"));
         hauseHeaven_yusufcelal.typesearchBox.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
         hauseHeaven_yusufcelal.typesearchBoxInput.click();
         Assert.assertTrue(hauseHeaven_yusufcelal.typesearchBoxInput.isDisplayed(), "type search box is not visible.");
-        hauseHeaven_yusufcelal.typesearchBoxInput.sendKeys(ConfigReader.getProperty("typesearchBoxInputText"));
         hauseHeaven_yusufcelal.typesearchBoxInput.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
