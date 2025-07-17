@@ -76,6 +76,16 @@ public class Erkan_AdminHouseheavenPage {
     @FindBy (xpath = "//*[@id=\"botble-location-tables-country-table\"]/tbody/tr[8]/td[3]/a" )
     public WebElement CountriesNameUnitedStatesofAmerica;
 
+    @FindBy (xpath = "//*[@id=\"app\"]/div[2]/div[3]/div[2]/div/ol/li[4]" )
+    public WebElement DashboardLocationsCountriesEditCountry;
+
+    @FindBy (xpath = "(//button[@class='btn btn-info'])[1]" )
+    public WebElement CountryEditSaveExtButton;
+
+
+
+
+
     @FindBy (xpath = "//th[@class='column-key-id sorting']" )
     public WebElement StatesID;
 
@@ -160,6 +170,12 @@ public class Erkan_AdminHouseheavenPage {
 
     // Locations States New State
 
+    @FindBy (xpath = "//*[@id=\"app\"]/div[2]/div[3]/div[2]/div/ol/li[3]" )
+    public WebElement DashboardLocationsState;
+
+    @FindBy (xpath = "(//a[@data-bs-original-title='Delete'])[2]" )
+    public WebElement StatesDeleteButton;
+
     @FindBy (xpath = "(//ol[@class='breadcrumb'])[1]" )
     public WebElement DashboardLocationsStatesNewstate;
 
@@ -192,6 +208,21 @@ public class Erkan_AdminHouseheavenPage {
 
     @FindBy (xpath = "//input[@class='form-control is-valid']" )
     public WebElement NewstateOrderSpnBox;
+
+    // Cities
+
+    @FindBy (xpath = "//*[@id=\"botble-location-tables-city-table\"]/thead/tr/th[3]" )
+    public WebElement CitiesName;
+
+    @FindBy (xpath = "//*[@id=\"botble-location-tables-city-table\"]/thead/tr/th[4]" )
+    public WebElement CitiesState;
+
+    @FindBy (xpath = "//*[@id=\"botble-location-tables-city-table\"]/tbody/tr[6]/td[3]" )
+    public WebElement Whitehorse;
+
+
+
+
 
 
 

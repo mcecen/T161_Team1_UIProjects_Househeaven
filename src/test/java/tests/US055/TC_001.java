@@ -63,13 +63,16 @@ public class TC_001 {
         erkan_adminHouseheavenPage.Countries
                 .click();
 
-        //  When the user clicks on Countries under the Locations category, it displays the "https://qa.hauseheaven.com/admin/countries" page.
+        //  When the user clicks on Cities under the Locations category, it displays the "https://qa.hauseheaven.com/admin/countries" page.
         Assert.assertTrue(erkan_adminHouseheavenPage.DashboardLocationsCities.isDisplayed());
 
-        //  On the Countries page that opens, the user sees that there are columns "ID, NAME, NATIONALITY, CREATED AT, STATUS, OPERATIONS".
+        //  On the Cities page that opens, the user sees that there are columns "NAME, STATE".
+        Assert.assertTrue(erkan_adminHouseheavenPage.CitiesName.isDisplayed());
+        Assert.assertTrue(erkan_adminHouseheavenPage.CitiesState.isDisplayed());
 
 
-        //  The Cities page that the user opened displayed the listed cities under the "NAME" column.
+        //  The Cities page that the user opened displayed the listed cities under the "NAME" column "Whitehorse".
+        Assert.assertTrue(erkan_adminHouseheavenPage.Whitehorse.isDisplayed());
 
                 Driver.quitDriver();
 

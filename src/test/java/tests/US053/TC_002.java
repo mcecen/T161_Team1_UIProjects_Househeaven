@@ -75,19 +75,18 @@ public class TC_002 {
         Assert.assertTrue(erkan_adminHouseheavenPage.DashboardLocationsCountries.isDisplayed());
 
 
-
-       // Kullanıcı açılan Countries sayfasında "+Create" butonunu görür.
+        // Kullanıcı açılan Countries sayfasında "+Create" butonunu görür.
         Assert.assertTrue(erkan_adminHouseheavenPage.CreateButton.isDisplayed());
 
-       // Kullanıcı açılan Countries sayfasında "+Create" butonuna tıklar.
+        // Kullanıcı açılan Countries sayfasında "+Create" butonuna tıklar.
         erkan_adminHouseheavenPage.CreateButton
                 .click();
 
-       // Kullanıcı Countries Sayfası "+Create" butonuna tıkladığı zaman "https://qa.hauseheaven.com/admin/countries/create" sayfasını görüntüler.
+        // Kullanıcı Countries Sayfası "+Create" butonuna tıkladığı zaman "https://qa.hauseheaven.com/admin/countries/create" sayfasını görüntüler.
         Assert.assertTrue(erkan_adminHouseheavenPage.DashboardLocationsCountriesNewcountry.isDisplayed());
         ReusableMethods.bekle(2);
 
-       // Kullanıcı açılan Countries>New Country sayfasında "Name*(Textbox), Nationality*(Textbox), Country ISO code*(Textbox), Dial code*(Textbox), Order(Spin Box), Status(dropdown), Save & Exit, Save(Button) alanlarını görüntüler.
+        // Kullanıcı açılan Countries>New Country sayfasında "Name*(Textbox), Nationality*(Textbox), Country ISO code*(Textbox), Dial code*(Textbox), Order(Spin Box), Status(dropdown), Save & Exit, Save(Button) alanlarını görüntüler.
         Assert.assertTrue(erkan_adminHouseheavenPage.NameBaslik.isDisplayed());
         Assert.assertTrue(erkan_adminHouseheavenPage.NationalityBaslik.isDisplayed());
         Assert.assertTrue(erkan_adminHouseheavenPage.CountryISOcodeBaslik.isDisplayed());
@@ -95,85 +94,71 @@ public class TC_002 {
         Assert.assertTrue(erkan_adminHouseheavenPage.DialcodeBaslik.isDisplayed());
         Assert.assertTrue(erkan_adminHouseheavenPage.OrderBaslik.isDisplayed());
 
-       // Kullanıcı açılan Countries>New Country sayfasında Name* Textbox alanına tıklar.
+        // Kullanıcı açılan Countries>New Country sayfasında Name* Textbox alanına tıklar.
         Assert.assertTrue(erkan_adminHouseheavenPage.NameTextbox.isEnabled());
 
 
-       // Kullanıcı açılan Countries>New Country sayfasında Name* Textbox alanına veri girişi yapar. (Alfabetik, Nümerik ve Simge)
+        // Kullanıcı açılan Countries>New Country sayfasında Name* Textbox alanına veri girişi yapar. (Alfabetik, Nümerik ve Simge)
         erkan_adminHouseheavenPage.NameTextbox.sendKeys(faker.country().name());
 
 
-       // Kullanıcı açılan Countries>New Country sayfasında Nationality* Textbox alanına tıklar.
+        // Kullanıcı açılan Countries>New Country sayfasında Nationality* Textbox alanına tıklar.
         Assert.assertTrue(erkan_adminHouseheavenPage.NationalityTextbox.isEnabled());
 
 
-       // Kullanıcı açılan Countries>New Country sayfasında Nationality* Textbox alanına veri girişi yapar. (Alfabetik, Nümerik ve Simge)
+        // Kullanıcı açılan Countries>New Country sayfasında Nationality* Textbox alanına veri girişi yapar. (Alfabetik, Nümerik ve Simge)
         erkan_adminHouseheavenPage.NationalityTextbox.sendKeys(faker.nation().nationality());
 
 
-       // Kullanıcı açılan Countries>New Country sayfasında Country ISO code* Textbox alanına tıklar.
+        // Kullanıcı açılan Countries>New Country sayfasında Country ISO code* Textbox alanına tıklar.
         Assert.assertTrue(erkan_adminHouseheavenPage.CountryISOcodeTextbox.isEnabled());
 
 
+        ReusableMethods.bekle(2);
         // Kullanıcı açılan Countries>New Country sayfasında Country ISO code* Textbox alanına veri girişi yapar. (Alfabetik, Nümerik ve Simge)
         erkan_adminHouseheavenPage.CountryISOcodeTextbox.sendKeys(faker.country().countryCode2());
 
-       // Kullanıcı açılan Countries>New Country sayfasında Dial code* Textbox alanına tıklar.
+        ReusableMethods.bekle(3);
+        // Kullanıcı açılan Countries>New Country sayfasında Dial code* Textbox alanına tıklar.
         Assert.assertTrue(erkan_adminHouseheavenPage.DialcodeTextbox.isEnabled());
 
-       // Kullanıcı açılan Countries>New Country sayfasında Dial code* Textbox alanına veri girişi yapar. (Alfabetik, Nümerik ve Simge)
-        erkan_adminHouseheavenPage.DialcodeTextbox.sendKeys(faker.number().numberBetween(1,99) + "");
+        // Kullanıcı açılan Countries>New Country sayfasında Dial code* Textbox alanına veri girişi yapar. (Alfabetik, Nümerik ve Simge)
+        erkan_adminHouseheavenPage.DialcodeTextbox.sendKeys(faker.number().numberBetween(1, 99) + "");
 
-       // Kullanıcı açılan Countries>New Country sayfasında Order* Spin Box alanı aşağı yukaru yön oklarına tıklar.
+        // Kullanıcı açılan Countries>New Country sayfasında Order* Spin Box alanı aşağı yukaru yön oklarına tıklar.
         Assert.assertTrue(erkan_adminHouseheavenPage.OrderTextbox.isEnabled());
 
-       // Kullanıcı açılan Countries>New Country sayfasında Order* Spin Box alanına Manuel veri girişi yapar. (Nümerik)
-        erkan_adminHouseheavenPage.OrderTextbox.sendKeys(faker.number().numberBetween(1,27) + "");
+        // Kullanıcı açılan Countries>New Country sayfasında Order* Spin Box alanına Manuel veri girişi yapar. (Nümerik)
+        erkan_adminHouseheavenPage.OrderTextbox.sendKeys(faker.number().numberBetween(1, 27) + "");
 
-       // Kullanıcı açılan Countries>New Country sayfasında Status* Dropdownunu görür.
+        // Kullanıcı açılan Countries>New Country sayfasında Status* Dropdownunu görür.
         Assert.assertTrue(erkan_adminHouseheavenPage.StatusDropdownBaslik.isDisplayed());
 
-       // Kullanıcı açılan Countries>New Country sayfasında StatusDropdownPublished Dropdownuna tıklar.
-        erkan_adminHouseheavenPage.StatusDropdownPublished
-                .click();
+        // Kullanıcı açılan Countries>New Country sayfasında StatusDropdownPublished Dropdownuna tıklar.
+        erkan_adminHouseheavenPage.StatusDropdownPublished.click();
 
-       // Kullanıcı açılan Countries>New Country sayfasında Status* Dropdownuna tıklandığı zaman Published, Draft Pending kategorilerinin listelendiğini görür.
+        // Kullanıcı açılan Countries>New Country sayfasında Status* Dropdownuna tıklandığı zaman Published, Draft Pending kategorilerinin listelendiğini görür.
         Assert.assertTrue(erkan_adminHouseheavenPage.StatusDropdownPublished.isDisplayed());
 
-
-       // Kullanıcı açılan Countries>New Country sayfasında Save & Exit butonunu görür.
+        // Kullanıcı açılan Countries>New Country sayfasında Save & Exit butonunu görür.
         Assert.assertTrue(erkan_adminHouseheavenPage.SaveExitButton.isDisplayed());
 
-       // Kullanıcı açılan Countries>New Country sayfasında Save & Exit butonuna tıklar.
+        // Kullanıcı açılan Countries>New Country sayfasında Save & Exit butonuna tıklar.
         erkan_adminHouseheavenPage.SaveExitButton
                 .click();
 
-       // Kullanıcı açılan Countries>New Country sayfasında Save & Exit butonuna tıkladığı zaman "https://qa.hauseheaven.com/admin/countries" sayfasına yönlendirilmeli ve "Success Created Successfully" yazısını sayfanın sağ alt köşesinde görüntüler.
+        // Kullanıcı açılan Countries>New Country sayfasında Save & Exit butonuna tıkladığı zaman "https://qa.hauseheaven.com/admin/countries" sayfasına yönlendirilmeli ve "Success Created Successfully" yazısını sayfanın sağ alt köşesinde görüntüler.
         Assert.assertTrue(erkan_adminHouseheavenPage.DashboardLocationsCountries.isDisplayed());
         ReusableMethods.bekle(3);
 
-        WebElement toastMessage = driver.findElement(By.cssSelector("div.toast-message"));
+        WebElement toastMessage = Driver.getDriver().findElement(By.cssSelector("div.toast-message"));
         Assert.assertTrue(toastMessage.isDisplayed());
         Assert.assertEquals(toastMessage.getText(), "Created successfully");
 
-       // Kullanıcı açılan Countries sayfası New Country sayfasında girilen yeni Ülke kayıt bilgilerini "NAME, NATIONALITY, STATUS" kolonları altında ilk sırada görüntüler.
+        // Kullanıcı açılan Countries sayfası New Country sayfasında girilen yeni Ülke kayıt bilgilerini "NAME, NATIONALITY, STATUS" kolonları altında ilk sırada görüntüler.
 
 
         Driver.quitDriver();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }
