@@ -38,7 +38,9 @@ public class TC004 {
     @Test
     public void test01() {
         hauseHeaven_yusufcelal = new HauseHeaven_yusufcelal();
-
+        // Go to the URL
+        Driver.getDriver().get(ConfigReader.getProperty("dashboard-yusuf-admin"));
+        ReusableMethods.bekle(2);
                 // Go to the URL
         ReusableMethods.bekle(1);
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));

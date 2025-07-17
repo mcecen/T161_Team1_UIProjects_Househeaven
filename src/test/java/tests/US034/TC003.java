@@ -64,6 +64,7 @@ public class TC003 {
 
     HauseHeaven_yusufcelal hauseHeaven_yusufcelal = new HauseHeaven_yusufcelal();
 
+
     @Test
     public void test01() {
 
@@ -121,20 +122,17 @@ public class TC003 {
         hauseHeaven_yusufcelal.propertyCategoriesLink.click();
         wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.PropertysearchBox));
         Assert.assertTrue(hauseHeaven_yusufcelal.PropertysearchBox.isDisplayed(), "Property search box is not visible.");
-        hauseHeaven_yusufcelal.PropertysearchBox.sendKeys(ConfigReader.getProperty("bulkActions"));
         hauseHeaven_yusufcelal.PropertysearchBox.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
         hauseHeaven_yusufcelal.PropertysearchBoxInput.click();
         Assert.assertTrue(hauseHeaven_yusufcelal.PropertysearchBoxInput.isDisplayed(), "Property search box is not visible.");
-        hauseHeaven_yusufcelal.PropertysearchBoxInput.sendKeys(ConfigReader.getProperty("PropertysearchBoxInputText"));
         hauseHeaven_yusufcelal.PropertysearchBoxInput.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
         hauseHeaven_yusufcelal.PropertysearchBoxInputNext.click();
         wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.PropertysearchBoxInputSelect));
         Assert.assertTrue(hauseHeaven_yusufcelal.PropertysearchBoxInputSelect.isDisplayed(), "Property search box is not visible.");
-        hauseHeaven_yusufcelal.PropertysearchBoxInputSelect.sendKeys(ConfigReader.getProperty("PropertysearchBoxInputNextAll"));
         hauseHeaven_yusufcelal.PropertysearchBoxInputSelect.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
@@ -151,14 +149,59 @@ public class TC003 {
         wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.PropertysearchBoxInputPreviousButton));
         ReusableMethods.bekle(2);
 
-        // Scroll işlemi
-        jsup.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.featureLink);
+        hauseHeaven_yusufcelal.PropertyCreate.click();
+        hauseHeaven_yusufcelal.PropertyNameText.sendKeys(ConfigReader.getProperty("descriptionInputText"));
+        ReusableMethods.bekle(1);
+
+        hauseHeaven_yusufcelal.PropertyDescriptionText.sendKeys(ConfigReader.getProperty("descriptionInputCtgrsText"));
+        ReusableMethods.bekle(1);
+
+        hauseHeaven_yusufcelal.PropertyForm.sendKeys(ConfigReader.getProperty("ContentInputText"));
         ReusableMethods.bekle(2);
-        Assert.assertTrue(hauseHeaven_yusufcelal.featureLink.isDisplayed(), "Hedef alan görünür değil!");
-        hauseHeaven_yusufcelal.featureLink.click();
-        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.featureLink));
+
+
+        jsdown.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.PropertyForm);
+        ReusableMethods.bekle(2);
+        Assert.assertTrue(hauseHeaven_yusufcelal.PropertyForm.isDisplayed(), "Hedef alan görünür değil!");
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.PropertyLocation));
+        hauseHeaven_yusufcelal.PropertyLocation.sendKeys(ConfigReader.getProperty("propertylocation"));
         ReusableMethods.bekle(2);
         // Scroll işlemi bitiş
+
+
+        jsdown.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.PropertyAddNew);
+        ReusableMethods.bekle(2);
+        Assert.assertTrue(hauseHeaven_yusufcelal.PropertyAddNew.isDisplayed(), "Hedef alan görünür değil!");
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.PropertyAddNew));
+        hauseHeaven_yusufcelal.PropertyTypeSatis.click();
+        ReusableMethods.bekle(2);
+        // Scroll işlemi bitiş
+
+        hauseHeaven_yusufcelal.PropertywifiCheckbox.click();
+        ReusableMethods.bekle(2);
+
+        hauseHeaven_yusufcelal.PropertyBalkonyCheckbox.click();
+        ReusableMethods.bekle(2);
+
+        hauseHeaven_yusufcelal.PropertyKlimaCheckbox.click();
+        ReusableMethods.bekle(2);
+
+        hauseHeaven_yusufcelal.PropertyEvcilHayvanCheckbox.click();
+        ReusableMethods.bekle(2);
+
+        hauseHeaven_yusufcelal.PropertyDisAlanCheckbox.click();
+        ReusableMethods.bekle(2);
+
+        hauseHeaven_yusufcelal.PropertyAdaCheckbox.click();
+        ReusableMethods.bekle(2);
+
+        // Scroll işlemi
+        jsup.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.PropertySaveAndExitButton);
+        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.PropertySaveAndExitButton));
+        ReusableMethods.bekle(2);
+        hauseHeaven_yusufcelal.PropertySaveAndExitButton.click();
+        ReusableMethods.bekle(2);
+
 
         // 10. Verify the Feature link in the left menu
         Assert.assertTrue(hauseHeaven_yusufcelal.featureLink.isDisplayed(), "Blog link is not visible.");
@@ -168,20 +211,17 @@ public class TC003 {
         hauseHeaven_yusufcelal.featureCategoriesLink.click();
         wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.featuresearchBox));
         Assert.assertTrue(hauseHeaven_yusufcelal.featuresearchBox.isDisplayed(), "Feature search box is not visible.");
-        hauseHeaven_yusufcelal.featuresearchBox.sendKeys(ConfigReader.getProperty("featureBulkActions"));
         hauseHeaven_yusufcelal.featuresearchBox.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
         hauseHeaven_yusufcelal.featuresearchBoxInput.click();
         Assert.assertTrue(hauseHeaven_yusufcelal.featuresearchBoxInput.isDisplayed(), "Feature search box is not visible.");
-        hauseHeaven_yusufcelal.featuresearchBoxInput.sendKeys(ConfigReader.getProperty("FeaturesearchBoxInputText"));
         hauseHeaven_yusufcelal.featuresearchBoxInput.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
         hauseHeaven_yusufcelal.featuresearchBoxInputNext.click();
         wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.featuresearchBoxInputSelect));
         Assert.assertTrue(hauseHeaven_yusufcelal.featuresearchBoxInputSelect.isDisplayed(), "Feature search box is not visible.");
-        hauseHeaven_yusufcelal.featuresearchBoxInputSelect.sendKeys(ConfigReader.getProperty("FeaturesearchBoxInputNextAll"));
         hauseHeaven_yusufcelal.featuresearchBoxInputSelect.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
@@ -207,6 +247,14 @@ public class TC003 {
         ReusableMethods.bekle(2);
         // Scroll işlemi bitiş
 
+        hauseHeaven_yusufcelal.featureCreate.click();
+        hauseHeaven_yusufcelal.featureTitleInput.sendKeys(ConfigReader.getProperty("featuretitle"));
+        ReusableMethods.bekle(2);
+
+        hauseHeaven_yusufcelal.featureSaveAndExitButton.click();
+        ReusableMethods.bekle(2);
+
+
         // 11. Verify the Facility Link in the left menu
         Assert.assertTrue(hauseHeaven_yusufcelal.facilityLink.isDisplayed(), "Facility link is not visible.");
         hauseHeaven_yusufcelal.facilityLink.click();
@@ -215,20 +263,17 @@ public class TC003 {
         hauseHeaven_yusufcelal.facilityCategoriesLink.click();
         wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.facilitysearchBox));
         Assert.assertTrue(hauseHeaven_yusufcelal.facilitysearchBox.isDisplayed(), "Facility search box is not visible.");
-        hauseHeaven_yusufcelal.facilitysearchBox.sendKeys(ConfigReader.getProperty("facilityBulkActions"));
         hauseHeaven_yusufcelal.facilitysearchBox.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
         hauseHeaven_yusufcelal.facilitysearchBoxInput.click();
         Assert.assertTrue(hauseHeaven_yusufcelal.facilitysearchBoxInput.isDisplayed(), "Facility search box is not visible.");
-        hauseHeaven_yusufcelal.facilitysearchBoxInput.sendKeys(ConfigReader.getProperty("FacilitysearchBoxInputText"));
         hauseHeaven_yusufcelal.facilitysearchBoxInput.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
         hauseHeaven_yusufcelal.facilitysearchBoxInputNext.click();
         wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.facilitysearchBoxInputSelect));
         Assert.assertTrue(hauseHeaven_yusufcelal.facilitysearchBoxInputSelect.isDisplayed(), "Facility search box is not visible.");
-        hauseHeaven_yusufcelal.facilitysearchBoxInputSelect.sendKeys(ConfigReader.getProperty("FacilitysearchBoxInputNextAll"));
         hauseHeaven_yusufcelal.facilitysearchBoxInputSelect.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
@@ -244,6 +289,7 @@ public class TC003 {
         hauseHeaven_yusufcelal.facilitysearchBoxInputPreviousButton.click();
         wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.facilitysearchBoxInputPreviousButton));
         ReusableMethods.bekle(2);
+
 
         // Scroll işlemi
         jsup.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.facilityLink);
@@ -262,13 +308,11 @@ public class TC003 {
         hauseHeaven_yusufcelal.categoriesCategoriesLink.click();
         wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.categoriessearchBox));
         Assert.assertTrue(hauseHeaven_yusufcelal.categoriessearchBox.isDisplayed(), "categories search box is not visible.");
-        hauseHeaven_yusufcelal.categoriessearchBox.sendKeys(ConfigReader.getProperty("categoriesBulkActions"));
         hauseHeaven_yusufcelal.categoriessearchBox.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
         hauseHeaven_yusufcelal.categoriessearchBoxInput.click();
         Assert.assertTrue(hauseHeaven_yusufcelal.categoriessearchBoxInput.isDisplayed(), "Categories search box is not visible.");
-        hauseHeaven_yusufcelal.categoriessearchBoxInput.sendKeys(ConfigReader.getProperty("categoriessearchBoxInputText"));
         hauseHeaven_yusufcelal.categoriessearchBoxInput.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
@@ -287,9 +331,6 @@ public class TC003 {
         ReusableMethods.bekle(2);
         // Scroll işlemi bitiş
 
-        hauseHeaven_yusufcelal.categoriessearchBoxInputPreviousButton.click();
-        wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.categoriessearchBoxInputPreviousButton));
-        ReusableMethods.bekle(2);
 
         // Scroll işlemi
         jsup.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.categoriesLink);
@@ -309,13 +350,11 @@ public class TC003 {
         hauseHeaven_yusufcelal.typeCategoriesLink.click();
         wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.typesearchBox));
         Assert.assertTrue(hauseHeaven_yusufcelal.typesearchBox.isDisplayed(), "type search box is not visible.");
-        hauseHeaven_yusufcelal.typesearchBox.sendKeys(ConfigReader.getProperty("typeBulkActions"));
         hauseHeaven_yusufcelal.typesearchBox.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
         hauseHeaven_yusufcelal.typesearchBoxInput.click();
         Assert.assertTrue(hauseHeaven_yusufcelal.typesearchBoxInput.isDisplayed(), "type search box is not visible.");
-        hauseHeaven_yusufcelal.typesearchBoxInput.sendKeys(ConfigReader.getProperty("typesearchBoxInputText"));
         hauseHeaven_yusufcelal.typesearchBoxInput.sendKeys(Keys.ENTER);
         ReusableMethods.bekle(1);
 
@@ -337,6 +376,7 @@ public class TC003 {
         hauseHeaven_yusufcelal.typesearchBoxInputPreviousButton.click();
         wait.until(ExpectedConditions.visibilityOf(hauseHeaven_yusufcelal.typesearchBoxInputPreviousButton));
         ReusableMethods.bekle(2);
+
 
         // Scroll işlemi
         jsup.executeScript("arguments[0].scrollIntoView(true);", hauseHeaven_yusufcelal.typeCategoriesLink);

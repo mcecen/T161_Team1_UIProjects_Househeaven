@@ -47,7 +47,7 @@ public class TC005 {
         hauseHeaven_yusufcelal = new HauseHeaven_yusufcelal();
         // Go to the URL
         Driver.getDriver().get(ConfigReader.getProperty("dashboard-yusuf-admin"));
-        ReusableMethods.bekle(4);
+        ReusableMethods.bekle(2);
 
         // Check the URL
         String expectedUrl = HauseHeaven_yusufcelal.AdminLink;
