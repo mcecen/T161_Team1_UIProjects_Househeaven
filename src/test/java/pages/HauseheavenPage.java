@@ -7,6 +7,10 @@ import utilities.Driver;
 
 public class HauseheavenPage {
 
+    public WebElement emailInput;
+    public WebElement passwordInput;
+    public WebElement myAccountLink;
+
     public HauseheavenPage(){PageFactory.initElements(Driver.getDriver(),this);}
 
 
@@ -136,6 +140,13 @@ public class HauseheavenPage {
 
     @FindBy (xpath = "(//button[@type='submit'])[1]")
     public WebElement loginButton;
+
+    @FindBy(xpath = "//input[@id='name']")
+    public WebElement titleAlani;
+
+    @FindBy(xpath = "//textarea[@name='description']")
+    public WebElement descriptionAlani;
+
 
 
 

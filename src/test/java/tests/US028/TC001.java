@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.HauseHeaven_yusufcelal;
+import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
@@ -12,17 +14,19 @@ import java.time.Duration;
 
 public class TC001 {
 
+    HauseHeaven_yusufcelal hauseHeaven_yusufcelal = new HauseHeaven_yusufcelal();
+
     @Test
     public void test01() {
-        WebDriver driver = Driver.getDriver();
 
-        // Go to the URL
-        driver.get("https://qa.hauseheaven.com/admin/login");
-        ReusableMethods.bekle(4);
+        hauseHeaven_yusufcelal = new HauseHeaven_yusufcelal();
+            // 1. Sayfaya git
+        Driver.getDriver().get(ConfigReader.getProperty("dashboard-yusuf-admin"));
+            ReusableMethods.bekle(4);
 
         // Check the URL
-        String expectedUrl = "https://qa.hauseheaven.com/admin/login";
-        String actualUrl = driver.getCurrentUrl();
+        String expectedUrl = HauseHeaven_yusufcelal.AdminLink;
+        String actualUrl = Driver.getDriver().getCurrentUrl();
 
         Assert.assertEquals(actualUrl, expectedUrl, "URL check failed!");
 

@@ -20,7 +20,7 @@ public class CennetHauseheavenAdminPages {
     @FindBy(className = "signin")
     public WebElement signInButton;
 
-    @FindBy(xpath = "(//*[@class='rounded-circle'])[9]")
+    @FindBy(xpath= "//*[@class='username d-none d-sm-inline']")
     public WebElement profilLogosu;
 
     @FindBy (xpath = "//*[@id=\"cms-plugins-real-estate\"]/a")
@@ -50,19 +50,89 @@ public class CennetHauseheavenAdminPages {
     @FindBy(className = "icon-arrow-up-circle")
     public WebElement yukariOkIkonu;
 
-    @FindBy(xpath = "//*[@id=\"select2-moderation_status-container\"]")
+    @FindBy(xpath = "//select[@id='moderation_status']")
     public WebElement moderationStatusDdm;
 
-
-    @FindBy(xpath = "//*[@title='Approved']")
+    @FindBy(xpath = "//li[contains(text(), 'Approved')]")
     public WebElement approvedButton;
 
+    @FindBy(xpath = "(//button[@type='submit'])[1]")
+    public WebElement saveExitButton;
 
     @FindBy(xpath = "(//*[@name='submit'])[2]")
     public WebElement saveButton;
 
-    @FindBy(className = "toast-message")
-    public WebElement createdSeccussfullyMesaji;
+    @FindBy(xpath = "//*[@id=\"toast-container\"]/div")
+    public WebElement createdSuccessfullyMesaji;
+
+    @FindBy(xpath = "//*[@href='https://qa.hauseheaven.com/admin/real-estate/packages']")
+    public WebElement packageMenuAlanı;
+
+    @FindBy(xpath = "//*[@class='btn btn-secondary action-item']")
+    public WebElement packageCreateButton;
+
+    @FindBy(xpath = "//*[@class='form-control']")
+    public WebElement packageNameText;
+
+    @FindBy(xpath = "//*[@class='form-control input-mask-number']")
+    public WebElement packagePriceText;
+
+    @FindBy(xpath = "//input[@id='percent-save-number']")
+    public WebElement packagePersentSaveText;
+
+    @FindBy(xpath = "(//input[@id='price-number'])[2]")
+    public WebElement packageNumberOfListingText;
+
+    @FindBy(xpath = "(//button[@type='submit'])[2]")
+    public WebElement packageSaveButton;
+
+    @FindBy(xpath = "(//button[@type='submit'])[1]")
+    public WebElement packageSaveExitButton;
+
+    @FindBy(xpath = "(//*[@class='btn btn-icon btn-sm btn-danger deleteDialog'])[1]")
+    public WebElement deleteIkonu;
+
+    @FindBy(xpath = "//*[@id=\"main\"]/div[2]/div/div/div[3]/button[2]")
+    public WebElement deleteButton;
+
+    @FindBy(xpath = "(//*[@data-bs-original-title='Edit'])[1]")
+    public WebElement packageEditButton;
+
+    @FindBy(xpath = "(//*[@data-bs-original-title='Delete'])[1]")
+    public WebElement packageDeleteButton;
+
+    @FindBy(xpath = "    //button[@class='float-end btn btn-danger delete-crud-entry']")
+    public WebElement packageDeletePopUpButton;
+
+    @FindBy(xpath = "//*[@id=\"cms-plugins-re-feature\"]/a")
+    public WebElement featuresBasligi;
+
+    @FindBy(xpath = "//*[@class='btn btn-secondary action-item']")
+    public WebElement createButton;
+
+    @FindBy(xpath = "//*[@id=\"icon\"]")
+    public WebElement iconAlaniDdm;
+
+    @FindBy(xpath = "//*[@id='name-error']")
+    public WebElement nameIsRequiredUyarisi;
+
+    @FindBy(xpath = "/html/body/link")
+    public WebElement deletedSuccessfullyMesaji;
+
+    @FindBy(xpath= "//*[@id=\"cms-plugins-facility\"]/a")
+    public WebElement facilitiesBasligi;
+
+    @FindBy(xpath = "//*[@class='btn btn-secondary action-item']")
+    public WebElement featuresCreateButton;
+
+    @FindBy(xpath = "//*[@class='add-new-gallery-image js-btn-trigger-add-image']")
+    public WebElement addImageButton;
+
+    //@FindBy(xpath = "//input[@id='location']")
+   // public WebElement propertyLocationAlani;
+
+    @FindBy(xpath = "//*[@id='name-error']")
+    public WebElement theNameFieldIsRequiredUYariMesaji;
 }
 
 

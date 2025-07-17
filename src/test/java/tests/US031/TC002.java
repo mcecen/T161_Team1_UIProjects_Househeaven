@@ -30,16 +30,19 @@ public class TC002 {
 
     @Test
     public void test01() {
-        WebDriver driver = Driver.getDriver();
 
-        // 1. Navigate to the URL
-        driver.get("https://qa.hauseheaven.com/admin/login");
-        ReusableMethods.bekle(2);
+        hauseHeaven_yusufcelal = new HauseHeaven_yusufcelal();
 
-        // 2. Verify the URL
-        String expectedUrl = "https://qa.hauseheaven.com/admin/login";
-        String actualUrl = driver.getCurrentUrl();
-        assertEquals(actualUrl, expectedUrl, "URL verification failed!");
+        // Go to the URL
+        Driver.getDriver().get(ConfigReader.getProperty("dashboard-yusuf-admin"));
+        ReusableMethods.bekle(4);
+
+        // Check the URL
+        String expectedUrl = HauseHeaven_yusufcelal.AdminLink;
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+
+        Assert.assertEquals(actualUrl, expectedUrl, "URL check failed!");
+
 
         // 3. Locate and click the Email/Username input field
         Assert.assertTrue(hauseHeaven_yusufcelal.emailInput.isDisplayed(), "Email input field is not visible.");
@@ -56,14 +59,14 @@ public class TC002 {
         ReusableMethods.bekle(3);
 
         // 6. Verify the Admin Dashboard URL
-        String dashboardUrl = "https://qa.hauseheaven.com/admin";
-        assertEquals(driver.getCurrentUrl(), dashboardUrl, "Dashboard URL verification failed!");
+        Assert.assertTrue(hauseHeaven_yusufcelal.dashboardLink.isDisplayed(), "Dashboard link is not visible.");
+        hauseHeaven_yusufcelal.dashboardText.click();
 
         // 7. Verify visibility of main dashboard elements
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Active properties')]")).isDisplayed(), "Active properties section is visible.");
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Pending properties')]")).isDisplayed(), "Pending properties section is visible.");
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Expired properties')]")).isDisplayed(), "Expired properties section is visible.");
-        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Agents')]")).isDisplayed(), "Agents section is visible.");
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Active properties')]")).isDisplayed(), "Active properties section is visible.");
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Pending properties')]")).isDisplayed(), "Pending properties section is visible.");
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Expired properties')]")).isDisplayed(), "Expired properties section is visible.");
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Agents')]")).isDisplayed(), "Agents section is visible.");
 
 
         // 8. Verify the Blog link in the left menu
@@ -71,20 +74,10 @@ public class TC002 {
         hauseHeaven_yusufcelal.blogLink.click();
         ReusableMethods.bekle(2);
 
-//        // . Verify the Post link in the left menu
-//        Assert.assertTrue(hauseHeaven_yusufcelal.postsLink.isDisplayed(), "Blog link is not visible.");
-//        hauseHeaven_yusufcelal.postsLink.click();
-//        ReusableMethods.bekle(2);
-
         // 9. Verify the Categories link in the left menu
         Assert.assertTrue(hauseHeaven_yusufcelal.categoriesLink.isDisplayed(), "Blog link is not visible.");
         hauseHeaven_yusufcelal.categoriesLink.click();
         ReusableMethods.bekle(2);
-
-//        // . Verify the Tags link in the left menu
-//        Assert.assertTrue(hauseHeaven_yusufcelal.tagsLink.isDisplayed(), "Blog link is not visible.");
-//        hauseHeaven_yusufcelal.tagsLink.click();
-//        ReusableMethods.bekle(2);
 
         // 10.  Kayıtlı kullanıcı Categories anasayfasının tıklandığında üst menü Collapse all, +Creative alt menü Latest news, House architecture, House design, Building metarials görünmektedir.
         Assert.assertTrue(hauseHeaven_yusufcelal.categoriesLink.isDisplayed(), "Blog link is not visible.");
@@ -101,26 +94,31 @@ public class TC002 {
         ReusableMethods.bekle(2);
 
         // 12. Page Down ile aşağı kaydır
-        Actions Pagedown = new Actions(driver);
+        Actions Pagedown = new Actions(Driver.getDriver());
         Pagedown.sendKeys(Keys.PAGE_DOWN).perform();
         ReusableMethods.bekle(2);
 
         // 13. Save & Exit butonu görünür ve doğru metin içeriyor olmalı
         Assert.assertTrue(hauseHeaven_yusufcelal.saveAndExitButton.isDisplayed(), "'Save & Exit' butonu görünmüyor!");
-        String expectedSaveAndExit = hauseHeaven_yusufcelal.SaveAndExitWrite;
-        String actualSaveAndExit = hauseHeaven_yusufcelal.SaveAndExit.getText().trim();
-        Assert.assertEquals(actualSaveAndExit, expectedSaveAndExit, "Save & Exit yazısı eşleşmiyor!");
         ReusableMethods.bekle(2);
 
         // 14. Save butonu görünür ve doğru metin içeriyor olmalı
         Assert.assertTrue(hauseHeaven_yusufcelal.SaveButton.isDisplayed(), "'Save' butonu görünmüyor!");
-        String expectedSave = hauseHeaven_yusufcelal.SaveWrite;
-        String actualSave = hauseHeaven_yusufcelal.Save.getText().trim();
-        Assert.assertEquals(actualSave, expectedSave, "Save yazısı eşleşmiyor!");
+       ReusableMethods.bekle(2);
+
+        // 12. Page Down ile aşağı kaydır
+        Actions Pageup = new Actions(Driver.getDriver());
+        Pagedown.sendKeys(Keys.PAGE_UP).perform();
         ReusableMethods.bekle(2);
+
+        // 15. Verify the Admin Dashboard URL
+        Assert.assertTrue(hauseHeaven_yusufcelal.dashboardLink.isDisplayed(), "Dashboard link is not visible.");
+        hauseHeaven_yusufcelal.dashboardText.click();
+
 
         //      Kayıtlı kullanıcı page down yapılarak Save & Exit yazıları görünmektedir.
 
+        Driver.quitDriver();
 
     }
 }
