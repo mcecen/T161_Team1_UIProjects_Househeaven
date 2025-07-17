@@ -32,8 +32,6 @@ public abstract class TestBaseRapor {
 
         String filePath = System.getProperty("user.dir") + "\\test-output\\Rapor"+date+".html";
 
-        String filePath = System.getProperty("user.dir") + "/test-output/Rapor"+date+".html";
-
         //oluşturmak istediğimiz raporu (html formatında) başlatıyoruz,
         // filePath ile dosya yolunu belirliyoruz.
         // date class'i ile raporumuza tarih etiketi ekliyoruz
@@ -77,5 +75,5 @@ public abstract class TestBaseRapor {
     }
 
 }
-}
+
 
