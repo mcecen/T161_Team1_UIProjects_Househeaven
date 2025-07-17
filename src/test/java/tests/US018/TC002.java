@@ -30,7 +30,7 @@ public class TC002 {
         //  "Find accessible homes to rent" başlığının görüntülendiğini kontrol et
        Assert.assertTrue(hauseheavenAnasayfa.HomePageLogo.isDisplayed());
 
-       //"serach location butonunun görunurluğunu test et
+       //"serach location" butonunun görunurluğunu test et
         Assert.assertTrue(hauseheavenAnasayfa.searchLocation.isDisplayed());
 
         // "Min Price" "acılır menusunun"görünürlüğünü test et

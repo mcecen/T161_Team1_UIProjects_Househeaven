@@ -107,8 +107,8 @@ public class CennetHauseheavenAdminPages {
     @FindBy(xpath = "//*[@id=\"cms-plugins-re-feature\"]/a")
     public WebElement featuresBasligi;
 
-    @FindBy(xpath = "//*[@id=\"botble-real-estate-tables-feature-table_wrapper\"]/div[2]/button[1]/span/span")
-    public WebElement createButton; //*[@class='btn btn-secondary action-item']
+    @FindBy(xpath = "//*[@class='btn btn-secondary action-item']")
+    public WebElement createButton;
 
     @FindBy(xpath = "//*[@id=\"icon\"]")
     public WebElement iconAlaniDdm;
@@ -124,6 +124,15 @@ public class CennetHauseheavenAdminPages {
 
     @FindBy(xpath = "//*[@class='btn btn-secondary action-item']")
     public WebElement featuresCreateButton;
+
+    @FindBy(xpath = "//*[@class='add-new-gallery-image js-btn-trigger-add-image']")
+    public WebElement addImageButton;
+
+    //@FindBy(xpath = "//input[@id='location']")
+   // public WebElement propertyLocationAlani;
+
+    @FindBy(xpath = "//*[@id='name-error']")
+    public WebElement theNameFieldIsRequiredUYariMesaji;
 }
 
 

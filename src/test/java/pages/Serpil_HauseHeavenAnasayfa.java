@@ -41,5 +41,27 @@ public class Serpil_HauseHeavenAnasayfa {
     @FindBy(xpath = "//*[@class=\"btn search-btn\"]")
     public WebElement SearchButon;
 
+    @FindBy(xpath = "//input[@class=\"form-control\"]")
+    public WebElement searchBox;
+
+    @FindBy(xpath = "//input[@ type=\"text\"]")
+    public WebElement searchLocationButon;
+
+    @FindBy(xpath = "//*[@id='email']")
+    public WebElement usernameKutusu;
+
+    @FindBy(xpath="//*[@id='password']")
+    public WebElement passwordKutusu;
+
+    @FindBy(xpath ="//*[@class='btn btn-md full-width btn-theme-light-2 rounded']" )
+    public WebElement loginButonu;
+
+    @FindBy(xpath ="//a[normalize-space(text())='Listing']" )
+    public WebElement ListingButonu;
+
+    @FindBy(xpath = "//*[@class='m-0']")
+    public  WebElement MulkSayisi;
+
+
 
 }

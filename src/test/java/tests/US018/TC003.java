@@ -28,6 +28,9 @@ public class TC003 {
         //  "Find accessible homes to rent" başlığının işlevselliğini kontrol et
         Assert.assertTrue(hauseheavenAnasayfa.HomePageLogo.isEnabled());
 
+        //"Search for a location" açılır menüsünün işlevselliğini test et
+        Assert.assertTrue(hauseheavenAnasayfa.searchLocationButon.isEnabled());
+
         // "Min Price" "acılır menusunun"" işlevselliğini test et
         Assert.assertTrue(hauseheavenAnasayfa.minPriceTextbox.isEnabled());
 
@@ -35,7 +38,7 @@ public class TC003 {
         Assert.assertTrue(hauseheavenAnasayfa.maxPriceText.isEnabled());
 
         // " Property Type" "açılır menüsünün" işlevselliğini test et
-        Assert.assertTrue(hauseheavenAnasayfa.propertyLocation.isEnabled());
+        Assert.assertTrue(hauseheavenAnasayfa.propertyType.isEnabled());
 
         // " Bed Rooms " "açılır menüsünün" işlevselliğini test et
         Assert.assertTrue(hauseheavenAnasayfa.bedRoomsTextbox.isEnabled());
@@ -45,6 +48,8 @@ public class TC003 {
 
         // "Search Result" kutusununun tıklanabilir  olduğunutest et
         Assert.assertTrue(hauseheavenAnasayfa.SearchButon.isEnabled());
+
+
 
         // Tarayıcıyı Kapat
         Driver.quitDriver();

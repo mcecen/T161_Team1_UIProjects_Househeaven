@@ -1,21 +1,29 @@
-package tests.US016;
+package tests.US017;
 
-import org.openqa.selenium.*;
+import com.github.javafaker.Faker;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Kivanc_HauseheavenPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
 
-public class TC001 {
+import java.time.Duration;
+
+public class TC002 extends TestBaseRapor {
     Kivanc_HauseheavenPage kivanc_hauseheavenPage = new Kivanc_HauseheavenPage();
     String validationMessage;
-    Actions actions = new Actions(Driver.getDriver());
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
 
     @Test
-    public void propertiesTest() {
+    public void T() {
 
         //Go to the URL address: https://qa.hauseheaven.com/
         Driver.getDriver().get(ConfigReader.getProperty("url"));
@@ -41,7 +49,7 @@ public class TC001 {
         Assert.assertTrue(kivanc_hauseheavenPage.passwordTextbox.isDisplayed());
         Assert.assertTrue(kivanc_hauseheavenPage.confirmPasswordTextbox.isDisplayed());
 
-        //"User can hover over the ""First Name"", ""Last Name"", ""Email"", and ""Username"" fields and see the warning 'Please fill out this field'."
+        //User can hover over the ""First Name"", ""Last Name"", ""Email"", and ""Username"" fields and see the warning 'Please fill out this field'."
 
         validationMessage = kivanc_hauseheavenPage.firstNameTextbox.getAttribute("validationMessage");
         ReusableMethods.bekle(2);
@@ -88,21 +96,38 @@ public class TC001 {
         //User can see the account dashboard page loads properly.
         Assert.assertEquals(Driver.getDriver().getCurrentUrl(), ConfigReader.getProperty("dashboard-url"));
 
-        actions.sendKeys(Keys.ARROW_DOWN).perform();
-        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        kivanc_hauseheavenPage.mainLogo.click();
+        Assert.assertEquals(Driver.getDriver().getCurrentUrl(),ConfigReader.getProperty("LogoHomePage-Url"));
 
-        // The registered user sees the "Properties" section on the account dashboard page.
-        Assert.assertTrue(kivanc_hauseheavenPage.properties.isDisplayed());
+        kivanc_hauseheavenPage.homeMenu.click();
+        Assert.assertEquals(Driver.getDriver().getCurrentUrl(),ConfigReader.getProperty("homePage-Url"));
 
-        ReusableMethods.bekle(2);
+        kivanc_hauseheavenPage.listingMenu.click();
+        Assert.assertEquals(Driver.getDriver().getCurrentUrl(),ConfigReader.getProperty("listingPage-Url"));
 
-        //The registered user clicks the "Properties" section on the account dashboard page.
-        kivanc_hauseheavenPage.properties.click();
+        kivanc_hauseheavenPage.projectMenu.click();
+        Assert.assertEquals(Driver.getDriver().getCurrentUrl(),ConfigReader.getProperty("projectsPage-Url"));
 
-        ReusableMethods.bekle(2);
+        kivanc_hauseheavenPage.agentsMenu.click();
+        Assert.assertEquals(Driver.getDriver().getCurrentUrl(),ConfigReader.getProperty("agentsPage-Url"));
 
-        Assert.assertEquals(Driver.getDriver().getCurrentUrl(),ConfigReader.getProperty("properties-url"));
+        kivanc_hauseheavenPage.blogMenu.click();
+        Assert.assertEquals(Driver.getDriver().getCurrentUrl(),ConfigReader.getProperty("blogPage-Url"));
 
-        Driver.quitDriver();
-    }
-}
+        kivanc_hauseheavenPage.contactMenu.click();
+        Assert.assertEquals(Driver.getDriver().getCurrentUrl(),ConfigReader.getProperty("contactPage-Url"));
+
+        kivanc_hauseheavenPage.signUpMenu.click();
+        Assert.assertEquals(Driver.getDriver().getCurrentUrl(),ConfigReader.getProperty("signUp-Url"));
+
+        kivanc_hauseheavenPage.addProperties.click();
+        Assert.assertTrue(kivanc_hauseheavenPage.addProperty.isEnabled());
+
+        kivanc_hauseheavenPage.profilIkon.click();
+        Assert.assertEquals(Driver.getDriver().getCurrentUrl(),ConfigReader.getProperty("profileIkon-url"));
+
+        kivanc_hauseheavenPage.logOut.click();
+        Assert.assertTrue(kivanc_hauseheavenPage.logInTextElementi.isDisplayed());
+
+
+    }}
