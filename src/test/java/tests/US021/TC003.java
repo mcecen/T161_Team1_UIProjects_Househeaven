@@ -1,11 +1,17 @@
 package tests.US021;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.Serpil_HauseHeavenAnasayfa;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+
+import static utilities.Driver.driver;
 
 public class TC003 {
     @Test
@@ -15,6 +21,7 @@ public class TC003 {
         //TC003- kayıtlı kullanıcı olarak  listelenen ilanların
         // ayrıntılarına erişilebilmek için
         // gerekli fonksiyonların bulunduğunu test et
+
         //kullanıcı "qa.hauseheaven anasayfasına" gider
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
@@ -46,6 +53,35 @@ public class TC003 {
         //Listing sayfasına geçiş
         hauseheavenAnasayfa.ListingButonu.click();
         ReusableMethods.bekle(1);
+
+        //Filtreleme yapınız
+        //  hauseheavenAnasayfa.searchLocationButon.sendKeys(ConfigReader.getProperty("serpilLocation"));
+        ReusableMethods.bekle(1);
+
+        hauseheavenAnasayfa.ListingCityBox.click();
+        ReusableMethods.bekle(1);
+
+        WebElement cityOption = driver.findElement(By.xpath("//*[@data-select2-id='select2-data-85-jv9p']"
+        ));
+        cityOption.click();
+
+        // aşağı indirme kodu
+       /* javascriptExecutor js2 = (JavascriptExecutor) Driver.getDriver();
+
+        js.executeScript("window.scrollBy(0, 100);"); */
+        hauseheavenAnasayfa.minAreaButonu.sendKeys(ConfigReader.getProperty("serpilMinArea"));
+        hauseheavenAnasayfa.maxAreaButonu.sendKeys(ConfigReader.getProperty("serpilMaxArea"));
+
+        ReusableMethods.bekle(1);
+
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0, 1800);");
+        ReusableMethods.bekle(1);
+
+        hauseheavenAnasayfa.filtrelemeKaydetButonu.click();
+        ReusableMethods.bekle(1);
+
+
 
 
 
