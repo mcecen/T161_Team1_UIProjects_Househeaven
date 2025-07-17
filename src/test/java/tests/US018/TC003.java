@@ -24,12 +24,28 @@ public class TC003 {
         Assert.assertTrue(hauseheavenAnasayfa.signInButonu.isEnabled());
 
         ReusableMethods.bekle(2);
+        //Giriş yapın
+
+        hauseheavenAnasayfa.signInButonu.click();
+        ReusableMethods.bekle(2);
+
+        //Kullanıcı adını giriniz
+        hauseheavenAnasayfa.usernameKutusu.sendKeys(ConfigReader.getProperty("user-serpil"));
+        ReusableMethods.bekle(1);
+
+        //şifrenizi girin
+        hauseheavenAnasayfa.passwordKutusu.sendKeys(ConfigReader.getProperty("user-serpil-password"));
+        ReusableMethods.bekle(1);
+
+        //Login butonunu tıkla
+        hauseheavenAnasayfa.loginButonu.click();
+        ReusableMethods.bekle(1);
 
         //  "Find accessible homes to rent" başlığının işlevselliğini kontrol et
         Assert.assertTrue(hauseheavenAnasayfa.HomePageLogo.isEnabled());
 
         //"Search for a location" açılır menüsünün işlevselliğini test et
-        Assert.assertTrue(hauseheavenAnasayfa.searchLocationButon.isEnabled());
+        Assert.assertTrue(hauseheavenAnasayfa.SearchLocationButon.isEnabled());
 
         // "Min Price" "acılır menusunun"" işlevselliğini test et
         Assert.assertTrue(hauseheavenAnasayfa.minPriceTextbox.isEnabled());

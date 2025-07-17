@@ -41,11 +41,8 @@ public class Serpil_HauseHeavenAnasayfa {
     @FindBy(xpath = "//*[@class=\"btn search-btn\"]")
     public WebElement SearchButon;
 
-    @FindBy(xpath = "//input[@class=\"form-control\"]")
-    public WebElement searchBox;
-
-    @FindBy(xpath = "//input[@ type=\"text\"]")
-    public WebElement searchLocationButon;
+    @FindBy(xpath = "//*[@class='btn search-btn']")
+    public WebElement SearchResaultBox;
 
     @FindBy(xpath = "//*[@id='email']")
     public WebElement usernameKutusu;
@@ -61,6 +58,85 @@ public class Serpil_HauseHeavenAnasayfa {
 
     @FindBy(xpath = "//*[@class='m-0']")
     public  WebElement MulkSayisi;
+
+    @FindBy(xpath ="//input[@placeholder='Search for a location']")
+    public WebElement SearchLocationButon;
+
+    @FindBy(xpath = "//span[@id='select2-minprice-container']")
+    public WebElement MinPriceFltreleme;
+
+    @FindBy(xpath = "//span[@id='select2-maxprice-container']")
+    public WebElement MaxPriceFlitreleme;
+
+    @FindBy(name ="min_square" )
+    public WebElement minAreaButonu;
+
+    @FindBy(name ="max_square" )
+    public WebElement maxAreaButonu;
+
+    @FindBy(xpath = "//*[@class='btn btn btn-theme-light-2 rounded full-width mt-3']")
+        public WebElement filtrelemeKaydetButonu;
+
+                                //Listing Page
+
+    @FindBy(xpath ="//*[@title='City']")
+   public WebElement ListingCityBox;
+
+    @FindBy(xpath ="//*[@title='Category']")
+    public WebElement ListingCategoryBox;
+
+
+    @FindBy(xpath ="//*[@title='Type']")
+    public WebElement ListingTypeBox;
+
+    @FindBy(xpath ="//*[@title='No Min']")
+    public WebElement ListingNoMinBox;
+
+    @FindBy(xpath ="//*[@title='No Max']")
+    public WebElement ListingNoMaxBox;
+
+    @FindBy(xpath ="//*[@title='Bedroom']")
+    public WebElement ListingBedroomBox;
+
+    @FindBy(xpath ="//*[@title='Bathroom']")
+    public WebElement ListingBathroomBox;
+
+    @FindBy(xpath = "//*[@for='features-0']")
+    public WebElement WiFiBox;
+
+    @FindBy(xpath = "//*[@for='features-1']")
+    public WebElement ParkingBox;
+
+    @FindBy(xpath = "//*[@class='btn btn btn-theme-light-2 rounded full-width mt-3']")
+    public WebElement FindNewHomeButon;
+
+    @FindBy(xpath = "//*[@title=\"Peoria\"]")
+    public WebElement Newark;
+
+               //*[@class='m-0']
+
+    @FindBy(xpath = "//*[@class='m-0']")
+    public WebElement ListSonucSayisi;
+
+             //SON aldığım locate'ler//
+
+    @FindBy(xpath ="//*[@id='minprice']")
+    public WebElement MinPriceKutusu;
+
+    @FindBy(xpath = "//*[@id=\"maxprice\"]")
+    public WebElement MaxPriceKutusu;
+
+    @FindBy(xpath = "//*[@id=\"ptypes\"]")
+    public WebElement PopertyTypeKutusu;
+
+    @FindBy(xpath = "//*[@id=\"select-bedroom\"]")
+    public WebElement BedRoomsKutusu;
+
+    @FindBy(xpath ="//*[@id='city_id']")
+    public WebElement PropertyLocation;
+
+
+
 
 
 
