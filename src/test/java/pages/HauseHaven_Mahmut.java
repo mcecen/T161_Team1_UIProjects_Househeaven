@@ -5,10 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.w3c.dom.html.HTMLInputElement;
 import utilities.Driver;
 
 public class HauseHaven_Mahmut {
+
+
 
     public HauseHaven_Mahmut (){
         PageFactory.initElements(Driver.getDriver(),this);}
@@ -40,6 +41,37 @@ public WebElement saveButton;
 
 @FindBy(xpath = "//*[@id=\"alert-container\"]")
 private WebElement toastMessage;
+
+    @FindBy(linkText = "Contact")
+    public WebElement contactButton;
+
+    @FindBy(xpath = "//*[@id=\"contact\"]/div[1]/form/div[1]/div[1]/div/input")
+    public WebElement nameInput;
+
+    @FindBy(xpath = "//*[@id=\"contact\"]/div[1]/form/div[1]/div[2]/div/input")
+    public WebElement contactEmailInput;
+
+    @FindBy(xpath = "//*[@id=\"contact\"]/div[1]/form/div[2]/div[1]/div/input")
+    public WebElement subjectInput;
+
+    @FindBy(xpath= "//*[@id=\"contact\"]/div[1]/form/div[2]/div[2]/div/input")
+    public WebElement phoneInput;
+
+    @FindBy(xpath = "//*[@id=\"contact\"]/div[1]/form/div[5]/button")
+    public WebElement messageInput;
+
+    @FindBy(xpath = "//*[@id=\"contact\"]/div[1]/form/div[5]/button")
+    public WebElement sendMessageButton;
+
+    @FindBy(xpath = "//*[text()='Get In Touch']")
+    public WebElement getInTouchSection;
+
+    @FindBy(xpath = "//*[text()='Directions']")
+    public WebElement directionsSection;
+
+    @FindBy(css = "iframe[src*='google.com/maps']")
+    public WebElement mapFrame;
+
 
 
 
@@ -73,4 +105,10 @@ private WebElement toastMessage;
     public void setToastMessage(WebElement toastMessage) {
         this.toastMessage = toastMessage;
     }
+
+
+
+
+
+
 }
