@@ -144,4 +144,9 @@ public class ReusableMethods {
 
         return element;
     }
+
+    public static String raporaResimEkle(String name) {
+
+        return name;
+    }
 }
