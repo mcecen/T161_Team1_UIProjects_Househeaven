@@ -147,23 +147,26 @@ public class ReusableMethods {
         return element;
     }
 
-    public static String raporaResimEkle(String testIsmi) throws IOException {
-
+    public static String raporaResimEkle(String testName) {
+        // Tarih formatı
         LocalDateTime localDateTime = LocalDateTime.now();
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("_yyMMdd_HHmmss");
-        String date = localDateTime.format(format); // _241219_080623
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("_yyMMdd_HHmmss");
+        String date = localDateTime.format(formatter); // Örn: _250718_142530
 
-        // 1.adim tss objesi olusturalim
-        //   ve takesScreenshot objesi ile gecici resmi kaydedelim
-        TakesScreenshot takesScreenshot = (TakesScreenshot) Driver.getDriver();
-        File geciciDosya = takesScreenshot.getScreenshotAs(OutputType.FILE);
+        // Screenshot alma
+        TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
+        File sourceFile = ts.getScreenshotAs(OutputType.FILE);
 
-        // Asil resmi kaydedecegimiz dosya yolunu olusturup
-        // bu dosya yolu ile resmi kaydedecegimiz asil dosyayi olusturalim
-        String dosyaYolu = System.getProperty("user.dir") + "/test-output/Screenshots/" + testIsmi + date + ".jpg";
-        File asilResimDosyasi = new File(dosyaYolu);
-        // gecici dosyayi asil dosyaya kopyalayalim
-        FileUtils.copyFile(geciciDosya, asilResimDosyasi);
-        return dosyaYolu;
+        // Kaydedilecek dosya yolu
+        String targetPath = System.getProperty("user.dir") + "/test-output/Screenshots/" + testName + date + ".png";
+        File targetFile = new File(targetPath);
+
+        try {
+            FileUtils.copyFile(sourceFile, targetFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return targetPath; // Raporlama için path döndürülür
     }
 }

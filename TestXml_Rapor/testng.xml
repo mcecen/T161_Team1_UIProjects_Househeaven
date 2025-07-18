@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="HauseHeaven-FullSuite" verbose="1" parallel="false">
+
+    <!-- Parametre tanımlama (isteğe bağlı) -->
+    <parameter name="browser" value="chrome" />
+
+    <!-- Tüm Testleri tek suite içinde çalıştırma -->
+    <test name="Full Test Execution">
+
+        <packages>
+            <!-- Tüm tests klasörünü dahil etmek için -->
+            <package name="tests.US028"/>
+            <package name="tests.US031"/>
+            <package name="tests.US034"/>
+        </packages>
+
+    </test>
+</suite>
