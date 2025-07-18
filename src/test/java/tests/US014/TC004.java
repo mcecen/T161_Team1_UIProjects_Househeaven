@@ -67,7 +67,7 @@ public class TC004 extends TestBaseRapor {
         extentTest.info("User sees the \"View\" link under the listing.");
         softAssert.assertTrue(eda_hauseheavenPage.viewButton.isDisplayed());
 
-        PageNavigation.scrollDownWithJS(200);
+        PageNavigation.scrollDownWithJS(300);
 
         extentTest.info("User clicks the \"View\" link.");
         eda_hauseheavenPage.viewButton.click();
@@ -87,18 +87,19 @@ public class TC004 extends TestBaseRapor {
         softAssert.assertTrue(eda_hauseheavenPage.listingName.isDisplayed());
 
         extentTest.info("User sees \"Ankara, Eryaman\" text.");
-        WebElement locationText = Driver.getDriver().findElement(By.xpath("//*[@id=\"app\"]/section/div[2]/div[1]/div[1]/div[1]/div/span[2]"));
-        softAssert.assertEquals(locationText.getText(), " Ankara, Eryaman");
+        WebElement locationText = Driver.getDriver().findElement(By.xpath("//span[text()=' Ankara, Eryaman']"));
+        softAssert.assertEquals(locationText.getText(), "Ankara, Eryaman");
 
-        extentTest.info("User sees \"$1million\" text.");
+        extentTest.info("User sees \"$1\" text.");
         WebElement priceText = Driver.getDriver().findElement(By.xpath("//*[@id=\"app\"]/section/div[2]/div[1]/div[1]/div[1]/div/h3[2]"));
         softAssert.assertEquals(priceText.getText(), "$1");
 
         extentTest.info("User sees \"Property Type: Villa\" text.");
-        softAssert.assertTrue(eda_hauseheavenPage.descriptionFieldText.getText().contains("Villa "));
+        softAssert.assertEquals(eda_hauseheavenPage.detailFeaturesFieldText.getText(), ("Property Type:Villa"));
+
 
         extentTest.info("User sees Under the \"Description\" menu, user sees \"Eşyasız\"");
-        softAssert.assertTrue(eda_hauseheavenPage.descriptionFieldText.getText().contains("Eşyasız"));
+        softAssert.assertEquals(eda_hauseheavenPage.descriptionFieldText.getText(), ("Description\neşyasız"));
 
         PageNavigation.scrollDownWithJS(200);
 
@@ -113,15 +114,15 @@ public class TC004 extends TestBaseRapor {
         PageNavigation.scrollDownWithJS(100);
 
         extentTest.info("Under the \"Location\" menu, user sees \"Ankara\".");
-
         softAssert.assertEquals(eda_hauseheavenPage.locationFieldText.getText(), "Ankara");
 
-        PageNavigation.scrollDownWithJS(100);
+
+        PageNavigation.scrollDownWithJS(500);
 
         //extentTest.info("Under the \"Gallery\" menu, user sees the uploaded photo.");
 
         extentTest.info("User clicks \"Content\" menu and sees \"iç-dış cephe boyaları yapıldı\".");
-        softAssert.assertTrue(Driver.getDriver().getPageSource().contains("Content"));
+        softAssert.assertTrue(Driver.getDriver().getPageSource().contains("Content\niç-dış cephe boyaları yapıldı"));
 
 
         softAssert.assertAll();
