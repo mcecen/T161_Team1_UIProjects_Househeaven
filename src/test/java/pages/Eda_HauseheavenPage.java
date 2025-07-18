@@ -238,7 +238,7 @@ public class Eda_HauseheavenPage {
     @FindBy (xpath = "//*[@id=\"app\"]/section/div/div[2]/div[2]/div[2]/div[1]/div/div[4]/div[2]/a")
     public WebElement viewButton;
 
-    @FindBy (xpath = "//*[@id=\"app\"]/section/div[2]/div[1]/div[1]/div[1]/div/h3[1]")
+    @FindBy (xpath = "//h3[text()='küçük bahçeli villa']")
     public WebElement listingName;
 
     @FindBy (xpath = "//*[@id=\"app\"]/section/div[2]/div[1]/div[1]/div[2]/div[1]/a/h4")
@@ -250,7 +250,7 @@ public class Eda_HauseheavenPage {
     @FindBy (xpath = "//*[@id=\"app\"]/section/div[2]/div[1]/div[1]/div[3]/div[1]/a/h4")
     public WebElement descriptionMenu;
 
-    @FindBy (xpath = "//*[@id=\"clTwo\"]")
+    @FindBy (xpath = "//*[@id=\"app\"]/section/div[2]/div[1]/div[1]/div[3]")
     public WebElement descriptionFieldText;
 
     @FindBy (xpath = "//*[@id=\"app\"]/section/div[2]/div[1]/div[1]/div[4]/div[1]/a/h4")
