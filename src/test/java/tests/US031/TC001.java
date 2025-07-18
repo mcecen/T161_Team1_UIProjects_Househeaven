@@ -1,16 +1,15 @@
 package tests.US031;
 
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HauseHeaven_yusufcelal;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor_Yusuf;
 
-public class TC001 {
+public class TC001 extends TestBaseRapor_Yusuf {
 
 //      Admin olarak sayfaya giriş yapılabilmesini istiyorum.
 //      Kullanıcı tarayıcı sayfasını açar.
@@ -34,43 +33,73 @@ public class TC001 {
 
     @Test
     public void test01() {
-        hauseHeaven_yusufcelal = new HauseHeaven_yusufcelal();
-        // Go to the URL
-        Driver.getDriver().get(ConfigReader.getProperty("dashboard-yusuf-admin"));
-        ReusableMethods.bekle(4);
+        extentTest = extentReports.createTest(
+                "US031 - Admin Giriş ve Dashboard Testi",
+                "Admin kullanıcının giriş ve dashboard doğrulaması"
+        );
 
-        // Check the URL
-        String expectedUrl = HauseHeaven_yusufcelal.AdminLink;
-        String actualUrl = Driver.getDriver().getCurrentUrl();
+        try {
+            hauseHeaven_yusufcelal = new HauseHeaven_yusufcelal();
 
-        Assert.assertEquals(actualUrl, expectedUrl, "URL check failed!");
+            // 1. Admin login sayfasına git
+            extentTest.info("Admin login sayfasına gidiliyor.");
+            Driver.getDriver().get(ConfigReader.getProperty("dashboard-yusuf-admin"));
+            ReusableMethods.bekle(4);
+            extentTest.addScreenCaptureFromPath(ReusableMethods.raporaResimEkle("AdminLoginPage"));
 
+            // 2. URL doğrulama
+            String expectedUrl = HauseHeaven_yusufcelal.AdminLink;
+            String actualUrl = Driver.getDriver().getCurrentUrl();
+            Assert.assertEquals(actualUrl, expectedUrl, "URL check failed!");
+            extentTest.pass("URL doğrulaması başarılı: " + actualUrl);
 
-        // 3. Locate and click the Email/Username input field
-        Assert.assertTrue(hauseHeaven_yusufcelal.emailInput.isDisplayed(), "Email input field is not visible.");
-        hauseHeaven_yusufcelal.emailInput.sendKeys(ConfigReader.getProperty("admin-yusuf"));
+            // 3. Email alanı
+            Assert.assertTrue(hauseHeaven_yusufcelal.emailInput.isDisplayed(), "Email input field is not visible.");
+            hauseHeaven_yusufcelal.emailInput.sendKeys(ConfigReader.getProperty("admin-yusuf"));
+            extentTest.pass("Email alanına kullanıcı adı girildi.");
+            extentTest.addScreenCaptureFromPath(ReusableMethods.raporaResimEkle("EmailInput"));
 
+            // 4. Password alanı
+            Assert.assertTrue(hauseHeaven_yusufcelal.passwordInput.isDisplayed(), "Password input field is not visible.");
+            hauseHeaven_yusufcelal.passwordInput.sendKeys(ConfigReader.getProperty("admin-yusuf-password"));
+            extentTest.pass("Password alanına şifre girildi.");
+            extentTest.addScreenCaptureFromPath(ReusableMethods.raporaResimEkle("PasswordInput"));
 
-        // 4. Locate and click the Password input field
-        Assert.assertTrue(hauseHeaven_yusufcelal.passwordInput.isDisplayed(), "Password input field is not visible.");
-        hauseHeaven_yusufcelal.passwordInput.sendKeys(ConfigReader.getProperty("admin-yusuf-password"));
+            // 5. Sign In
+            Assert.assertTrue(hauseHeaven_yusufcelal.signInButton.isDisplayed(), "Sign In button is not visible.");
+            hauseHeaven_yusufcelal.signInButton.click();
+            ReusableMethods.bekle(3);
+            extentTest.pass("Sign In butonuna tıklandı.");
+            extentTest.addScreenCaptureFromPath(ReusableMethods.raporaResimEkle("AfterSignIn"));
 
-        // 5. Locate and click the Sign In button
-        Assert.assertTrue(hauseHeaven_yusufcelal.signInButton.isDisplayed(), "Sign In button is not visible.");
-        hauseHeaven_yusufcelal.signInButton.click();
-        ReusableMethods.bekle(3);
+            // 6. Dashboard doğrulama
+            Assert.assertTrue(hauseHeaven_yusufcelal.dashboardLink.isDisplayed(), "Dashboard link is not visible.");
+            hauseHeaven_yusufcelal.dashboardText.click();
+            extentTest.pass("Dashboard sayfası açıldı.");
 
-        // 6. Verify the Admin Dashboard URL
-        Assert.assertTrue(hauseHeaven_yusufcelal.dashboardLink.isDisplayed(), "Dashboard link is not visible.");
-        hauseHeaven_yusufcelal.dashboardText.click();
+            // 7. Dashboard içerik doğrulama
+            Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Active properties')]")).isDisplayed(),
+                    "Active properties section is not visible.");
+            Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Pending properties')]")).isDisplayed(),
+                    "Pending properties section is not visible.");
+            Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Expired properties')]")).isDisplayed(),
+                    "Expired properties section is not visible.");
+            Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Agents')]")).isDisplayed(),
+                    "Agents section is not visible.");
+            extentTest.pass("Dashboard üzerindeki tüm bölümler doğrulandı.");
+            extentTest.addScreenCaptureFromPath(ReusableMethods.raporaResimEkle("DashboardSections"));
 
-        // 7. Verify visibility of main dashboard elements
-        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Active properties')]")).isDisplayed(), "Active properties section is visible.");
-        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Pending properties')]")).isDisplayed(), "Pending properties section is visible.");
-        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Expired properties')]")).isDisplayed(), "Expired properties section is visible.");
-        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[contains(text(),'Agents')]")).isDisplayed(), "Agents section is visible.");
-
-        Driver.quitDriver();
-
+        } catch (AssertionError | Exception e) {
+            extentTest.fail("Test adımlarında hata: " + e.getMessage());
+            try {
+                extentTest.addScreenCaptureFromPath(ReusableMethods.raporaResimEkle("Failure-TC001"));
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            throw e;
+        } finally {
+            Driver.quitDriver();
+            extentTest.info("Tarayıcı kapatıldı.");
+        }
     }
 }

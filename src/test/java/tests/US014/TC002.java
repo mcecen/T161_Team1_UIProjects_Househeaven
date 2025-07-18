@@ -1,60 +1,111 @@
 package tests.US014;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Eda_HauseheavenPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.PageNavigation;
+import utilities.TestBaseRapor;
 
-public class TC002 {
+import java.util.List;
+
+public class TC002 extends TestBaseRapor {
 
     Eda_HauseheavenPage eda_hauseheavenPage = new Eda_HauseheavenPage();
 
     @Test
-    public void editPropertyTest(){
+    public void requiredFieldWarningTest(){
 
-        //Go to the URL address: https://qa.hauseheaven.com/
+        extentTest = extentReports.createTest("Required Field Warning Test");
+
+        extentTest.info("Go to the URL address: https://qa.hauseheaven.com/");
         Driver.getDriver().get(ConfigReader.getProperty("url"));
 
-        //User views the Househeaven homepage
+        extentTest.info("User views the Househeaven homepage");
         Assert.assertEquals(Driver.getDriver().getTitle(), "Hause Heaven");
 
-        //User clicks the 'Sign In' link in the header section of the homepage
+        extentTest.info("User clicks the 'Sign In' link in the header section of the homepage");
         eda_hauseheavenPage.signInLink.click();
 
-        //User sees that https://qa.hauseheaven.com/public/login page is opened.
+        extentTest.info("User sees that the page https://qa.hauseheaven.com/public/login is opened after clicking the Sign In link");
         Assert.assertEquals(Driver.getDriver().getTitle(),"Login");
 
-        //User fills in the login form with valid data.
+        extentTest.info("User fills in the login form with valid data.");
         eda_hauseheavenPage.loginEmailTextbox.sendKeys(ConfigReader.getProperty("user-eda"));
         eda_hauseheavenPage.loginPasswordTextbox.sendKeys(ConfigReader.getProperty("user-eda-password"));
 
-        //User clicks the Login button.
+        extentTest.info("User clicks the Login button.");
         eda_hauseheavenPage.loginButton.click();
 
-        //User sees the Househeaven homepage.
+        extentTest.info("User sees the Househeaven homepage.");
         Assert.assertEquals(Driver.getDriver().getTitle(), "Hause Heaven");
 
-        //User sees the "Add Property" link in the header.
+        extentTest.info("User sees the \"Add Property\" link in the header.");
+        Assert.assertTrue(eda_hauseheavenPage.addPropertyLink.isDisplayed());
 
-        //User clicks the Add Property link.
-        //User sees the page https://qa.hauseheaven.com/public/account/properties/create.
-        //User sees the listing creation form.
-        //User sees the Save button in the right Publish section.
-        //User clicks the Save button.
-        //User sees the Write a Property page again.
-        //User clicks the Title* textbox.
-        //User writes “geniş bahçeli dubleks villa” into the Title* textbox.
-        //User clicks Save.
-        //User sees the Write a Property page again.
-        //User sees the warning below the Content* textbox.
-        //User clicks the Content* textbox.
-        //User enters: “Depreme dayanıklı, iç-dış cephe boyaları yapıldı”.
-        //User clicks Save.
-        //User sees the Write a Property page again.
-        //User sees the warning below the Property location* textbox.
-        //User clicks the Property location* textbox.
-        //User types "Ankara" in Property location textbox.
-        //User clicks Save button and User sees the Edit Property page.
+        extentTest.info("User clicks the \"Add Property\" link.");
+        eda_hauseheavenPage.addPropertyLink.click();
+
+        extentTest.info("User sees the page https://qa.hauseheaven.com/public/account/properties/create.");
+        Assert.assertEquals(Driver.getDriver().getTitle(), "Write a property");
+
+        extentTest.info("User sees the listing creation form.");
+        Assert.assertTrue(eda_hauseheavenPage.listingCreationform.isDisplayed());
+
+        extentTest.info("User sees the Save button in the right Publish section.");
+        Assert.assertTrue(eda_hauseheavenPage.saveButton.isDisplayed());
+
+        extentTest.info("User clicks the Save button.");
+        eda_hauseheavenPage.saveButton.click();
+
+        extentTest.info("User sees the Write a Property page again.");
+        Assert.assertEquals(Driver.getDriver().getTitle(), "Write a property");
+
+        extentTest.info("User sees the warning below the Title* textbox.");
+        Assert.assertTrue(eda_hauseheavenPage.titleWarning.isDisplayed());
+
+        extentTest.info("User writes 'geniş bahçeli dubleks villa' into the Title* textbox.");
+        eda_hauseheavenPage.titleTextbox.sendKeys("geniş bahçeli dubleks villa");
+
+        extentTest.info("User clicks Save.");
+        eda_hauseheavenPage.saveButton.click();
+
+        extentTest.info("User sees the Write a Property page again.");
+        Assert.assertEquals(Driver.getDriver().getTitle(), "Write a property");
+
+        PageNavigation.scrollDownWithJS(400);
+
+        extentTest.info("User sees the warning below the Content* textbox.");
+        Assert.assertTrue(eda_hauseheavenPage.contentWarning.isDisplayed());
+
+        extentTest.info("User enters:'Depreme dayanıklı, iç-dış cephe boyaları yapıldı'");
+        eda_hauseheavenPage.contentTextbox.sendKeys("Depreme dayanıklı, iç-dış cephe boyaları yapıldı");
+
+        PageNavigation.scrollUpWithJS(400);
+
+        extentTest.info("User clicks Save.");
+        eda_hauseheavenPage.saveButton.click();
+
+        PageNavigation.scrollDownWithJS(500);
+
+        extentTest.info("User sees the warning below the Property location* textbox.");
+        extentTest.info("User sees the warning message 'The content field is required.' under the Property location* textbox");
+        List<WebElement> propertyLocationWarnings = Driver.getDriver().findElements(By.xpath("//input[@type='password']/following-sibling::*[contains(text(),'These credentials')]"));
+        Assert.assertTrue(propertyLocationWarnings.size() > 0, "A warning message should have appeared under the Property location* field!");
+
+        extentTest.info("User sees the Write a Property page again.");
+        Assert.assertEquals(Driver.getDriver().getTitle(), "Write a property");
+
+        extentTest.info("User types \"Ankara\" in Property location textbox.");
+        eda_hauseheavenPage.propertyLocationTextbox.sendKeys("Ankara");
+
+        extentTest.info("User clicks Save button and User sees the Edit Property page.");
+        eda_hauseheavenPage.saveButton.click();
+        Assert.assertEquals(Driver.getDriver().getTitle(), "Edit property");
+
+
     }
 }

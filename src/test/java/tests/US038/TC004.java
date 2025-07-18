@@ -47,11 +47,13 @@ public class TC004 {
         hauseheavenAdminPages.realEstateBasligi.click();
         // Kullanıcı Real Estate başlığını tıklamak ile alt menude açılan Facilities başlığını görür
         // Kullanıcı Real Estate başlığı altında açılan alt menude çıkan Facilities başlığını tıklar
+        ReusableMethods.bekle(3);
         Assert.assertTrue(hauseheavenAdminPages.facilitiesBasligi.isDisplayed());
         hauseheavenAdminPages.facilitiesBasligi.click();
-        //Kullanıcı Facilitiesbaşlığını tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/property-Facilities" sayfasına erişebildiğini görü
-        String expectedFacilitiesSayfaUrl = "https://qa.hauseheaven.com/admin/real-estate/property-Facilities";
+        //Kullanıcı Facilitiesbaşlığını tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/facilities" sayfasına erişebildiğini görü
+        String expectedFacilitiesSayfaUrl = "https://qa.hauseheaven.com/admin/real-estate/facilities";
         String actualFacilitiesSayfaUrl = Driver.getDriver().getCurrentUrl();
+        ReusableMethods.bekle(3);
         Assert.assertEquals(expectedFacilitiesSayfaUrl, actualFacilitiesSayfaUrl);
 
 
@@ -60,21 +62,23 @@ public class TC004 {
     @Test
     public void test002(){
 
-// Kullanıcı Facilities sayfasında  create butonuna tıklar
+    // Kullanıcı Facilities sayfasında  create butonuna tıklar
+        ReusableMethods.bekle(3);
         Assert.assertTrue(hauseheavenAdminPages.createButton.isDisplayed());
         hauseheavenAdminPages.createButton.click();
-// Kullanıcı Facilities sayfasında sağ üstte Create butonunu tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/property-facilities/create"url ine ulaşır
-        String expectedCreateSayfaUrl="https://qa.hauseheaven.com/admin/real-estate/property-facilities/create";
+    // Kullanıcı Facilities sayfasında sağ üstte Create butonunu tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/facilities/create"url ine ulaşır
+        String expectedCreateSayfaUrl="https://qa.hauseheaven.com/admin/real-estate/facilities/create";
         String actualCreateSayfaUrl=Driver.getDriver().getCurrentUrl();
         Assert.assertTrue(expectedCreateSayfaUrl.equals(actualCreateSayfaUrl));
-// Kullanıcı Facilities sayfasındaki create sayfasında "Title" texbox ını görür
-// Kullanıcı  Facilities sayfasındaki create  sayfasında "Title" texbox ını tıklar
+    // Kullanıcı Facilities sayfasındaki create sayfasında "Title" texbox ını görür
+   // Kullanıcı  Facilities sayfasındaki create  sayfasında "Title" texbox ını tıklar
         hauseheavenAdminPages.titleAlani.click();
-// Kullanıcı Facilities sayfasındaki create sayfasında "Title" texbox ını boş bırakır
-// Kullanıcı   Facilities sayfasındaki create sayfasında  sağ tarafta  "Publish" yazısı altında Save&Exit  texbox ını görür
-// Kullanıcı  Facilities sayfasındaki create sayfasında  sağ tarafta  "Publish" yazısı altında Save&Exit   texbox ını tıklar
+    // Kullanıcı Facilities sayfasındaki create sayfasında "Title" texbox ını boş bırakır
+    // Kullanıcı   Facilities sayfasındaki create sayfasında  sağ tarafta  "Publish" yazısı altında Save&Exit  texbox ını görür
+    // Kullanıcı  Facilities sayfasındaki create sayfasında  sağ tarafta  "Publish" yazısı altında Save&Exit   texbox ını tıklar
+        ReusableMethods.bekle(3);
         hauseheavenAdminPages.saveExitButton.click();
-// Kullanıcı  Facilities sayfasındaki create sayfasında sağ tarafta  "Publish" yazısı altında Save&Exit   texbox ını tıklamak   "Name is required." uyarısını görür
+    // Kullanıcı  Facilities sayfasındaki create sayfasında sağ tarafta  "Publish" yazısı altında Save&Exit   texbox ını tıklamak   "Name is required." uyarısını görür
         ReusableMethods.bekle(3);
         Assert.assertTrue(hauseheavenAdminPages.nameIsRequiredUyarisi.isDisplayed());
         Driver.quitDriver();

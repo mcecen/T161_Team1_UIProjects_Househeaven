@@ -7,6 +7,10 @@ import utilities.Driver;
 
 public class HauseheavenPage {
 
+    public WebElement emailInput;
+    public WebElement passwordInput;
+    public WebElement myAccountLink;
+
     public HauseheavenPage(){PageFactory.initElements(Driver.getDriver(),this);}
 
 

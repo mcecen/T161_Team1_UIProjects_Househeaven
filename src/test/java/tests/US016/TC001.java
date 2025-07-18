@@ -1,5 +1,7 @@
 package tests.US016;
 
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Kivanc_HauseheavenPage;
@@ -10,6 +12,7 @@ import utilities.ReusableMethods;
 public class TC001 {
     Kivanc_HauseheavenPage kivanc_hauseheavenPage = new Kivanc_HauseheavenPage();
     String validationMessage;
+    Actions actions = new Actions(Driver.getDriver());
 
     @Test
     public void propertiesTest() {
@@ -85,13 +88,20 @@ public class TC001 {
         //User can see the account dashboard page loads properly.
         Assert.assertEquals(Driver.getDriver().getCurrentUrl(), ConfigReader.getProperty("dashboard-url"));
 
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+
         // The registered user sees the "Properties" section on the account dashboard page.
         Assert.assertTrue(kivanc_hauseheavenPage.properties.isDisplayed());
+
+        ReusableMethods.bekle(2);
 
         //The registered user clicks the "Properties" section on the account dashboard page.
         kivanc_hauseheavenPage.properties.click();
 
-        Assert.assertEquals(Driver.getDriver().getCurrentUrl(), ConfigReader.getProperty("properties-url"));
+        ReusableMethods.bekle(2);
+
+        Assert.assertEquals(Driver.getDriver().getCurrentUrl(),ConfigReader.getProperty("properties-url"));
 
         Driver.quitDriver();
     }

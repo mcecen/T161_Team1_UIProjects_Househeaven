@@ -21,7 +21,7 @@ import java.util.List;
 
 public class TC003 {
 
-    SwHauseheavenPage swHauseheavenPage = new SwHauseheavenPage();
+     SwHauseheavenPage swHauseheavenPage = new SwHauseheavenPage();
     Actions actions = new Actions(Driver.getDriver());
 
     @Test
@@ -176,6 +176,7 @@ public class TC003 {
 
         ReusableMethods.bekle(1);
         Driver.quitDriver();
+
 
     public void test01() {
             // 1. Sayfaya git
