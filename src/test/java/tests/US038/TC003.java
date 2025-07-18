@@ -50,24 +50,29 @@ public class TC003 {
         hauseheavenAdminPages.realEstateBasligi.click();
         // Kullanıcı Real Estate başlığını tıklamak ile alt menude açılan Facilities başlığını görür
         // Kullanıcı Real Estate başlığı altında açılan alt menude çıkan Facilities başlığını tıklar
+        ReusableMethods.bekle(3);
         Assert.assertTrue(hauseheavenAdminPages.facilitiesBasligi.isDisplayed());
         hauseheavenAdminPages.facilitiesBasligi.click();
-        //Kullanıcı Facilitiesbaşlığını tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/property-Facilities" sayfasına erişebildiğini görü
-        String expectedFacilitiesSayfaUrl = "https://qa.hauseheaven.com/admin/real-estate/property-Facilities";
+        //Kullanıcı Facilitiesbaşlığını tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/property-Facilities" sayfasına erişebildiğini görür
+        ReusableMethods.bekle(3);
+        String expectedFacilitiesSayfaUrl = "https://qa.hauseheaven.com/admin/real-estate/facilities";
         String actualFacilitiesSayfaUrl = Driver.getDriver().getCurrentUrl();
-        Assert.assertEquals(expectedFacilitiesSayfaUrl, actualFacilitiesSayfaUrl);
+        ReusableMethods.bekle(3);
+        Assert.assertTrue(expectedFacilitiesSayfaUrl.equals( actualFacilitiesSayfaUrl));
 
 
     }
 
     @Test
     public void test002(){
-//  Kullanıcı silmek istediği ilan üzerinde sayfanın en solunda Operations başlığı altındaki  delete ikonunu (çöp kovası) tıklar
+    //  Kullanıcı silmek istediği ilan üzerinde sayfanın en solunda Operations başlığı altındaki  delete ikonunu (çöp kovası) tıklar
+        ReusableMethods.bekle(3);
         hauseheavenAdminPages.deleteIkonu.click();
 
-//  Kullanıcı delete ikonuna tıklaması ile  ekranda "Do you really want to delete this record ? İbaresi altında "Delete" butonuna tıklar
+    //  Kullanıcı delete ikonuna tıklaması ile  ekranda "Do you really want to delete this record ? İbaresi altında "Delete" butonuna tıklar
+        ReusableMethods.bekle(3);
         hauseheavenAdminPages.deleteButton.click();
-//  Kullanıcı Delete butonuna basması ile sayfa yenilenir ve sağ altta "Deleted Successfully" ibaresini görür
+    //  Kullanıcı Delete butonuna basması ile sayfa yenilenir ve sağ altta "Deleted Successfully" ibaresini görür
         WebElement toastMessage = Driver.getDriver().findElement(By.cssSelector("div.toast-message"));
         Assert.assertTrue(toastMessage.isDisplayed());
         Assert.assertEquals(toastMessage.getText(), "Deleted successfully");
