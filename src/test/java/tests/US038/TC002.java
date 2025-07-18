@@ -46,6 +46,7 @@ public class TC002 {
         //    Kullanıcı sign in butonunu tıklama ile" https://qa.hauseheaven.com/admin"sayfasına erişir
         //    Kullanıcı Deshboard sayfasına eriştiğini görür
         //    Kullanıcı sağ en üstte (Cennet Atak) kullanıcı adında profil logosunu görür
+        ReusableMethods.bekle(3);
         Assert.assertTrue(hauseheavenAdminPages.profilLogosu.isDisplayed());
         //    Kullanıcı deshboard sayfası sol menüde Real Estate başlığını görür
         //    Kullanıcı deshboard sayfası sol menüde Real Estate başlığını tıklar
@@ -53,12 +54,14 @@ public class TC002 {
         hauseheavenAdminPages.realEstateBasligi.click();
         // Kullanıcı Real Estate başlığını tıklamak ile alt menude açılan Facilities başlığını görür
         // Kullanıcı Real Estate başlığı altında açılan alt menude çıkan Facilities başlığını tıklar
+        ReusableMethods.bekle(3);
         Assert.assertTrue(hauseheavenAdminPages.facilitiesBasligi.isDisplayed());
         hauseheavenAdminPages.facilitiesBasligi.click();
-        //Kullanıcı Facilitiesbaşlığını tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/property-Facilities" sayfasına erişebildiğini görü
-        String expectedFacilitiesSayfaUrl = "https://qa.hauseheaven.com/admin/real-estate/property-Facilities";
+        //Kullanıcı Facilitiesbaşlığını tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/facilities" sayfasına erişebildiğini görür
+        String expectedFacilitiesSayfaUrl = "https://qa.hauseheaven.com/admin/real-estate/facilities";
         String actualFacilitiesSayfaUrl = Driver.getDriver().getCurrentUrl();
-        Assert.assertEquals(expectedFacilitiesSayfaUrl, actualFacilitiesSayfaUrl);
+        ReusableMethods.bekle(3);
+        Assert.assertTrue(expectedFacilitiesSayfaUrl.equals(actualFacilitiesSayfaUrl));
 
 
     }
@@ -69,9 +72,9 @@ public class TC002 {
 // Kullanıcı Facilities sayfasında sağ üstte Create butonunu görür
 // Kullanıcı Facilities sayfasında sağ üstte Create butonunu tıklar
         //Assert.assertTrue(hauseheavenAdminPages.createButton.isDisplayed());
-        hauseheavenAdminPages.featuresCreateButton.click();
-// Kullanıcı  Facilities sayfasında sağ üstte Create butonunu tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/property- Facilities/create"url ine ulaşır
-        String expectedCreateSayfaUrl = "https://qa.hauseheaven.com/admin/real-estate/property- Facilities/create";
+        hauseheavenAdminPages.createButton.click();
+// Kullanıcı  Facilities sayfasında sağ üstte Create butonunu tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/facilities/create"url ine ulaşır
+        String expectedCreateSayfaUrl = "https://qa.hauseheaven.com/admin/real-estate/facilities/create";
         String actualCreateSayfaUrl = Driver.getDriver().getCurrentUrl();
         Assert.assertTrue(expectedCreateSayfaUrl.equals(actualCreateSayfaUrl));
 // Kullanıcı Facilities sayfasındaki create sayfasında "Title" texbox ını görür
@@ -96,11 +99,12 @@ public class TC002 {
         Assert.assertTrue(actualSonucMesajIcerik.contains(expectedSonucMesajIcerik));
         ReusableMethods.bekle(3);
 // Kullanıcı Facilities anasayfaya geri döner
-        Driver.getDriver().get("https://qa.hauseheaven.com/admin/real-estate/property-features");
+        Driver.getDriver().get("https://qa.hauseheaven.com/admin/real-estate/property-facilities");
+        ReusableMethods.bekle(3);
         Assert.assertTrue(hauseheavenAdminPages.createButton.isDisplayed());
         hauseheavenAdminPages.createButton.click();
-// Kullanıcı Facilities sayfasında sağ üstte Create butonunu tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/property-features/create"url ine ulaşır
-        String expectedCreateSayfaUrl2 = "https://qa.hauseheaven.com/admin/real-estate/property-features/create";
+// Kullanıcı Facilities sayfasında sağ üstte Create butonunu tıklamak ile "https://qa.hauseheaven.com/admin/real-estate/facilities/create"url ine ulaşır
+        String expectedCreateSayfaUrl2 = "https://qa.hauseheaven.com/admin/real-estate/facilities/create";
         String actualCreateSayfaUrl2 = Driver.getDriver().getCurrentUrl();
         Assert.assertTrue(expectedCreateSayfaUrl2.equals(actualCreateSayfaUrl2));
 // Kullanıcı  Facilities sayfasındaki create sayfasında "Title" texbox ını görür
@@ -111,6 +115,7 @@ public class TC002 {
 // Kullanıcı  Facilities sayfasındaki create sayfasında sağ tarafta  "Publish" yazısı altında Save&Exit  texbox ını görür
 // Kullanıcı Facilities sayfasındaki create sayfasında sağ tarafta  "Publish" yazısı altında Save&Exit   texbox ını tıklar
 // Kullanıcı  Facilities sayfasındaki create  sayfasında sağ tarafta  "Publish" yazısı altında Save&Exit   texbox ını tıklamak ile sayfa yenilenir Features anasayfaya yönlendirilir ve ve "Created successfully" ibaresi görülür
+        ReusableMethods.bekle(3);
         hauseheavenAdminPages.saveExitButton.click();
 
         WebElement toastMessage = Driver.getDriver().findElement(By.cssSelector("div.toast-message"));

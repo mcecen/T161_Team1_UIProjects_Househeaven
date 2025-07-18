@@ -1,6 +1,7 @@
 package tests.US035;
 
 import com.github.javafaker.Faker;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -169,10 +170,9 @@ public class TC002 {
         //Kullanıcı sağ en üstte "publish" yazısınının altında "Save&Exit" butonunu tıklar
         hauseheavenAdminPages.saveExitButton.click();
        // Kullanıcı sağ en üstte "publish" yazısınının altında "Save" butonunu tıklama sonucu ekranda "Created successfully"ibaresini görür ve sayfa yenilenerek properties anasayfaya yönlendirilir
-        String expectedSonucMesaji2= "Created successfully";
-        String actualSonucMesaji2= hauseheavenAdminPages.createdSuccessfullyMesaji.getText();
-        Assert.assertTrue(actualSonucMesaji2.equals(expectedSonucMesaji2));
-        ReusableMethods.bekle(2);
+        WebElement toastMessage = Driver.getDriver().findElement(By.cssSelector("div.toast-message"));
+        Assert.assertTrue(toastMessage.isDisplayed());
+        Assert.assertEquals(toastMessage.getText(), "Created successfully");
         Driver.quitDriver();
     }
     }

@@ -117,40 +117,20 @@ public class TC004 extends TestBaseRapor_Cennet {
   actions.sendKeys(Keys.PAGE_DOWN).perform();
   extentTest.info("Kullanıcı sayfayı aşağı kaydırarak ilerler");
 // Kullanıcı "Add ımage" butnunu tıklar
-   ReusableMethods.bekle(3);
- //  hauseheavenAdminPages.addImageButton.click();
- //  extentTest.info("Kullanıcı Add ımage butnunu tıklar");
-
-        // Add Image butonuna tıkla
-        ReusableMethods.bekle(3);
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-        js.executeScript("arguments[0].click();", hauseheavenAdminPages.addImageButton);
-        extentTest.info("Kullanıcı Add Image butonuna tıklar");
+    ReusableMethods.bekle(3);
+   JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+    js.executeScript("arguments[0].click();", hauseheavenAdminPages.addImageButton);
+    extentTest.info("Kullanıcı Add Image butonuna tıklar");
 // MediaGallery URL kontrolü
-        ReusableMethods.bekle(2);
-        String expectedMediaGalleryUrl = "https://qa.hauseheaven.com/admin/real-estate/properties/create/mediagallery";
-        String actualUrl = Driver.getDriver().getCurrentUrl();
-        System.out.println("Gidilen URL: " + actualUrl);
-        Assert.assertEquals(actualUrl, expectedMediaGalleryUrl);
-        extentTest.pass("Kullanıcı 'mediagallery' sayfasına yönlendirildiğini doğrular");
+    ReusableMethods.bekle(2);
+     String expectedMediaGalleryUrl = "https://qa.hauseheaven.com/admin/real-estate/properties/create/mediagallery";
+     String actualUrl = Driver.getDriver().getCurrentUrl();
+     System.out.println("Gidilen URL: " + actualUrl);
+     ReusableMethods.bekle(3);
+     Assert.assertEquals(actualUrl, expectedMediaGalleryUrl);
+     ReusableMethods.bekle(2);
+     extentTest.pass("Kullanıcı 'mediagallery' sayfasına yönlendirildiğini doğrular");
 
 
-
-
-
-
-
-
-
-
- /*
-// Kullanıcı "Add ımage" butnunu tıklaması ile "https://qa.hauseheaven.com/admin/real-estate/properties/create/mediagallery"url ine ulaşır
-String expectedUrl="https://qa.hauseheaven.com/admin/real-estate/properties/create/mediagallery";
-String actualUrl =Driver.getDriver().getCurrentUrl();
-Assert.assertTrue(actualUrl.equals(expectedSayfaUrl));
-extentTest.pass("Kullanıcı https://qa.hauseheaven.com/admin/real-estate/properties/create/mediagallery url'ine ulaştığını test eder");
-
-*/
-
-    }
+        }
 }

@@ -83,7 +83,20 @@ public class TC004 {
         ReusableMethods.bekle(3);
         Assert.assertTrue(hauseheavenAdminPages.nameIsRequiredUyarisi.isDisplayed());
         Driver.quitDriver();
-    }
-}
+
+
+    }}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
