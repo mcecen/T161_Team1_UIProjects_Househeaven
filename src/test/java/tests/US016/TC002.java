@@ -1,36 +1,53 @@
 package tests.US016;
 
+import com.github.javafaker.Faker;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Kivanc_HauseheavenPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
 
-public class TC002 {
+import java.io.IOException;
+import java.time.Duration;
+
+public class TC002 extends TestBaseRapor {
+
     Kivanc_HauseheavenPage kivanc_hauseheavenPage = new Kivanc_HauseheavenPage();
     String validationMessage;
+    Faker faker = new Faker();
+    Actions actions = new Actions(Driver.getDriver());
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
 
     @Test
-    public void newPropertiesTest() {
+    public void creditsTest() throws IOException {
 
-        //Go to the URL address: https://qa.hauseheaven.com/
+        extentTest = extentReports.createTest("buy credit testi");
+
+        extentTest.info("Go to the URL address: https://qa.hauseheaven.com/");
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         Assert.assertEquals(Driver.getDriver().getCurrentUrl(), ConfigReader.getProperty("url"));
 
-        //User views the Househeaven homepage
-        Assert.assertEquals(Driver.getDriver().getTitle(), "Hause Heaven");
+        extentTest.info("User views the Househeaven homepage");
+        Assert.assertEquals(Driver.getDriver().getTitle(),"Hause Heaven");
 
-        //User sees the 'Sign Up' link in the header section of the homepage
+        extentTest.info("User sees the 'Sign Up' link in the header section of the homepage");
         Assert.assertTrue(kivanc_hauseheavenPage.signUpButtton.isDisplayed());
 
-        //User clicks on the 'Sign Up' link
+        extentTest.info("User clicks on the 'Sign Up' link");
         kivanc_hauseheavenPage.signUpButtton.click();
 
-        //User sees the Register form on the page
-        Assert.assertEquals(Driver.getDriver().getTitle(), "Register");
+        extentTest.info("User sees the Register form on the page");
+        Assert.assertEquals(Driver.getDriver().getTitle(),"Register");
 
-        //"User can see the fields ""First Name"", ""Last Name"", ""Email"", ""Username"", ""Password"", and ""Confirm Password""."
+        extentTest.info("User can see the fields \"First Name\", \"Last Name\", \"Email\", \"Username\", \"Password\", and \"Confirm Password\".");
         Assert.assertTrue(kivanc_hauseheavenPage.firstNameTextbox.isDisplayed());
         Assert.assertTrue(kivanc_hauseheavenPage.lastNameTextbox.isDisplayed());
         Assert.assertTrue(kivanc_hauseheavenPage.emailTextbox.isDisplayed());
@@ -38,74 +55,141 @@ public class TC002 {
         Assert.assertTrue(kivanc_hauseheavenPage.passwordTextbox.isDisplayed());
         Assert.assertTrue(kivanc_hauseheavenPage.confirmPasswordTextbox.isDisplayed());
 
-        //"User can hover over the ""First Name"", ""Last Name"", ""Email"", and ""Username"" fields and see the warning 'Please fill out this field'."
-
+        extentTest.info("User can hover over the \"First Name\", \"Last Name\", \"Email\", and \"Username\" fields and see the warning 'Please fill out this field'.");
         validationMessage = kivanc_hauseheavenPage.firstNameTextbox.getAttribute("validationMessage");
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
         Assert.assertEquals(validationMessage, "Lütfen bu alanı doldurun.");
 
 
         validationMessage = kivanc_hauseheavenPage.lastNameTextbox.getAttribute("validationMessage");
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
         Assert.assertEquals(validationMessage, "Lütfen bu alanı doldurun.");
 
 
         validationMessage = kivanc_hauseheavenPage.emailTextbox.getAttribute("validationMessage");
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
         Assert.assertEquals(validationMessage, "Lütfen bu alanı doldurun.");
 
         validationMessage = kivanc_hauseheavenPage.usernameTextbox.getAttribute("validationMessage");
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
         Assert.assertEquals(validationMessage, "Lütfen bu alanı doldurun.");
 
-        //"User can hover over the ""Password"" field and see the warning 'Password must be at least 8 characters long and contain at least one letter, one number and one special character'."
 
+        extentTest.info("User can hover over the \"Password\" field and see the warning 'Password must be at least 8 characters long and contain at least one letter, one number and one special character'.");
         validationMessage = kivanc_hauseheavenPage.passwordTextbox.getAttribute("validationMessage");
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
         Assert.assertFalse(validationMessage.isEmpty());
 
         validationMessage = kivanc_hauseheavenPage.confirmPasswordTextbox.getAttribute("validationMessage");
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(1);
         Assert.assertEquals(validationMessage, "Lütfen bu alanı doldurun.");
 
-        //"User can click into the ""First Name"", ""Last Name"", ""Email"", ""Username"", and ""Password"" fields and enter text."
-        kivanc_hauseheavenPage.firstNameTextbox.sendKeys(ConfigReader.getProperty("kivancregester-firstname"));
-        kivanc_hauseheavenPage.lastNameTextbox.sendKeys(ConfigReader.getProperty("kivancregester-lastname"));
-        kivanc_hauseheavenPage.emailTextbox.sendKeys(ConfigReader.getProperty("kivancregester-email"));
-        kivanc_hauseheavenPage.usernameTextbox.sendKeys(ConfigReader.getProperty("kivancregester-username"));
+
+        extentTest.info("User can click into the \"First Name\", \"Last Name\", \"Email\", \"Username\", and \"Password\" fields and enter text.");
+        kivanc_hauseheavenPage.firstNameTextbox.sendKeys(faker.name().firstName());
+        kivanc_hauseheavenPage.lastNameTextbox.sendKeys(faker.name().lastName());
+        kivanc_hauseheavenPage.emailTextbox.sendKeys(faker.internet().emailAddress());
+        kivanc_hauseheavenPage.usernameTextbox.sendKeys(faker.name().username());
         kivanc_hauseheavenPage.passwordTextbox.sendKeys(ConfigReader.getProperty("kivancregester-password"));
         kivanc_hauseheavenPage.confirmPasswordTextbox.sendKeys(ConfigReader.getProperty("kivancregester-confirmpassword"));
 
-        //User can see the "Register" button clearly.
+
+        extentTest.info("User can see the \"Register\" button clearly.");
         Assert.assertTrue(kivanc_hauseheavenPage.registerButton.isDisplayed());
 
-        //User can click the "Register" button.
+
+        extentTest.info("User can click the \"Register\" button.");
         kivanc_hauseheavenPage.registerButton.click();
 
-        //User can see the account dashboard page loads properly.
+        ReusableMethods.bekle(1);
+
+
+        extentTest.info("User can see the account dashboard page loads properly.");
         Assert.assertEquals(Driver.getDriver().getCurrentUrl(), ConfigReader.getProperty("dashboard-url"));
-
-        Assert.assertTrue(kivanc_hauseheavenPage.addProperties.isDisplayed());
-
-        kivanc_hauseheavenPage.addProperties.click();
-
-        Assert.assertEquals(Driver.getDriver().getCurrentUrl(),ConfigReader.getProperty("addPropertiesCreate-Url"));
-
-        Assert.assertTrue(kivanc_hauseheavenPage.addPropertiesTitleAlani.isDisplayed());
-        kivanc_hauseheavenPage.addPropertiesTitleAlani.sendKeys("panorama manzaralı");
-
-        Assert.assertTrue(kivanc_hauseheavenPage.getAddPropertiesDescriptionAlani.isDisplayed());
+        ReusableMethods.bekle(1);
 
 
+        extentTest.info("The registered user sees the \"Buy Credits\" section on the account dashboard page.");
+        Assert.assertTrue(kivanc_hauseheavenPage.buyCreditsLink.isDisplayed());
+
+
+        extentTest.info("The registered user clicks the \"Buy Credits\" section on the account dashboard page.");
+        kivanc_hauseheavenPage.buyCreditsLink.click();
+
+
+        extentTest.info("The registered user sees the packages in the Credits section.");
+        Assert.assertTrue(kivanc_hauseheavenPage.creditPackagesSection.isDisplayed());
+
+
+        extentTest.info("The registered user select 5posts and clicks on the package");
+        kivanc_hauseheavenPage.post5PurchaseButton.click();
+
+        ReusableMethods.bekle(1);
+
+
+        extentTest.info("The registered user sees the payment page after clicking.");
+        Assert.assertEquals(Driver.getDriver().getCurrentUrl(), ConfigReader.getProperty("payment-url"));
+
+
+        extentTest.info("The registered user sees the \"Card Number\", \"MM/YY\", \"Full Name\", and \"CVC\" fields on the payment page.");
+        Assert.assertTrue(kivanc_hauseheavenPage.cardNumberTextbox.isDisplayed());
+        Assert.assertTrue(kivanc_hauseheavenPage.cardMMYYTextbox.isDisplayed());
+        Assert.assertTrue(kivanc_hauseheavenPage.cardFullNameTextbox.isDisplayed());
+        Assert.assertTrue(kivanc_hauseheavenPage.cardCVCTextbox.isDisplayed());
+
+
+        extentTest.info("The registered user clicks into the \"Card Number\", \"MM/YY\", \"Full Name\", and \"CVC\" fields.");
+        kivanc_hauseheavenPage.cardNumberTextbox.sendKeys(faker.number().digits(14));
+        kivanc_hauseheavenPage.cardMMYYTextbox.sendKeys(faker.business().creditCardExpiry());
+        kivanc_hauseheavenPage.cardFullNameTextbox.sendKeys(faker.name().fullName());
+        kivanc_hauseheavenPage.cardCVCTextbox.sendKeys(faker.number().digits(3));
+
+        WebElement body = Driver.getDriver().findElement(By.tagName("body"));
+
+        actions.moveToElement(body).click().sendKeys(Keys.ARROW_DOWN).perform();
+        actions.moveToElement(body).click().sendKeys(Keys.ARROW_DOWN).perform();
+        actions.moveToElement(body).click().sendKeys(Keys.ARROW_DOWN).perform();
+
+
+        extentTest.info("The registered user clicks the \"Checkout\" button to complete the purchase.");
+        kivanc_hauseheavenPage.checkoutButton.click();
+
+        extentTest.info("the registered user clicks the \"Add Property\" button to create properties");
+        kivanc_hauseheavenPage.addProperty.click();
+
+        ReusableMethods.bekle(3);
+        //Assert.assertEquals(Driver.getDriver().getCurrentUrl(),ConfigReader.getProperty("addPropertyCreate-Url"));
+
+       Assert.assertTrue(kivanc_hauseheavenPage.addPropertiesTitleAlani.isDisplayed());
         Assert.assertTrue(kivanc_hauseheavenPage.getAddPropertiesContentAlani.isDisplayed());
-        kivanc_hauseheavenPage.getAddPropertiesContentAlani.sendKeys("denize 3km");
 
-        Assert.assertTrue(kivanc_hauseheavenPage.saveButton.isDisplayed());
-        kivanc_hauseheavenPage.saveButton.click();
+        kivanc_hauseheavenPage.addPropertiesTitleAlani.sendKeys("manzarali");
+        kivanc_hauseheavenPage.getAddPropertiesContentAlani.sendKeys("valla manzarali");
 
-        Assert.assertTrue(kivanc_hauseheavenPage.getAddPropertiesSaveAlertMassage.isDisplayed());
+       Assert.assertTrue( kivanc_hauseheavenPage.saveButton.isDisplayed());
+       kivanc_hauseheavenPage.saveButton.click();
+
+        WebElement alert = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".alert.alert-success")));
+        String actualAlertText = alert.getText();
+        Assert.assertTrue(actualAlertText.contains("Created successfully"));
 
 
-        Driver.quitDriver();
+
+
+
+
+       Driver.quitDriver();
+
+
+
+
+
+
+
+
+
+
+
+
     }
     }

@@ -6,7 +6,7 @@ import pages.Kivanc_HauseheavenPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-public class TC002 {
+public class  TC002 {
 
     Kivanc_HauseheavenPage kivanc_hauseheavenPage = new Kivanc_HauseheavenPage();
 

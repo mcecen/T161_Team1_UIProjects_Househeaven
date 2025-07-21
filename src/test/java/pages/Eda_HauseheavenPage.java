@@ -196,6 +196,7 @@ public class Eda_HauseheavenPage {
     @FindBy (xpath = "//*[@id=\"main\"]/div[3]/div[1]/a/div[2]/div[2]")
     public WebElement activePropertiesLink;
 
+
     @FindBy (xpath = "//input[@name='latitude']")
     public WebElement latitude;
 
@@ -204,6 +205,90 @@ public class Eda_HauseheavenPage {
 
     @FindBy (xpath = "//input[@type='search']")
     public WebElement villaTextBox;
+
+    @FindBy (xpath = "//*[@id=\"main\"]/div[3]/div[2]/a/div[2]/div[2]")
+    public WebElement pendingPropertiesLink;
+
+    @FindBy (xpath = "//*[@id=\"botble-real-estate-tables-property-table\"]/tbody/tr[1]/td[4]/a")
+    public WebElement adminListingTitle;
+
+    @FindBy (xpath = "//*[@id=\"botble-real-estate-tables-property-table\"]/tbody/tr[1]/td[8]/div/a[1]")
+    public WebElement editButton;
+
+    @FindBy (xpath = "//*[@id=\"botble-real-estate-forms-property-form\"]/div[2]/div[2]/div[5]/div[1]/h4/label")
+    public WebElement moderationStatusText;
+
+    @FindBy (xpath = "//*[@id=\"select2-moderation_status-container\"]")
+    public WebElement moderationStatusBox;
+
+    @FindBy (xpath = "//*[@id=\"moderation_status\"]/option[2]")
+    public WebElement approvedStatus;
+
+    @FindBy (xpath = "//*[@id=\"moderation_status\"]")
+    public WebElement moderationStatusSelect;
+
+    @FindBy (xpath = "//*[@id=\"botble-real-estate-forms-property-form\"]/div[2]/div[2]/div[1]/div[2]/div/button[1]")
+    public WebElement adminSaveExitButton;
+
+    @FindBy (xpath = "//*[@id=\"cms-core-dashboard\"]/a")
+    public WebElement adminDashboardLink;
+
+    @FindBy (xpath = "//*[@id=\"botble-real-estate-tables-property-table\"]/tbody/tr[1]/td[6]/span")
+    public WebElement approvedText;
+
+    @FindBy (xpath = "//*[@id=\"app\"]/div[2]/div[1]/div/div[2]/ul/li[5]/a/i")
+    public WebElement profilLogoutLink;
+
+    @FindBy (xpath = "//*[@id=\"app\"]/div[2]/div[1]/div/div[2]/ul/li[5]/ul/li[2]/a")
+    public WebElement logoutButton;
+
+    @FindBy (xpath = "//*[@id=\"navigation\"]/div[2]/ul[2]/li[2]/a/i")
+    public WebElement profilNameLink;
+
+    @FindBy (xpath = "//*[@id=\"app\"]/section/div/div[2]/div[2]/div[2]/div[1]/div/div[4]/div[2]/a")
+    public WebElement viewButton;
+
+    @FindBy (xpath = "//h3[text()='küçük bahçeli villa']")
+    public WebElement listingName;
+
+    @FindBy (xpath = "//*[@id=\"app\"]/section/div[2]/div[1]/div[1]/div[2]/div[1]/a/h4")
+    public WebElement detailFeaturesMenu;
+
+    @FindBy (xpath = "//*[@id=\"clOne\"]/div/ul/li")
+    public WebElement detailFeaturesFieldText;
+
+    @FindBy (xpath = "//*[@id=\"app\"]/section/div[2]/div[1]/div[1]/div[3]/div[1]/a/h4")
+    public WebElement descriptionMenu;
+
+    @FindBy (xpath = "//*[@id=\"app\"]/section/div[2]/div[1]/div[1]/div[3]")
+    public WebElement descriptionFieldText;
+
+    @FindBy (xpath = "//*[@id=\"app\"]/section/div[2]/div[1]/div[1]/div[4]/div[1]/a/h4")
+    public WebElement amenitiesField;
+
+    @FindBy (xpath = "//*[@id=\"clThree\"]/div/ul/li[1]/span")
+    public WebElement amenitiesFieldWifiText;
+
+    @FindBy (xpath = "//*[@id=\"clThree\"]/div/ul/li[2]/span")
+    public WebElement amenitiesFieldParkingText;
+
+    @FindBy (xpath = "//*[@id=\"clThree\"]/div/ul/li[3]/span")
+    public WebElement amenitiesFieldGardenText;
+
+    @FindBy (xpath = "//*[@id=\"app\"]/section/div[2]/div[1]/div[1]/div[5]/div[1]/a/h4")
+    public WebElement locationMenu;
+
+    @FindBy (xpath = "//*[@id=\"clSix\"]/div/div/p")
+    public WebElement locationFieldText;
+
+
+
+
+
+
+
+
+
 
 
 

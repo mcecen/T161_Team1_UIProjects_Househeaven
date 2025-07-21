@@ -70,5 +70,6 @@ public class TC003 {
         WebElement toastMessage = Driver.getDriver().findElement(By.cssSelector("div.toast-message"));
         Assert.assertTrue(toastMessage.isDisplayed());
         Assert.assertEquals(toastMessage.getText(), "Deleted successfully");
+        Driver.quitDriver();
     }
 }
