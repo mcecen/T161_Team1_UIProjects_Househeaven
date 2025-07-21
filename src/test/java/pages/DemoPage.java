@@ -9,9 +9,6 @@ import utilities.Driver;
 public class DemoPage {
 
 
-    public DemoPage(){
-        PageFactory.initElements(Driver.getDriver(),this);}
-
     @FindBy(xpath ="//a[@class='text-success']")
     public WebElement addPropertyButton;
 
@@ -102,7 +99,7 @@ public class DemoPage {
     @FindBy (xpath = "(//span[text()='Pending'])[1]")
     public WebElement pendingTextAdmin;
 
-    @FindBy (xpath = "(//i[@class='fa fa-edit'])[1]")
+    @FindBy (xpath = "(//a[@class='btn btn-icon btn-sm btn-primary'])[1]")
     public WebElement editTextAdmin;
 
     @FindBy (xpath = "//label[@for='moderation_status']")
@@ -135,11 +132,29 @@ public class DemoPage {
     @FindBy (xpath = "//span[text()='Fulya nermin Keceli']")
     public WebElement dashboardProfile;
 
-    @FindBy (xpath = "//*[@id=\"moderation_status\"]")
+    @FindBy (xpath = "//*[@id='moderation_status']")
     public WebElement moderationStatusSelect;
 
-    @FindBy (xpath = "//*[@id=\"select2-moderation_status-container\"]")
+    @FindBy (xpath = "//*[@id='select2-moderation_status-container']")
     public WebElement moderationStatusBox;
+
+    @FindBy (xpath = "//input[@role='searchbox']")
+    public WebElement citySelectDropdown;
+
+    @FindBy (xpath = "//*[@id='select2-moderation_status-container']")
+    public WebElement dDApproved;
+
+    @FindBy (xpath = "//input[@name='number_bedroom']")
+    public WebElement bedroomNumber;
+
+    @FindBy (xpath = "//input[@name='number_bathroom']")
+    public WebElement bathroomNumber;
+
+    @FindBy (xpath = "//input[@name='number_floor']")
+    public WebElement floor;
+
+    @FindBy (xpath = "//input[@name='square']")
+    public WebElement square;
 
 
 

@@ -196,6 +196,15 @@ public class Eda_HauseheavenPage {
     @FindBy (xpath = "//*[@id=\"main\"]/div[3]/div[1]/a/div[2]/div[2]")
     public WebElement activePropertiesLink;
 
+    @FindBy (xpath = "//input[@name='latitude']")
+    public WebElement latitude;
+
+    @FindBy (xpath = "//input[@name='longitude']")
+    public WebElement longitude;
+
+    @FindBy (xpath = "//input[@type='search']")
+    public WebElement villaTextBox;
+
 
 
 
